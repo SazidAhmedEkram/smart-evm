@@ -42,6 +42,7 @@ i = 0
 faces_data = []
 
 print("\nPress SPACE to capture images, ESC to exit.\n")
+speak("Press SPACE to capture images, or press 'ESC' to exit")
 
 while True:
     ret, frame = video.read()
@@ -63,6 +64,7 @@ while True:
             similarity = cosine_similarity(existing_face, current_face)[0][0]
             if similarity > 0.9:  # similarity threshold (0-1)
                 print(f"\n❌ This face is already registered under NID {record['nid']}!")
+                speak(f"This face is already registered under NID {record['nid']}")
                 video.release()
                 cv2.destroyAllWindows()
                 exit()
@@ -92,4 +94,6 @@ with open(records_file, 'wb') as f:
     pickle.dump(face_records, f)
 
 print(f"\n✅ Registration complete for NID: {nid}")
+speak("Congratulations, Your registration is successfully completed")
+speak("Now you are eligible to the next upcoming national election")
 print(f"Captured {len(faces_data)} images of your face.")

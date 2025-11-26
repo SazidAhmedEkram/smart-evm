@@ -1,15 +1,13 @@
-# Smart EVM
+#  Smart EVM
 
 ![Status](https://img.shields.io/badge/status-in_progress-yellow)
 ![Python](https://img.shields.io/badge/python-3.10-blue)
 ![Arduino](https://img.shields.io/badge/arduino-UNO-green)
 
 A secure **Arduino-based Electronic Voting Machine (EVM)** prototype featuring **webcam face recognition**, **LCD display**, **voting buttons**, **buzzer feedback**, and a **dedicated PC software** for voter authentication and vote logging.
-> ⚠️ Portions of this project are adapted from external sources and modified using AI and custom implementation for this prototype. All rights reserved under the MIT License.
-
 > **Status:** 🚧 Project under development — features will be added gradually.
 
----
+------
 
 ## 🔥 Features (Planned)
 
