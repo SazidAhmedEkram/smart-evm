@@ -5,7 +5,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="09c7d0a3-ca09-4321-a9df-cd24a2441454" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Face Recognization/Votes.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Face Recognization/add_faces.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Face Recognization/background.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Face Recognization/data/face_records.pkl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Face Recognization/give_vote.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
