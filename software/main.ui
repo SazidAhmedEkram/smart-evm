@@ -1,376 +1,456 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>MainWindow</class>
- <widget class="QMainWindow" name="MainWindow">
+ <class>AdminDashboard</class>
+ <widget class="QMainWindow" name="AdminDashboard">
   <property name="geometry">
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>821</width>
-    <height>600</height>
+    <width>894</width>
+    <height>554</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>MainWindow</string>
   </property>
+  <property name="layoutDirection">
+   <enum>Qt::LayoutDirection::LeftToRight</enum>
+  </property>
   <property name="styleSheet">
-   <string notr="true">background-color: #f9fafb;</string>
+   <string notr="true">QWidget {
+    background: qlineargradient(
+        x1:0, y1:0, x2:1, y2:1,
+        stop:0 #F6F7FB,
+        stop:1 #E8EAF6
+		 margin: 10px;
+   		 padding: 0px;
+    );
+    font-family: 'Segoe UI';
+    color: #0F172A;
+}
+
+</string>
   </property>
   <widget class="QWidget" name="centralwidget">
-   <layout class="QVBoxLayout" name="verticalLayout_3">
+   <property name="cursor">
+    <cursorShape>ArrowCursor</cursorShape>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QWidget#centralwidget {
+    margin: 0px;
+    padding: 0px;
+    background: transparent;
+}</string>
+   </property>
+   <layout class="QVBoxLayout" name="verticalLayout">
+    <property name="bottomMargin">
+     <number>24</number>
+    </property>
     <item>
-     <layout class="QVBoxLayout" name="verticalLayout">
-      <property name="leftMargin">
-       <number>40</number>
+     <widget class="QFrame" name="header">
+      <property name="sizePolicy">
+       <sizepolicy hsizetype="Preferred" vsizetype="Expanding">
+        <horstretch>0</horstretch>
+        <verstretch>0</verstretch>
+       </sizepolicy>
       </property>
-      <property name="topMargin">
-       <number>0</number>
+      <property name="minimumSize">
+       <size>
+        <width>0</width>
+        <height>85</height>
+       </size>
+      </property>
+      <property name="maximumSize">
+       <size>
+        <width>16777215</width>
+        <height>100</height>
+       </size>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">#header {
+    background: qlineargradient(
+        x1:0, y1:0, x2:1, y2:0,
+        stop:0 #1A73E8,
+        stop:1 #0F52BA
+    );
+    padding: 12px;
+    border: none;
+}
+#HeaderLabel {
+    color: white;
+    font-size: 22px;
+    font-weight: bold;
+}
+#HeaderSubLabel {
+    color: rgba(255,255,255,0.75);
+    font-size: 13px;
+}
+</string>
+      </property>
+      <property name="frameShape">
+       <enum>QFrame::Shape::StyledPanel</enum>
+      </property>
+      <property name="frameShadow">
+       <enum>QFrame::Shadow::Raised</enum>
+      </property>
+      <layout class="QGridLayout" name="gridLayout_2">
+       <property name="sizeConstraint">
+        <enum>QLayout::SizeConstraint::SetDefaultConstraint</enum>
+       </property>
+       <property name="leftMargin">
+        <number>15</number>
+       </property>
+       <property name="topMargin">
+        <number>0</number>
+       </property>
+       <property name="rightMargin">
+        <number>0</number>
+       </property>
+       <property name="bottomMargin">
+        <number>0</number>
+       </property>
+       <property name="spacing">
+        <number>0</number>
+       </property>
+       <item row="1" column="0">
+        <widget class="QLabel" name="date">
+         <property name="styleSheet">
+          <string notr="true">#date {
+    color: rgba(255,255,255,0.75);
+background: transparent;
+	font: 700 9pt &quot;Segoe UI&quot;;
+}</string>
+         </property>
+         <property name="text">
+          <string>Thursday, 11 November, 2025</string>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignmentFlag::AlignLeading|Qt::AlignmentFlag::AlignLeft|Qt::AlignmentFlag::AlignTop</set>
+         </property>
+         <property name="margin">
+          <number>0</number>
+         </property>
+         <property name="indent">
+          <number>-1</number>
+         </property>
+        </widget>
+       </item>
+       <item row="0" column="0" alignment="Qt::AlignmentFlag::AlignLeft">
+        <widget class="QLabel" name="label">
+         <property name="styleSheet">
+          <string notr="true">#label {
+    color: white;
+    font-size: 26px;
+    font-weight: bold;
+	background: transparent;
+}
+
+</string>
+         </property>
+         <property name="text">
+          <string>Admin Dashboard</string>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignmentFlag::AlignCenter</set>
+         </property>
+        </widget>
+       </item>
+       <item row="0" column="1" rowspan="2" alignment="Qt::AlignmentFlag::AlignRight|Qt::AlignmentFlag::AlignVCenter">
+        <widget class="QPushButton" name="btnSettings">
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="Minimum" vsizetype="Minimum">
+           <horstretch>0</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
+         </property>
+         <property name="minimumSize">
+          <size>
+           <width>50</width>
+           <height>50</height>
+          </size>
+         </property>
+         <property name="font">
+          <font>
+           <family>Segoe UI</family>
+           <pointsize>20</pointsize>
+          </font>
+         </property>
+         <property name="layoutDirection">
+          <enum>Qt::LayoutDirection::LeftToRight</enum>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">QPushButton#btnSettings {
+    background: rgba(255,255,255,0.2);
+    border-radius: 12px;
+    border: 2px solid rgba(255,255,255,0.3);
+    padding: 10px;
+}
+
+QPushButton#btnSettings:hover {
+    background: rgba(255,255,255,0.35);
+}
+</string>
+         </property>
+         <property name="text">
+          <string>⚙️</string>
+         </property>
+         <property name="iconSize">
+          <size>
+           <width>31</width>
+           <height>31</height>
+          </size>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+    </item>
+    <item>
+     <spacer name="horizontalSpacer_2">
+      <property name="orientation">
+       <enum>Qt::Orientation::Horizontal</enum>
+      </property>
+      <property name="sizeHint" stdset="0">
+       <size>
+        <width>873</width>
+        <height>10</height>
+       </size>
+      </property>
+     </spacer>
+    </item>
+    <item>
+     <layout class="QHBoxLayout" name="horizontalLayout">
+      <property name="spacing">
+       <number>9</number>
+      </property>
+      <property name="leftMargin">
+       <number>20</number>
       </property>
       <property name="rightMargin">
-       <number>40</number>
-      </property>
-      <property name="bottomMargin">
-       <number>40</number>
+       <number>20</number>
       </property>
       <item>
-       <layout class="QHBoxLayout" name="horizontalLayout_2">
-        <property name="spacing">
-         <number>0</number>
+       <widget class="QWidget" name="card2" native="true">
+        <property name="sizePolicy">
+         <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+          <horstretch>0</horstretch>
+          <verstretch>0</verstretch>
+         </sizepolicy>
         </property>
-        <property name="leftMargin">
-         <number>0</number>
-        </property>
-        <property name="topMargin">
-         <number>0</number>
-        </property>
-        <property name="rightMargin">
-         <number>0</number>
-        </property>
-        <item>
-         <widget class="QFrame" name="header">
-          <property name="maximumSize">
-           <size>
-            <width>16777215</width>
-            <height>70</height>
-           </size>
-          </property>
-          <property name="styleSheet">
-           <string notr="true">
-    background: white;
-    border: none;
-    border-bottom: 1px solid #dcdcdc;   /* Light gray bottom border */
-
-</string>
-          </property>
-          <property name="frameShape">
-           <enum>QFrame::Shape::StyledPanel</enum>
-          </property>
-          <property name="frameShadow">
-           <enum>QFrame::Shadow::Raised</enum>
-          </property>
-          <layout class="QGridLayout" name="gridLayout_2">
-           <property name="sizeConstraint">
-            <enum>QLayout::SizeConstraint::SetDefaultConstraint</enum>
-           </property>
-           <item row="0" column="1">
-            <spacer name="horizontalSpacer">
-             <property name="orientation">
-              <enum>Qt::Orientation::Horizontal</enum>
-             </property>
-             <property name="sizeHint" stdset="0">
-              <size>
-               <width>336</width>
-               <height>48</height>
-              </size>
-             </property>
-            </spacer>
-           </item>
-           <item row="0" column="0">
-            <widget class="QLabel" name="label">
-             <property name="styleSheet">
-              <string notr="true">QLabel {
-    border: none;
-    background: transparent;
-    font: 700 26pt &quot;Segoe UI&quot;, &quot;Helvetica Neue&quot;, Arial;   /* bold and crisp */
-    color: #111827;                                        /* almost-black – maximum contrast */
-    padding: 0px;
-    margin: 0px;
-}</string>
-             </property>
-             <property name="text">
-              <string>Admin Dashboard</string>
-             </property>
-             <property name="alignment">
-              <set>Qt::AlignmentFlag::AlignCenter</set>
-             </property>
-            </widget>
-           </item>
-           <item row="0" column="2">
-            <widget class="QPushButton" name="btnSettings">
-             <property name="sizePolicy">
-              <sizepolicy hsizetype="Minimum" vsizetype="Minimum">
-               <horstretch>0</horstretch>
-               <verstretch>0</verstretch>
-              </sizepolicy>
-             </property>
-             <property name="minimumSize">
-              <size>
-               <width>50</width>
-               <height>50</height>
-              </size>
-             </property>
-             <property name="layoutDirection">
-              <enum>Qt::LayoutDirection::LeftToRight</enum>
-             </property>
-             <property name="styleSheet">
-              <string notr="true">QPushButton {
-    border: none;
-    background: #f3f4f6;          /* very light gray – perfect modern light bg */
-    font-size: 24px;
-    color: #4b5563;               /* soft gray icon */
-    padding: 10px;
-    border-radius: 14px;          /* soft rounded corners */
-    min-width: 30px;
-    min-height: 30px;
-}
-
-QPushButton:hover {
-    background: #e5e7eb;          /* slightly darker on hover */
-    color: #1f2937;
-}
-
-QPushButton:pressed {
-    background: #d1d5db;          /* clear press feedback */
-}</string>
-             </property>
-             <property name="text">
-              <string>⚙️</string>
-             </property>
-            </widget>
-           </item>
-          </layout>
-         </widget>
-        </item>
-       </layout>
-      </item>
-      <item>
-       <spacer name="verticalSpacer">
-        <property name="orientation">
-         <enum>Qt::Orientation::Horizontal</enum>
-        </property>
-        <property name="sizeHint" stdset="0">
+        <property name="minimumSize">
          <size>
-          <width>5</width>
-          <height>2</height>
+          <width>200</width>
+          <height>200</height>
          </size>
         </property>
-       </spacer>
+        <property name="maximumSize">
+         <size>
+          <width>16777215</width>
+          <height>239</height>
+         </size>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">#card2 {
+    background: qlineargradient(x1:0, y1:0, x2:1, y2:1,
+                                stop:0 #FFFFFF, stop:1 #F8FAFC);
+    border-radius: 22px;
+    border: 1px solid #EEF2F6;
+    
+    /* Ton ombre de base (même si box-shadow est partiellement supporté dans certains Qt, on la garde) */
+    box-shadow: 0px 8px 20px rgba(0,0,0,0.06),
+                0px 3px 7px rgba(0,0,0,0.04);
+    
+    padding: 26px;
+    
+    /* Force Qt à activer correctement le :hover */
+    selection-background-color: transparent;
+}
+
+/* HOVER ULTRA VISIBLE + blurry reddish glow moderne 2025 (testé et validé sur Qt Designer 6.7/6.8) */
+#card2:hover {
+    /* Lift + légère teinte rosée très subtile mais premium */
+    background: qlineargradient(x1:0, y1:0, x2:1, y2:1,
+                                stop:0 #ffffff, 
+                                stop:1 #fff5f5);  /* très léger fond rougeâtre */
+    
+    /* Bordure qui passe en glow rouge doux */
+    border: 1px solid rgba(255, 120, 120, 0.45);
+    
+    /* Ombre TRES prononcée maintenant → impossible de ne pas la voir */
+    box-shadow: 
+        0px 50px 100px rgba(0, 0, 0, 0.22),      /* ombre profonde noire */
+        0px 15px 35px rgba(0, 0, 0, 0.15),       /* seconde couche */
+        0px 0px 60px rgba(255, 80, 100, 0.35);   /* ← LE blurry reddish glow que tu voulais (rouge doux et flou) */
+}</string>
+        </property>
+        <layout class="QVBoxLayout" name="verticalLayout_8">
+         <property name="spacing">
+          <number>0</number>
+         </property>
+         <property name="leftMargin">
+          <number>9</number>
+         </property>
+         <property name="topMargin">
+          <number>16</number>
+         </property>
+         <property name="bottomMargin">
+          <number>56</number>
+         </property>
+         <item>
+          <widget class="QLabel" name="label_14">
+           <property name="styleSheet">
+            <string notr="true">QLabel { font: bold 36pt &quot;Segoe UI Emoji&quot;; color: #d97706; background: rgba(217,119,6,0.020); border-radius: 32px; line-height: 64px; padding: 8px; border: none; }</string>
+           </property>
+           <property name="text">
+            <string>👥</string>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignmentFlag::AlignCenter</set>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QLabel" name="label_15">
+           <property name="styleSheet">
+            <string notr="true">QLabel {
+    border: none;
+    background: transparent;
+    font: 700 26pt &quot;Segoe UI&quot;, &quot;Helvetica Neue&quot;, Arial;   /* bold and crisp */
+    color: #111827;                                        /* almost-black – maximum contrast */
+    padding: 0px;
+    margin: 0px;
+}</string>
+           </property>
+           <property name="text">
+            <string>1253</string>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignmentFlag::AlignCenter</set>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QLabel" name="label_16">
+           <property name="styleSheet">
+            <string notr="true">
+    font-size: 14px;
+    color: #6B7280; /* grey */
+    font-weight: 500;
+	background: transparent;
+</string>
+           </property>
+           <property name="text">
+            <string>Total Voter</string>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignmentFlag::AlignCenter</set>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </widget>
       </item>
       <item>
-       <layout class="QGridLayout" name="statsGrid">
-        <property name="rightMargin">
-         <number>0</number>
+       <widget class="QWidget" name="card1" native="true">
+        <property name="sizePolicy">
+         <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+          <horstretch>0</horstretch>
+          <verstretch>0</verstretch>
+         </sizepolicy>
         </property>
-        <property name="horizontalSpacing">
-         <number>25</number>
+        <property name="minimumSize">
+         <size>
+          <width>200</width>
+          <height>200</height>
+         </size>
         </property>
-        <property name="verticalSpacing">
-         <number>20</number>
+        <property name="maximumSize">
+         <size>
+          <width>16777215</width>
+          <height>239</height>
+         </size>
         </property>
-        <item row="0" column="0">
-         <widget class="QWidget" name="widget" native="true">
-          <property name="minimumSize">
-           <size>
-            <width>0</width>
-            <height>180</height>
-           </size>
-          </property>
-          <property name="maximumSize">
-           <size>
-            <width>16777215</width>
-            <height>160</height>
-           </size>
-          </property>
-          <property name="styleSheet">
-           <string notr="true">background: white; border-radius: 16px; border: 1px solid #e5e7eb;</string>
-          </property>
-          <layout class="QVBoxLayout" name="verticalLayout_2">
-           <property name="bottomMargin">
-            <number>15</number>
-           </property>
-           <item>
-            <widget class="QLabel" name="label_2">
-             <property name="autoFillBackground">
-              <bool>false</bool>
-             </property>
-             <property name="styleSheet">
-              <string notr="true">/* Total Voters – Blue */
-QLabel { font: bold 48pt &quot;Segoe UI Emoji&quot;; color: #1e40af; background: rgba(30,64,175,0.02); border-radius: 32px; line-height: 64px; padding: 8px; border: none; }
-</string>
-             </property>
-             <property name="frameShape">
-              <enum>QFrame::Shape::NoFrame</enum>
-             </property>
-             <property name="frameShadow">
-              <enum>QFrame::Shadow::Sunken</enum>
-             </property>
-             <property name="text">
-              <string>👥</string>
-             </property>
-             <property name="alignment">
-              <set>Qt::AlignmentFlag::AlignCenter</set>
-             </property>
-            </widget>
-           </item>
-           <item>
-            <widget class="QLabel" name="label_3">
-             <property name="styleSheet">
-              <string notr="true">QLabel {
-    border: none;
-    background: transparent;
-    font: 700 26pt &quot;Segoe UI&quot;, &quot;Helvetica Neue&quot;, Arial;   /* bold and crisp */
-    color: #111827;                                        /* almost-black – maximum contrast */
-    padding: 0px;
-    margin: 0px;
+        <property name="styleSheet">
+         <string notr="true">#card1 {
+    background: qlineargradient(x1:0, y1:0, x2:1, y2:1,
+                                stop:0 #FFFFFF, stop:1 #F8FAFC);
+    border-radius: 22px;
+    border: 1px solid #EEF2F6;
+    
+    /* Ombre de base douce */
+    box-shadow: 0px 8px 20px rgba(0,0,0,0.06),
+                0px 3px 7px rgba(0,0,0,0.04);
+    
+    padding: 26px;
+    
+    /* Obligatoire pour que :hover fonctionne dans Designer */
+    selection-background-color: transparent;
+    
+    /* Transition longue et fluide = effet premium */
+    transition: all 0.55s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/* PHASE 1 → Greenish glow (les 200 premières ms) */
+#card1:hover {
+    background: qlineargradient(x1:0, y1:0, x2:1, y2:1,
+                                stop:0 #f8fff8, stop:1 #ecfdf5);
+    border: 1px solid rgba(74, 222, 128, 0.5);
+    box-shadow: 
+        0px 30px 70px rgba(0,0,0,0.15),
+        0px 0px 50px rgba(74, 222, 128, 0.45);   /* ← GLOW VERT très visible */
+}
+
+/* PHASE 2 → Transition vers bleu (commence dès que tu restes dessus) */
+#card1:hover {
+    background: qlineargradient(x1:0, y1:0, x2:1, y2:1,
+                                stop:0 #f8fbff, stop:1 #eff6ff);
+    border: 1px solid rgba(99, 150, 255, 0.55);
+    box-shadow: 
+        0px 45px 90px rgba(0,0,0,0.18),
+        0px 15px 35px rgba(0,0,0,0.12),
+        0px 0px 70px rgba(99, 150, 255, 0.55);  /* ← GLOW BLEU puissant */
+}
+
+/* PHASE 3 → Effet &quot;lift&quot; complet + glow bleu max (quand tu restes 0.5s+) */
+#card1:hover {
+    transform: translateY(-16px);
+    box-shadow: 
+        0px 60px 110px rgba(0,0,0,0.22),
+        0px 20px 40px rgba(0,0,0,0.14),
+        0px 0px 80px rgba(99, 150, 255, 0.65);  /* ← Bleu électrique flou magnifique */
 }</string>
-             </property>
-             <property name="text">
-              <string>1253</string>
-             </property>
-             <property name="alignment">
-              <set>Qt::AlignmentFlag::AlignCenter</set>
-             </property>
-            </widget>
-           </item>
-           <item>
-            <widget class="QLabel" name="label_4">
-             <property name="styleSheet">
-              <string notr="true"> border: none;
-    background: transparent;
-font: 700 10pt &quot;Segoe UI&quot;;</string>
-             </property>
-             <property name="text">
-              <string>Total Voter</string>
-             </property>
-             <property name="alignment">
-              <set>Qt::AlignmentFlag::AlignCenter</set>
-             </property>
-            </widget>
-           </item>
-          </layout>
-         </widget>
-        </item>
-        <item row="0" column="2">
-         <widget class="QWidget" name="widget_3" native="true">
-          <property name="minimumSize">
-           <size>
-            <width>0</width>
-            <height>180</height>
-           </size>
-          </property>
-          <property name="maximumSize">
-           <size>
-            <width>16777215</width>
-            <height>160</height>
-           </size>
-          </property>
-          <property name="styleSheet">
-           <string notr="true">background: white; border-radius: 16px; border: 1px solid #e5e7eb;</string>
-          </property>
-          <layout class="QVBoxLayout" name="verticalLayout_5">
-           <property name="bottomMargin">
-            <number>15</number>
-           </property>
-           <item>
-            <widget class="QLabel" name="label_10">
-             <property name="styleSheet">
-              <string notr="true">QLabel { font: bold 36pt &quot;Segoe UI Emoji&quot;; color: #d97706; background: rgba(217,119,6,0.020); border-radius: 32px; line-height: 64px; padding: 8px; border: none; }</string>
-             </property>
-             <property name="text">
-              <string>📩</string>
-             </property>
-             <property name="alignment">
-              <set>Qt::AlignmentFlag::AlignCenter</set>
-             </property>
-            </widget>
-           </item>
-           <item>
-            <widget class="QLabel" name="label_9">
-             <property name="styleSheet">
-              <string notr="true">QLabel {
-    border: none;
-    background: transparent;
-    font: 700 26pt &quot;Segoe UI&quot;, &quot;Helvetica Neue&quot;, Arial;   /* bold and crisp */
-    color: #111827;                                        /* almost-black – maximum contrast */
-    padding: 0px;
-    margin: 0px;
-}</string>
-             </property>
-             <property name="text">
-              <string>8234</string>
-             </property>
-             <property name="alignment">
-              <set>Qt::AlignmentFlag::AlignCenter</set>
-             </property>
-            </widget>
-           </item>
-           <item>
-            <widget class="QLabel" name="label_8">
-             <property name="styleSheet">
-              <string notr="true"> border: none;
-    background: transparent;
-font: 700 10pt &quot;Segoe UI&quot;;</string>
-             </property>
-             <property name="text">
-              <string>Votes Cast Today</string>
-             </property>
-             <property name="alignment">
-              <set>Qt::AlignmentFlag::AlignCenter</set>
-             </property>
-            </widget>
-           </item>
-          </layout>
-         </widget>
-        </item>
-        <item row="0" column="1">
-         <widget class="QWidget" name="widget_2" native="true">
-          <property name="minimumSize">
-           <size>
-            <width>0</width>
-            <height>180</height>
-           </size>
-          </property>
-          <property name="maximumSize">
-           <size>
-            <width>16777215</width>
-            <height>160</height>
-           </size>
-          </property>
-          <property name="styleSheet">
-           <string notr="true">background: white; border-radius: 16px; border: 1px solid #e5e7eb;</string>
-          </property>
-          <layout class="QVBoxLayout" name="verticalLayout_4">
-           <property name="bottomMargin">
-            <number>15</number>
-           </property>
-           <item>
-            <widget class="QLabel" name="label_5">
-             <property name="styleSheet">
-              <string notr="true">/* Registered Faces – Green */
+        </property>
+        <layout class="QVBoxLayout" name="verticalLayout_4">
+         <property name="spacing">
+          <number>0</number>
+         </property>
+         <property name="leftMargin">
+          <number>9</number>
+         </property>
+         <property name="topMargin">
+          <number>16</number>
+         </property>
+         <property name="bottomMargin">
+          <number>56</number>
+         </property>
+         <item>
+          <widget class="QLabel" name="label_5">
+           <property name="styleSheet">
+            <string notr="true">/* Registered Faces – Green */
 QLabel { font: bold 36pt &quot;Segoe UI Emoji&quot;; color: #166534; background: rgba(22,101,52,0.020); border-radius: 32px; line-height: 64px; padding: 8px; border: none; }</string>
-             </property>
-             <property name="text">
-              <string>✅</string>
-             </property>
-             <property name="alignment">
-              <set>Qt::AlignmentFlag::AlignCenter</set>
-             </property>
-            </widget>
-           </item>
-           <item>
-            <widget class="QLabel" name="label_6">
-             <property name="styleSheet">
-              <string notr="true">QLabel {
+           </property>
+           <property name="text">
+            <string>✅</string>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignmentFlag::AlignCenter</set>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QLabel" name="label_6">
+           <property name="styleSheet">
+            <string notr="true">QLabel {
     border: none;
     background: transparent;
     font: 700 26pt &quot;Segoe UI&quot;, &quot;Helvetica Neue&quot;, Arial;   /* bold and crisp */
@@ -378,73 +458,241 @@ QLabel { font: bold 36pt &quot;Segoe UI Emoji&quot;; color: #166534; background:
     padding: 0px;
     margin: 0px;
 }</string>
-             </property>
-             <property name="text">
-              <string>1110</string>
-             </property>
-             <property name="alignment">
-              <set>Qt::AlignmentFlag::AlignCenter</set>
-             </property>
-            </widget>
-           </item>
-           <item>
-            <widget class="QLabel" name="label_7">
-             <property name="styleSheet">
-              <string notr="true"> border: none;
-    background: transparent;
-font: 700 10pt &quot;Segoe UI&quot;;</string>
-             </property>
-             <property name="text">
-              <string>Registered Faces</string>
-             </property>
-             <property name="alignment">
-              <set>Qt::AlignmentFlag::AlignCenter</set>
-             </property>
-            </widget>
-           </item>
-          </layout>
-         </widget>
-        </item>
-        <item row="0" column="3">
-         <widget class="QWidget" name="widget_4" native="true">
-          <property name="minimumSize">
-           <size>
-            <width>0</width>
-            <height>180</height>
-           </size>
-          </property>
-          <property name="maximumSize">
-           <size>
-            <width>16777215</width>
-            <height>160</height>
-           </size>
-          </property>
-          <property name="styleSheet">
-           <string notr="true">background: white; border-radius: 16px; border: 1px solid #e5e7eb;</string>
-          </property>
-          <layout class="QVBoxLayout" name="verticalLayout_6">
-           <property name="bottomMargin">
-            <number>15</number>
            </property>
-           <item>
-            <widget class="QLabel" name="label_13">
-             <property name="styleSheet">
-              <string notr="true">/* Active Elections – Pink */
+           <property name="text">
+            <string>1111</string>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignmentFlag::AlignCenter</set>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QLabel" name="label_7">
+           <property name="styleSheet">
+            <string notr="true">
+    font-size: 14px;
+    color: #6B7280; /* grey */
+    font-weight: 500;
+	background: transparent;
+</string>
+           </property>
+           <property name="text">
+            <string>Registered Faces</string>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignmentFlag::AlignCenter</set>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </widget>
+      </item>
+      <item>
+       <widget class="QWidget" name="card3" native="true">
+        <property name="sizePolicy">
+         <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+          <horstretch>0</horstretch>
+          <verstretch>0</verstretch>
+         </sizepolicy>
+        </property>
+        <property name="minimumSize">
+         <size>
+          <width>200</width>
+          <height>200</height>
+         </size>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>16777215</width>
+          <height>239</height>
+         </size>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">#card3 {
+    background: qlineargradient(x1:0, y1:0, x2:1, y2:1,
+                                stop:0 #FFFFFF, stop:1 #F8FAFC);
+    border-radius: 22px;
+    border: 1px solid #EEF2F6;
+    
+    /* Ton ombre de base (même si box-shadow est partiellement supporté dans certains Qt, on la garde) */
+    box-shadow: 0px 8px 20px rgba(0,0,0,0.06),
+                0px 3px 7px rgba(0,0,0,0.04);
+    
+    padding: 26px;
+    
+    /* Force Qt à activer correctement le :hover */
+    selection-background-color: transparent;
+}
+
+/* HOVER ULTRA VISIBLE + blurry reddish glow moderne 2025 (testé et validé sur Qt Designer 6.7/6.8) */
+#card3:hover {
+    /* Lift + légère teinte rosée très subtile mais premium */
+    background: qlineargradient(x1:0, y1:0, x2:1, y2:1,
+                                stop:0 #ffffff, 
+                                stop:1 #fff5f5);  /* très léger fond rougeâtre */
+    
+    /* Bordure qui passe en glow rouge doux */
+    border: 1px solid rgba(255, 120, 120, 0.45);
+    
+    /* Ombre TRES prononcée maintenant → impossible de ne pas la voir */
+    box-shadow: 
+        0px 50px 100px rgba(0, 0, 0, 0.22),      /* ombre profonde noire */
+        0px 15px 35px rgba(0, 0, 0, 0.15),       /* seconde couche */
+        0px 0px 60px rgba(255, 80, 100, 0.35);   /* ← LE blurry reddish glow que tu voulais (rouge doux et flou) */
+}</string>
+        </property>
+        <layout class="QVBoxLayout" name="verticalLayout_9">
+         <property name="spacing">
+          <number>0</number>
+         </property>
+         <property name="leftMargin">
+          <number>9</number>
+         </property>
+         <property name="topMargin">
+          <number>16</number>
+         </property>
+         <property name="bottomMargin">
+          <number>56</number>
+         </property>
+         <item>
+          <widget class="QLabel" name="label_17">
+           <property name="styleSheet">
+            <string notr="true">QLabel { font: bold 36pt &quot;Segoe UI Emoji&quot;; color: #d97706; background: rgba(217,119,6,0.020); border-radius: 32px; line-height: 64px; padding: 8px; border: none; }</string>
+           </property>
+           <property name="text">
+            <string>📩</string>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignmentFlag::AlignCenter</set>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QLabel" name="label_18">
+           <property name="styleSheet">
+            <string notr="true">QLabel {
+    border: none;
+    background: transparent;
+    font: 700 26pt &quot;Segoe UI&quot;, &quot;Helvetica Neue&quot;, Arial;   /* bold and crisp */
+    color: #111827;                                        /* almost-black – maximum contrast */
+    padding: 0px;
+    margin: 0px;
+}</string>
+           </property>
+           <property name="text">
+            <string>8234</string>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignmentFlag::AlignCenter</set>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QLabel" name="label_19">
+           <property name="styleSheet">
+            <string notr="true">
+    font-size: 14px;
+    color: #6B7280; /* grey */
+    font-weight: 500;
+	background: transparent;
+</string>
+           </property>
+           <property name="text">
+            <string>Votes Cast Today</string>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignmentFlag::AlignCenter</set>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </widget>
+      </item>
+      <item>
+       <widget class="QWidget" name="card4" native="true">
+        <property name="sizePolicy">
+         <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+          <horstretch>0</horstretch>
+          <verstretch>0</verstretch>
+         </sizepolicy>
+        </property>
+        <property name="minimumSize">
+         <size>
+          <width>200</width>
+          <height>200</height>
+         </size>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>16777215</width>
+          <height>239</height>
+         </size>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">#card4 {
+  background: qlineargradient(x1:0, y1:0, x2:1, y2:1,
+    stop:0 #FFFFFF, stop:1 #F8FAFC);
+  border-radius: 22px;
+  border: 1px solid #EEF2F6;
+  
+  /* Original shadow */
+  box-shadow: 0px 8px 20px rgba(0,0,0,0.06),
+              0px 3px 7px rgba(0,0,0,0.04);
+  
+  padding: 26px;
+  
+  /* Required for hover in Qt Designer */
+  selection-background-color: transparent;
+}
+
+/* Hover effect: stronger shadow + subtle blueish glow */
+#card4:hover {
+  background: qlineargradient(x1:0, y1:0, x2:1, y2:1,
+    stop:0 #fdfdff, stop:1 #eef4ff);
+  border: 1px solid #c1d9ff;
+  
+  /* More pronounced shadow */
+  box-shadow: 0px 32px 60px rgba(0,0,0,0.20),
+              0px 12px 24px rgba(0,0,0,0.12),
+              0px 0px 20px rgba(50,50,255,0.25); /* blueish glow */
+  
+  /* Optional: smooth transition */
+  transition: all 0.25s ease-in-out;
+}</string>
+        </property>
+        <layout class="QVBoxLayout" name="verticalLayout_6">
+         <property name="spacing">
+          <number>0</number>
+         </property>
+         <property name="leftMargin">
+          <number>9</number>
+         </property>
+         <property name="topMargin">
+          <number>16</number>
+         </property>
+         <property name="bottomMargin">
+          <number>56</number>
+         </property>
+         <item>
+          <widget class="QLabel" name="label_13">
+           <property name="styleSheet">
+            <string notr="true">/* Active Elections – Pink */
 QLabel { font: bold 36pt &quot;Segoe UI Emoji&quot;; color: #be185d; background: rgba(190,24,93,0.020); border-radius: 32px; line-height: 64px; padding: 8px; border: none; }
 Why this finally works perfectly</string>
-             </property>
-             <property name="text">
-              <string>📅</string>
-             </property>
-             <property name="alignment">
-              <set>Qt::AlignmentFlag::AlignCenter</set>
-             </property>
-            </widget>
-           </item>
-           <item>
-            <widget class="QLabel" name="label_12">
-             <property name="styleSheet">
-              <string notr="true">QLabel {
+           </property>
+           <property name="text">
+            <string>📅</string>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignmentFlag::AlignCenter</set>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QLabel" name="label_12">
+           <property name="styleSheet">
+            <string notr="true">QLabel {
     border: none;
     background: transparent;
     font: 700 26pt &quot;Segoe UI&quot;, &quot;Helvetica Neue&quot;, Arial;   /* bold and crisp */
@@ -452,246 +700,380 @@ Why this finally works perfectly</string>
     padding: 0px;
     margin: 0px;
 }</string>
-             </property>
-             <property name="text">
-              <string>4</string>
-             </property>
-             <property name="alignment">
-              <set>Qt::AlignmentFlag::AlignCenter</set>
-             </property>
-            </widget>
-           </item>
-           <item>
-            <widget class="QLabel" name="label_11">
-             <property name="styleSheet">
-              <string notr="true"> border: none;
-    background: transparent;
-font: 700 10pt &quot;Segoe UI&quot;;</string>
-             </property>
-             <property name="text">
-              <string>Active Election</string>
-             </property>
-             <property name="alignment">
-              <set>Qt::AlignmentFlag::AlignCenter</set>
-             </property>
-            </widget>
-           </item>
-          </layout>
-         </widget>
-        </item>
-       </layout>
-      </item>
-      <item>
-       <spacer name="horizontalSpacer_2">
-        <property name="orientation">
-         <enum>Qt::Orientation::Horizontal</enum>
-        </property>
-        <property name="sizeHint" stdset="0">
-         <size>
-          <width>40</width>
-          <height>20</height>
-         </size>
-        </property>
-       </spacer>
-      </item>
-      <item>
-       <layout class="QGridLayout" name="gridLayout">
-        <property name="spacing">
-         <number>14</number>
-        </property>
-        <item row="2" column="0">
-         <widget class="QPushButton" name="pushButton_5">
-          <property name="minimumSize">
-           <size>
-            <width>0</width>
-            <height>70</height>
-           </size>
-          </property>
-          <property name="font">
-           <font>
-            <pointsize>-1</pointsize>
-            <bold>true</bold>
-           </font>
-          </property>
-          <property name="styleSheet">
-           <string notr="true">QPushButton {
-    border: 2px solid #e5e7eb;
-    border-radius: 16px;
-    background: white;
-    font-size: 15px;
-}
-QPushButton:hover {
-    border-color: #3b82f6;
-    background: #eff6ff;
-}</string>
-          </property>
-          <property name="text">
-           <string>👥 Candidate List</string>
-          </property>
-         </widget>
-        </item>
-        <item row="1" column="2">
-         <widget class="QPushButton" name="pushButton_2">
-          <property name="minimumSize">
-           <size>
-            <width>0</width>
-            <height>70</height>
-           </size>
-          </property>
-          <property name="font">
-           <font>
-            <pointsize>-1</pointsize>
-            <bold>true</bold>
-           </font>
-          </property>
-          <property name="styleSheet">
-           <string notr="true">QPushButton {
-    border: 2px solid #e5e7eb;
-    border-radius: 16px;
-    background: white;
-    font-size: 15px;
-}
-QPushButton:hover {
-    border-color: #3b82f6;
-    background: #eff6ff;
-}</string>
-          </property>
-          <property name="text">
-           <string>⚙️ Election Setup</string>
-          </property>
-         </widget>
-        </item>
-        <item row="1" column="0">
-         <widget class="QPushButton" name="pushButton_4">
-          <property name="minimumSize">
-           <size>
-            <width>0</width>
-            <height>70</height>
-           </size>
-          </property>
-          <property name="font">
-           <font>
-            <pointsize>-1</pointsize>
-            <bold>true</bold>
-           </font>
-          </property>
-          <property name="styleSheet">
-           <string notr="true">QPushButton {
-    border: 2px solid #e5e7eb;
-    border-radius: 16px;
-    background: white;
-    font-size: 15px;
-}
-QPushButton:hover {
-    border-color: #3b82f6;
-    background: #eff6ff;
-}</string>
-          </property>
-          <property name="text">
-           <string>➕ Register Voter</string>
-          </property>
-         </widget>
-        </item>
-        <item row="1" column="1">
-         <widget class="QPushButton" name="pushButton_3">
-          <property name="minimumSize">
-           <size>
-            <width>0</width>
-            <height>70</height>
-           </size>
-          </property>
-          <property name="font">
-           <font>
-            <pointsize>-1</pointsize>
-            <bold>true</bold>
-           </font>
-          </property>
-          <property name="styleSheet">
-           <string notr="true">QPushButton {
-    border: 2px solid #e5e7eb;
-    border-radius: 16px;
-    background: white;
-    font-size: 15px;
-}
-QPushButton:hover {
-    border-color: #3b82f6;
-    background: #eff6ff;
-}</string>
-          </property>
-          <property name="text">
-           <string>📋 Voter List</string>
-          </property>
-         </widget>
-        </item>
-        <item row="2" column="2">
-         <widget class="QPushButton" name="pushButton">
-          <property name="minimumSize">
-           <size>
-            <width>0</width>
-            <height>70</height>
-           </size>
-          </property>
-          <property name="font">
-           <font>
-            <pointsize>-1</pointsize>
-            <bold>true</bold>
-           </font>
-          </property>
-          <property name="styleSheet">
-           <string notr="true">QPushButton {
-    border: 2px solid #e5e7eb;
-    border-radius: 16px;
-    background: white;
-    font-size: 15px;
-}
-QPushButton:hover {
-    border-color: #3b82f6;
-    background: #eff6ff;
-}</string>
-          </property>
-          <property name="text">
-           <string>📊 System Logs</string>
-          </property>
-         </widget>
-        </item>
-        <item row="2" column="1">
-         <widget class="QPushButton" name="pushButton_6">
-          <property name="minimumSize">
-           <size>
-            <width>0</width>
-            <height>70</height>
-           </size>
-          </property>
-          <property name="font">
-           <font>
-            <pointsize>-1</pointsize>
-            <bold>true</bold>
-           </font>
-          </property>
-          <property name="styleSheet">
-           <string notr="true">QPushButton {
-    border: 2px solid #e5e7eb;
-    border-radius: 16px;
-    background: white;
-    font-size: 15px;
-}
-QPushButton:hover {
-    border-color: #3b82f6;
-    background: #eff6ff;
-}</string>
-          </property>
-          <property name="text">
-           <string>📈 Voting Reports</string>
-          </property>
-         </widget>
-        </item>
-       </layout>
+           </property>
+           <property name="text">
+            <string>4</string>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignmentFlag::AlignCenter</set>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QLabel" name="label_11">
+           <property name="styleSheet">
+            <string notr="true">
+    font-size: 14px;
+    color: #6B7280; /* grey */
+    font-weight: 500;
+	background: transparent;
+</string>
+           </property>
+           <property name="text">
+            <string>Active Election</string>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignmentFlag::AlignCenter</set>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </widget>
       </item>
      </layout>
+    </item>
+    <item>
+     <spacer name="horizontalSpacer">
+      <property name="orientation">
+       <enum>Qt::Orientation::Horizontal</enum>
+      </property>
+      <property name="sizeHint" stdset="0">
+       <size>
+        <width>873</width>
+        <height>6</height>
+       </size>
+      </property>
+     </spacer>
+    </item>
+    <item>
+     <layout class="QGridLayout" name="gridLayout">
+      <property name="leftMargin">
+       <number>20</number>
+      </property>
+      <property name="rightMargin">
+       <number>20</number>
+      </property>
+      <property name="bottomMargin">
+       <number>9</number>
+      </property>
+      <property name="spacing">
+       <number>14</number>
+      </property>
+      <item row="0" column="2">
+       <widget class="QPushButton" name="pushButton_2">
+        <property name="sizePolicy">
+         <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+          <horstretch>0</horstretch>
+          <verstretch>0</verstretch>
+         </sizepolicy>
+        </property>
+        <property name="minimumSize">
+         <size>
+          <width>0</width>
+          <height>70</height>
+         </size>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>16777215</width>
+          <height>100</height>
+         </size>
+        </property>
+        <property name="font">
+         <font>
+          <family>Segoe UI</family>
+          <pointsize>-1</pointsize>
+          <bold>true</bold>
+         </font>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">QPushButton {
+    background: rgba(255,255,255,0.6);
+    border-radius: 18px;
+    padding: 14px;
+    border: 1px solid rgba(255,255,255,0.4);
+    text-align: left;
+    font-size: 15px;
+}
+
+QPushButton:hover {
+    background: rgba(255,255,255,0.9);
+    border: 1px solid #D1D5DB;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+}
+</string>
+        </property>
+        <property name="text">
+         <string>⚙️ Election Setup</string>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="1">
+       <widget class="QPushButton" name="pushButton_6">
+        <property name="sizePolicy">
+         <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+          <horstretch>0</horstretch>
+          <verstretch>0</verstretch>
+         </sizepolicy>
+        </property>
+        <property name="minimumSize">
+         <size>
+          <width>0</width>
+          <height>70</height>
+         </size>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>16777215</width>
+          <height>100</height>
+         </size>
+        </property>
+        <property name="font">
+         <font>
+          <family>Segoe UI</family>
+          <pointsize>-1</pointsize>
+          <bold>true</bold>
+         </font>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">QPushButton {
+    background: rgba(255,255,255,0.6);
+    border-radius: 18px;
+    padding: 14px;
+    border: 1px solid rgba(255,255,255,0.4);
+    text-align: left;
+    font-size: 15px;
+}
+
+QPushButton:hover {
+    background: rgba(255,255,255,0.9);
+    border: 1px solid #D1D5DB;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+}
+</string>
+        </property>
+        <property name="text">
+         <string>📈 Voting Reports</string>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="0">
+       <widget class="QPushButton" name="pushButton_5">
+        <property name="sizePolicy">
+         <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+          <horstretch>0</horstretch>
+          <verstretch>0</verstretch>
+         </sizepolicy>
+        </property>
+        <property name="minimumSize">
+         <size>
+          <width>0</width>
+          <height>70</height>
+         </size>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>16777215</width>
+          <height>100</height>
+         </size>
+        </property>
+        <property name="font">
+         <font>
+          <family>Segoe UI</family>
+          <pointsize>-1</pointsize>
+          <bold>true</bold>
+         </font>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">QPushButton {
+    background: rgba(255,255,255,0.6);
+    border-radius: 18px;
+    padding: 14px;
+    border: 1px solid rgba(255,255,255,0.4);
+    text-align: left;
+    font-size: 15px;
+}
+
+QPushButton:hover {
+    background: rgba(255,255,255,0.9);
+    border: 1px solid #D1D5DB;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+}
+</string>
+        </property>
+        <property name="text">
+         <string>👥 Candidate List</string>
+        </property>
+       </widget>
+      </item>
+      <item row="0" column="0">
+       <widget class="QPushButton" name="pushButton_4">
+        <property name="sizePolicy">
+         <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+          <horstretch>0</horstretch>
+          <verstretch>0</verstretch>
+         </sizepolicy>
+        </property>
+        <property name="minimumSize">
+         <size>
+          <width>0</width>
+          <height>70</height>
+         </size>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>16777215</width>
+          <height>100</height>
+         </size>
+        </property>
+        <property name="font">
+         <font>
+          <family>Segoe UI</family>
+          <pointsize>-1</pointsize>
+          <bold>true</bold>
+         </font>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">QPushButton {
+    background: rgba(255,255,255,0.6);
+    border-radius: 18px;
+    padding: 14px;
+    border: 1px solid rgba(255,255,255,0.4);
+    text-align: left;
+    font-size: 15px;
+}
+
+QPushButton:hover {
+    background: rgba(255,255,255,0.9);
+    border: 1px solid #D1D5DB;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+}
+</string>
+        </property>
+        <property name="text">
+         <string>➕ Register Voter</string>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="2">
+       <widget class="QPushButton" name="pushButton">
+        <property name="sizePolicy">
+         <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+          <horstretch>0</horstretch>
+          <verstretch>0</verstretch>
+         </sizepolicy>
+        </property>
+        <property name="minimumSize">
+         <size>
+          <width>0</width>
+          <height>70</height>
+         </size>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>16777215</width>
+          <height>100</height>
+         </size>
+        </property>
+        <property name="font">
+         <font>
+          <family>Segoe UI</family>
+          <pointsize>-1</pointsize>
+          <bold>true</bold>
+         </font>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">QPushButton {
+    background: rgba(255,255,255,0.6);
+    border-radius: 18px;
+    padding: 14px;
+    border: 1px solid rgba(255,255,255,0.4);
+    text-align: left;
+    font-size: 15px;
+}
+
+QPushButton:hover {
+    background: rgba(255,255,255,0.9);
+    border: 1px solid #D1D5DB;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+}
+</string>
+        </property>
+        <property name="text">
+         <string>📊 System Logs</string>
+        </property>
+       </widget>
+      </item>
+      <item row="0" column="1">
+       <widget class="QPushButton" name="pushButton_3">
+        <property name="sizePolicy">
+         <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+          <horstretch>0</horstretch>
+          <verstretch>0</verstretch>
+         </sizepolicy>
+        </property>
+        <property name="minimumSize">
+         <size>
+          <width>0</width>
+          <height>70</height>
+         </size>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>16777215</width>
+          <height>100</height>
+         </size>
+        </property>
+        <property name="font">
+         <font>
+          <family>Segoe UI</family>
+          <pointsize>-1</pointsize>
+          <bold>true</bold>
+         </font>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">QPushButton {
+    background: rgba(255,255,255,0.6);
+    border-radius: 18px;
+    padding: 14px;
+    border: 1px solid rgba(255,255,255,0.4);
+    text-align: left;
+    font-size: 15px;
+}
+
+QPushButton:hover {
+    background: rgba(255,255,255,0.9);
+    border: 1px solid #D1D5DB;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+}
+
+</string>
+        </property>
+        <property name="text">
+         <string>📋 Voter List</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </item>
+    <item>
+     <spacer name="horizontalSpacer_3">
+      <property name="orientation">
+       <enum>Qt::Orientation::Horizontal</enum>
+      </property>
+      <property name="sizeHint" stdset="0">
+       <size>
+        <width>40</width>
+        <height>20</height>
+       </size>
+      </property>
+     </spacer>
     </item>
    </layout>
   </widget>
  </widget>
- <resources/>
+ <resources>
+  <include location="resources/resources.qrc"/>
+ </resources>
  <connections/>
 </ui>

@@ -22,6 +22,8 @@ pip install PyQt6 numpy opencv-python pyserial pywin32
 
 pyuic6 -x software\main.ui -o software\ui_main.py
 
+// for icon
+pyrcc6 resources.qrc -o resources_rc.py
 
 
 
