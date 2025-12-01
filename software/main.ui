@@ -6,12 +6,16 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>894</width>
-    <height>554</height>
+    <width>885</width>
+    <height>550</height>
    </rect>
   </property>
   <property name="windowTitle">
-   <string>MainWindow</string>
+   <string>Admin Dashboard</string>
+  </property>
+  <property name="windowIcon">
+   <iconset>
+    <normaloff>resources/Logo.jpg</normaloff>resources/Logo.jpg</iconset>
   </property>
   <property name="layoutDirection">
    <enum>Qt::LayoutDirection::LeftToRight</enum>
@@ -760,7 +764,7 @@ Why this finally works perfectly</string>
        <number>14</number>
       </property>
       <item row="0" column="2">
-       <widget class="QPushButton" name="pushButton_2">
+       <widget class="QPushButton" name="electionBtn">
         <property name="sizePolicy">
          <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
           <horstretch>0</horstretch>
@@ -788,18 +792,25 @@ Why this finally works perfectly</string>
         </property>
         <property name="styleSheet">
          <string notr="true">QPushButton {
-    background: rgba(255,255,255,0.6);
+    background-color: white;
     border-radius: 18px;
-    padding: 14px;
-    border: 1px solid rgba(255,255,255,0.4);
-    text-align: left;
+    padding: 14px 24px;
+    border: 1px solid rgba(0,0,0,0.05);
+    color: #0F172A;
     font-size: 15px;
+    font-weight: 700;
 }
 
 QPushButton:hover {
-    background: rgba(255,255,255,0.9);
-    border: 1px solid #D1D5DB;
-    box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+    background: qlineargradient(x1:0, y1:0, x2:1, y2:1,
+                                stop:0 #f5f5ff, stop:1 #e5e5ff);
+    color: #1A73E8;
+    border: 1px solid rgba(80,120,255,0.45);
+}
+
+QPushButton:pressed {
+    background: qlineargradient(x1:0, y1:0, x2:1, y2:1,
+                                stop:0 #e0e0ff, stop:1 #c0c0ff);
 }
 </string>
         </property>
@@ -809,7 +820,7 @@ QPushButton:hover {
        </widget>
       </item>
       <item row="1" column="1">
-       <widget class="QPushButton" name="pushButton_6">
+       <widget class="QPushButton" name="votingBtn">
         <property name="sizePolicy">
          <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
           <horstretch>0</horstretch>
@@ -837,18 +848,25 @@ QPushButton:hover {
         </property>
         <property name="styleSheet">
          <string notr="true">QPushButton {
-    background: rgba(255,255,255,0.6);
+    background-color: white;
     border-radius: 18px;
-    padding: 14px;
-    border: 1px solid rgba(255,255,255,0.4);
-    text-align: left;
+    padding: 14px 24px;
+    border: 1px solid rgba(0,0,0,0.05);
+    color: #0F172A;
     font-size: 15px;
+    font-weight: 700;
 }
 
 QPushButton:hover {
-    background: rgba(255,255,255,0.9);
-    border: 1px solid #D1D5DB;
-    box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+    background: qlineargradient(x1:0, y1:0, x2:1, y2:1,
+                                stop:0 #fff0f5, stop:1 #ffe0ee);
+    color: #1A73E8;
+    border: 1px solid rgba(255,80,150,0.45);
+}
+
+QPushButton:pressed {
+    background: qlineargradient(x1:0, y1:0, x2:1, y2:1,
+                                stop:0 #ffd0e0, stop:1 #ffb0d0);
 }
 </string>
         </property>
@@ -858,7 +876,7 @@ QPushButton:hover {
        </widget>
       </item>
       <item row="1" column="0">
-       <widget class="QPushButton" name="pushButton_5">
+       <widget class="QPushButton" name="candidateBtn">
         <property name="sizePolicy">
          <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
           <horstretch>0</horstretch>
@@ -886,18 +904,25 @@ QPushButton:hover {
         </property>
         <property name="styleSheet">
          <string notr="true">QPushButton {
-    background: rgba(255,255,255,0.6);
+    background-color: white;
     border-radius: 18px;
-    padding: 14px;
-    border: 1px solid rgba(255,255,255,0.4);
-    text-align: left;
+    padding: 14px 24px;
+    border: 1px solid rgba(0,0,0,0.05);
+    color: #0F172A;
     font-size: 15px;
+    font-weight: 700;
 }
 
 QPushButton:hover {
-    background: rgba(255,255,255,0.9);
-    border: 1px solid #D1D5DB;
-    box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+    background: qlineargradient(x1:0, y1:0, x2:1, y2:1,
+                                stop:0 #fff8f0, stop:1 #ffe5d0);
+    color: #1A73E8;
+    border: 1px solid rgba(255,150,50,0.45);
+}
+
+QPushButton:pressed {
+    background: qlineargradient(x1:0, y1:0, x2:1, y2:1,
+                                stop:0 #ffe5c0, stop:1 #ffc090);
 }
 </string>
         </property>
@@ -907,7 +932,7 @@ QPushButton:hover {
        </widget>
       </item>
       <item row="0" column="0">
-       <widget class="QPushButton" name="pushButton_4">
+       <widget class="QPushButton" name="registerBtn">
         <property name="sizePolicy">
          <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
           <horstretch>0</horstretch>
@@ -935,18 +960,25 @@ QPushButton:hover {
         </property>
         <property name="styleSheet">
          <string notr="true">QPushButton {
-    background: rgba(255,255,255,0.6);
+    background-color: white;
     border-radius: 18px;
-    padding: 14px;
-    border: 1px solid rgba(255,255,255,0.4);
-    text-align: left;
+    padding: 14px 24px;
+    border: 1px solid rgba(0,0,0,0.05);
+    color: #0F172A;
     font-size: 15px;
+    font-weight: 700;
 }
 
 QPushButton:hover {
-    background: rgba(255,255,255,0.9);
-    border: 1px solid #D1D5DB;
-    box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+    background: qlineargradient(x1:0, y1:0, x2:1, y2:1,
+                                stop:0 #fff5f5, stop:1 #ffe5e5);
+    color: #1A73E8;
+    border: 1px solid rgba(255,80,100,0.45);
+}
+
+QPushButton:pressed {
+    background: qlineargradient(x1:0, y1:0, x2:1, y2:1,
+                                stop:0 #ffe0e0, stop:1 #ffc0c0);
 }
 </string>
         </property>
@@ -955,8 +987,8 @@ QPushButton:hover {
         </property>
        </widget>
       </item>
-      <item row="1" column="2">
-       <widget class="QPushButton" name="pushButton">
+      <item row="0" column="1">
+       <widget class="QPushButton" name="voterBtn">
         <property name="sizePolicy">
          <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
           <horstretch>0</horstretch>
@@ -984,73 +1016,86 @@ QPushButton:hover {
         </property>
         <property name="styleSheet">
          <string notr="true">QPushButton {
-    background: rgba(255,255,255,0.6);
+    background-color: white;
     border-radius: 18px;
-    padding: 14px;
-    border: 1px solid rgba(255,255,255,0.4);
-    text-align: left;
+    padding: 14px 24px;
+    border: 1px solid rgba(0,0,0,0.05);
+    color: #0F172A;
     font-size: 15px;
+    font-weight: 700;
 }
 
 QPushButton:hover {
-    background: rgba(255,255,255,0.9);
-    border: 1px solid #D1D5DB;
-    box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+    background: qlineargradient(x1:0, y1:0, x2:1, y2:1,
+                                stop:0 #f5fff5, stop:1 #e5ffe5);
+    color: #1A73E8;
+    border: 1px solid rgba(80,200,100,0.45);
+}
+
+QPushButton:pressed {
+    background: qlineargradient(x1:0, y1:0, x2:1, y2:1,
+                                stop:0 #e0ffe0, stop:1 #c0ffc0);
+}
+</string>
+        </property>
+        <property name="text">
+         <string>📋 Voter List</string>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="2">
+       <widget class="QPushButton" name="systemBtn">
+        <property name="sizePolicy">
+         <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+          <horstretch>0</horstretch>
+          <verstretch>0</verstretch>
+         </sizepolicy>
+        </property>
+        <property name="minimumSize">
+         <size>
+          <width>0</width>
+          <height>70</height>
+         </size>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>16777215</width>
+          <height>100</height>
+         </size>
+        </property>
+        <property name="font">
+         <font>
+          <family>Segoe UI</family>
+          <pointsize>-1</pointsize>
+          <bold>true</bold>
+         </font>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">QPushButton {
+    background-color: white;
+    border-radius: 18px;
+    padding: 14px 24px;
+    border: 1px solid rgba(0,0,0,0.05);
+    color: #0F172A;
+    font-size: 15px;
+    font-weight: 700;
+}
+
+QPushButton:hover {
+    background: qlineargradient(x1:0, y1:0, x2:1, y2:1,
+                                stop:0 #f0ffff, stop:1 #d0ffff);
+    color: #1A73E8;
+    border: 1px solid rgba(80,200,255,0.45);
+}
+
+QPushButton:pressed {
+    background: qlineargradient(x1:0, y1:0, x2:1, y2:1,
+                                stop:0 #c0ffff, stop:1 #a0ffff);
 }
 </string>
         </property>
         <property name="text">
          <string>📊 System Logs</string>
-        </property>
-       </widget>
-      </item>
-      <item row="0" column="1">
-       <widget class="QPushButton" name="pushButton_3">
-        <property name="sizePolicy">
-         <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
-          <horstretch>0</horstretch>
-          <verstretch>0</verstretch>
-         </sizepolicy>
-        </property>
-        <property name="minimumSize">
-         <size>
-          <width>0</width>
-          <height>70</height>
-         </size>
-        </property>
-        <property name="maximumSize">
-         <size>
-          <width>16777215</width>
-          <height>100</height>
-         </size>
-        </property>
-        <property name="font">
-         <font>
-          <family>Segoe UI</family>
-          <pointsize>-1</pointsize>
-          <bold>true</bold>
-         </font>
-        </property>
-        <property name="styleSheet">
-         <string notr="true">QPushButton {
-    background: rgba(255,255,255,0.6);
-    border-radius: 18px;
-    padding: 14px;
-    border: 1px solid rgba(255,255,255,0.4);
-    text-align: left;
-    font-size: 15px;
-}
-
-QPushButton:hover {
-    background: rgba(255,255,255,0.9);
-    border: 1px solid #D1D5DB;
-    box-shadow: 0 8px 20px rgba(0,0,0,0.08);
-}
-
-</string>
-        </property>
-        <property name="text">
-         <string>📋 Voter List</string>
         </property>
        </widget>
       </item>
