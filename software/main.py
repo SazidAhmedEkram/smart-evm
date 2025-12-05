@@ -41,8 +41,6 @@ class MainWindow(QMainWindow):
         shadow.setColor(QColor(0, 0, 0, 33))  # Soft black with transparency
         widget.setGraphicsEffect(shadow)
 
-
-
 if __name__ == "__main__":
     app = QApplication([])
     window = MainWindow()
