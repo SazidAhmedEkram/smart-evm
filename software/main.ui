@@ -6,9 +6,15 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>885</width>
-    <height>550</height>
+    <width>890</width>
+    <height>561</height>
    </rect>
+  </property>
+  <property name="sizePolicy">
+   <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+    <horstretch>0</horstretch>
+    <verstretch>0</verstretch>
+   </sizepolicy>
   </property>
   <property name="windowTitle">
    <string>Admin Dashboard</string>
@@ -46,7 +52,10 @@
     background: transparent;
 }</string>
    </property>
-   <layout class="QVBoxLayout" name="verticalLayout">
+   <layout class="QVBoxLayout" name="verticalLayout" stretch="2,5,3,1">
+    <property name="topMargin">
+     <number>0</number>
+    </property>
     <property name="bottomMargin">
      <number>24</number>
     </property>
@@ -67,7 +76,7 @@
       <property name="maximumSize">
        <size>
         <width>16777215</width>
-        <height>100</height>
+        <height>200</height>
        </size>
       </property>
       <property name="styleSheet">
@@ -210,47 +219,40 @@ QPushButton#btnSettings:hover {
      </widget>
     </item>
     <item>
-     <spacer name="horizontalSpacer_2">
-      <property name="orientation">
-       <enum>Qt::Orientation::Horizontal</enum>
-      </property>
-      <property name="sizeHint" stdset="0">
-       <size>
-        <width>873</width>
-        <height>10</height>
-       </size>
-      </property>
-     </spacer>
-    </item>
-    <item>
      <layout class="QHBoxLayout" name="horizontalLayout">
       <property name="spacing">
-       <number>9</number>
+       <number>15</number>
       </property>
       <property name="leftMargin">
        <number>20</number>
       </property>
+      <property name="topMargin">
+       <number>10</number>
+      </property>
       <property name="rightMargin">
        <number>20</number>
+      </property>
+      <property name="bottomMargin">
+       <number>10</number>
       </property>
       <item>
        <widget class="QWidget" name="card2" native="true">
         <property name="sizePolicy">
-         <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
-          <horstretch>0</horstretch>
-          <verstretch>0</verstretch>
+         <sizepolicy hsizetype="Expanding" vsizetype="Preferred">
+          <horstretch>1</horstretch>
+          <verstretch>1</verstretch>
          </sizepolicy>
         </property>
         <property name="minimumSize">
          <size>
-          <width>200</width>
-          <height>200</height>
+          <width>0</width>
+          <height>0</height>
          </size>
         </property>
         <property name="maximumSize">
          <size>
           <width>16777215</width>
-          <height>239</height>
+          <height>16777215</height>
          </size>
         </property>
         <property name="styleSheet">
@@ -357,21 +359,21 @@ QPushButton#btnSettings:hover {
       <item>
        <widget class="QWidget" name="card1" native="true">
         <property name="sizePolicy">
-         <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
-          <horstretch>0</horstretch>
-          <verstretch>0</verstretch>
+         <sizepolicy hsizetype="Expanding" vsizetype="Preferred">
+          <horstretch>1</horstretch>
+          <verstretch>1</verstretch>
          </sizepolicy>
         </property>
         <property name="minimumSize">
          <size>
-          <width>200</width>
-          <height>200</height>
+          <width>0</width>
+          <height>0</height>
          </size>
         </property>
         <property name="maximumSize">
          <size>
           <width>16777215</width>
-          <height>239</height>
+          <height>16777215</height>
          </size>
         </property>
         <property name="styleSheet">
@@ -495,21 +497,21 @@ QLabel { font: bold 36pt &quot;Segoe UI Emoji&quot;; color: #166534; background:
       <item>
        <widget class="QWidget" name="card3" native="true">
         <property name="sizePolicy">
-         <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
-          <horstretch>0</horstretch>
-          <verstretch>0</verstretch>
+         <sizepolicy hsizetype="Expanding" vsizetype="Preferred">
+          <horstretch>1</horstretch>
+          <verstretch>1</verstretch>
          </sizepolicy>
         </property>
         <property name="minimumSize">
          <size>
-          <width>200</width>
-          <height>200</height>
+          <width>0</width>
+          <height>0</height>
          </size>
         </property>
         <property name="maximumSize">
          <size>
           <width>16777215</width>
-          <height>239</height>
+          <height>16777215</height>
          </size>
         </property>
         <property name="styleSheet">
@@ -616,21 +618,21 @@ QLabel { font: bold 36pt &quot;Segoe UI Emoji&quot;; color: #166534; background:
       <item>
        <widget class="QWidget" name="card4" native="true">
         <property name="sizePolicy">
-         <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
-          <horstretch>0</horstretch>
-          <verstretch>0</verstretch>
+         <sizepolicy hsizetype="Expanding" vsizetype="Preferred">
+          <horstretch>1</horstretch>
+          <verstretch>1</verstretch>
          </sizepolicy>
         </property>
         <property name="minimumSize">
          <size>
-          <width>200</width>
-          <height>200</height>
+          <width>0</width>
+          <height>0</height>
          </size>
         </property>
         <property name="maximumSize">
          <size>
           <width>16777215</width>
-          <height>239</height>
+          <height>16777215</height>
          </size>
         </property>
         <property name="styleSheet">
@@ -737,19 +739,6 @@ Why this finally works perfectly</string>
      </layout>
     </item>
     <item>
-     <spacer name="horizontalSpacer">
-      <property name="orientation">
-       <enum>Qt::Orientation::Horizontal</enum>
-      </property>
-      <property name="sizeHint" stdset="0">
-       <size>
-        <width>873</width>
-        <height>6</height>
-       </size>
-      </property>
-     </spacer>
-    </item>
-    <item>
      <layout class="QGridLayout" name="gridLayout">
       <property name="leftMargin">
        <number>20</number>
@@ -758,10 +747,13 @@ Why this finally works perfectly</string>
        <number>20</number>
       </property>
       <property name="bottomMargin">
-       <number>9</number>
+       <number>0</number>
       </property>
-      <property name="spacing">
+      <property name="horizontalSpacing">
        <number>14</number>
+      </property>
+      <property name="verticalSpacing">
+       <number>25</number>
       </property>
       <item row="0" column="2">
        <widget class="QPushButton" name="electionBtn">

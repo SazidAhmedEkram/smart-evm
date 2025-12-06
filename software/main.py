@@ -1,4 +1,4 @@
-from PyQt6.QtGui import QColor, QIcon
+from PyQt6.QtGui import QColor, QIcon, QFont
 from PyQt6.QtWidgets import QApplication, QMainWindow, QGraphicsDropShadowEffect
 from ui_main import Ui_AdminDashboard
 
