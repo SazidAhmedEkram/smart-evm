@@ -1,6 +1,7 @@
 # validation.py
 import datetime
 import BD_Constituencies
+import FaceRecognition
 
 def validate_nid(nid: str) -> bool:
     return nid.isdigit() and 10 <= len(nid) <= 17
@@ -34,3 +35,13 @@ def validate_registration(ui):
     ui.validDob.setVisible(not validate_dob(ui.dob1))  # FIXED
     ui.validAddress.setVisible(not validate_address(address))
     ui.validConstituency.setVisible(not validate_constituency(constituency, BD_Constituencies.BD_Constituencies))
+
+    return (
+            validate_nid(nid) and
+            validate_name(name) and
+            validate_phone(phone) and
+            validate_dob(ui.dob1) and
+            validate_address(address) and
+            validate_constituency(constituency, BD_Constituencies.BD_Constituencies)
+    )
+

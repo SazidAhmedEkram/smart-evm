@@ -1673,7 +1673,7 @@ border: 1px solid rgb(200, 210, 240);
 </string>
                 </property>
                </widget>
-               <widget class="QPushButton" name="voterBtn_3">
+               <widget class="QPushButton" name="faceScan1">
                 <property name="geometry">
                  <rect>
                   <x>150</x>
@@ -2295,7 +2295,7 @@ padding: 0px;       /* remove padding to shrink height */
   <tabstop>save1</tabstop>
   <tabstop>voterBtn_5</tabstop>
   <tabstop>scrollArea</tabstop>
-  <tabstop>voterBtn_3</tabstop>
+  <tabstop>faceScan1</tabstop>
  </tabstops>
  <resources>
   <include location="resources/resources.qrc"/>

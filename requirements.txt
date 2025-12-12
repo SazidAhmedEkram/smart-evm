@@ -2,3 +2,4 @@ opencv-python
 numpy
 pyserial
 pywin32
+PyQt6==6.10.0

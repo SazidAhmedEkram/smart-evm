@@ -1,6 +1,9 @@
 from PyQt6.QtGui import QColor, QIcon, QFont
 from PyQt6.QtWidgets import QApplication, QMainWindow, QGraphicsDropShadowEffect, QGraphicsBlurEffect
+
+from software import FaceRecognition
 from ui_main import Ui_AdminDashboard
+
 import BD_Constituencies
 class MainWindow(QMainWindow):
     def __init__(self):
@@ -14,7 +17,8 @@ class MainWindow(QMainWindow):
 
         self.setWindowTitle("Electronic Voting Machine")
         self.setWindowIcon(QIcon("resources/logo.jpg"))
-
+        #Setupn the database for the first time
+        FaceRecognition.setup_database()
         #Add shadow to the cards and buttons
         cards = [self.ui.card2, self.ui.card1, self.ui.card4, self.ui.card3, self.ui.topBar1]
         for card in cards:
@@ -33,10 +37,12 @@ class MainWindow(QMainWindow):
         #After Pressing the save1 button
         import VoterRegistration
         self.ui.save1.clicked.connect(lambda: VoterRegistration.validate_registration(self.ui))
-
+        #After Pressing the faceScan1 button
+        self.ui.faceScan1.clicked.connect(lambda: FaceRecognition.register_voter(self.ui))
         #Validity button
         self.validButon()
         #Button Clicked Signal
+
         self.ui.registerBtn.clicked.connect(self.go_to_page1)
         self.ui.backBtn1.clicked.connect(self.go_to_page0)
 
