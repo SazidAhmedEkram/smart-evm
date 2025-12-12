@@ -29,6 +29,11 @@ class MainWindow(QMainWindow):
         self.ui.comboBox1.clear()
         for i in BD_Constituencies.BD_Constituencies:
             self.ui.comboBox1.addItem(str(i))
+
+        #After Pressing the save1 button
+        import VoterRegistration
+        self.ui.save1.clicked.connect(lambda: VoterRegistration.validate_registration(self.ui))
+
         #Validity button
         self.validButon()
         #Button Clicked Signal
@@ -48,6 +53,8 @@ class MainWindow(QMainWindow):
         self.ui.validName.setVisible(False)
         self.ui.validPhn.setVisible(False)
 
+
+
     def addShadow(self, widget):
         # ---------- Modern Card Shadow ----------
         shadow = QGraphicsDropShadowEffect()
@@ -64,7 +71,6 @@ class MainWindow(QMainWindow):
         shadow.setYOffset(3)  # Vertical offset
         shadow.setColor(QColor(0, 0, 0, 33))  # Soft black with transparency
         widget.setGraphicsEffect(shadow)
-
     def addShadowBackcard(self, widget):
         shadow = QGraphicsDropShadowEffect()
         shadow.setBlurRadius(100)  # Larger blur for bigger card

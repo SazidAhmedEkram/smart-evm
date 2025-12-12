@@ -1489,7 +1489,7 @@ padding: 0px;       /* remove padding to shrink height */
 </string>
                </property>
                <property name="text">
-                <string notr="true">     NID is not valid</string>
+                <string notr="true">     Full name is not valid</string>
                </property>
                <property name="wordWrap">
                 <bool>true</bool>
@@ -1731,7 +1731,7 @@ QPushButton:pressed {
               </widget>
              </item>
              <item row="10" column="0">
-              <widget class="QDateEdit" name="dateEdit">
+              <widget class="QDateEdit" name="dob1">
                <property name="sizePolicy">
                 <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
                  <horstretch>0</horstretch>
@@ -1779,7 +1779,7 @@ QDateEdit:hover {
                 <enum>QDateTimeEdit::Section::DaySection</enum>
                </property>
                <property name="displayFormat">
-                <string>d/M/yy</string>
+                <string>dd-MM-yyyy </string>
                </property>
                <property name="calendarPopup">
                 <bool>true</bool>
@@ -1885,6 +1885,9 @@ QComboBox:hover {
 }
 </string>
                </property>
+               <property name="placeholderText">
+                <string>Select a Consituency</string>
+               </property>
               </widget>
              </item>
              <item row="16" column="0">
@@ -1949,7 +1952,7 @@ QPushButton:pressed {
               </spacer>
              </item>
              <item row="13" column="1">
-              <widget class="QLineEdit" name="nid_5">
+              <widget class="QLineEdit" name="address1">
                <property name="sizePolicy">
                 <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
                  <horstretch>0</horstretch>
@@ -2003,7 +2006,7 @@ padding: 0px;       /* remove padding to shrink height */
 </string>
                </property>
                <property name="text">
-                <string notr="true">     NID is not valid</string>
+                <string notr="true">     Phone number is not valid</string>
                </property>
                <property name="wordWrap">
                 <bool>true</bool>
@@ -2011,7 +2014,7 @@ padding: 0px;       /* remove padding to shrink height */
               </widget>
              </item>
              <item row="16" column="1">
-              <widget class="QPushButton" name="voterBtn_4">
+              <widget class="QPushButton" name="save1">
                <property name="sizePolicy">
                 <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
                  <horstretch>0</horstretch>
@@ -2103,7 +2106,7 @@ padding: 0px;       /* remove padding to shrink height */
 </string>
                </property>
                <property name="text">
-                <string notr="true">     NID is not valid</string>
+                <string notr="true">     Date of Birth is not valid</string>
                </property>
                <property name="wordWrap">
                 <bool>true</bool>
@@ -2111,7 +2114,7 @@ padding: 0px;       /* remove padding to shrink height */
               </widget>
              </item>
              <item row="4" column="0">
-              <widget class="QLineEdit" name="nid">
+              <widget class="QLineEdit" name="nid1">
                <property name="sizePolicy">
                 <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
                  <horstretch>0</horstretch>
@@ -2139,7 +2142,7 @@ QLineEdit:hover {
               </widget>
              </item>
              <item row="10" column="1">
-              <widget class="QLineEdit" name="nid_4">
+              <widget class="QLineEdit" name="number1">
                <property name="sizePolicy">
                 <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
                  <horstretch>0</horstretch>
@@ -2170,7 +2173,7 @@ QLineEdit:hover {
               </widget>
              </item>
              <item row="4" column="1">
-              <widget class="QLineEdit" name="nid_3">
+              <widget class="QLineEdit" name="name1">
                <property name="sizePolicy">
                 <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
                  <horstretch>0</horstretch>
@@ -2224,7 +2227,7 @@ padding: 0px;       /* remove padding to shrink height */
 </string>
                </property>
                <property name="text">
-                <string notr="true">     NID is not valid</string>
+                <string notr="true">     Constituency is not valid</string>
                </property>
                <property name="wordWrap">
                 <bool>true</bool>
@@ -2255,7 +2258,7 @@ padding: 0px;       /* remove padding to shrink height */
 </string>
                </property>
                <property name="text">
-                <string notr="true">     NID is not valid</string>
+                <string notr="true">     Address is not valid</string>
                </property>
                <property name="wordWrap">
                 <bool>true</bool>
@@ -2283,13 +2286,13 @@ padding: 0px;       /* remove padding to shrink height */
   <tabstop>voterBtn</tabstop>
   <tabstop>systemBtn</tabstop>
   <tabstop>btnSettings</tabstop>
-  <tabstop>nid</tabstop>
-  <tabstop>nid_3</tabstop>
-  <tabstop>nid_4</tabstop>
-  <tabstop>nid_5</tabstop>
-  <tabstop>dateEdit</tabstop>
+  <tabstop>nid1</tabstop>
+  <tabstop>name1</tabstop>
+  <tabstop>number1</tabstop>
+  <tabstop>address1</tabstop>
+  <tabstop>dob1</tabstop>
   <tabstop>comboBox1</tabstop>
-  <tabstop>voterBtn_4</tabstop>
+  <tabstop>save1</tabstop>
   <tabstop>voterBtn_5</tabstop>
   <tabstop>scrollArea</tabstop>
   <tabstop>voterBtn_3</tabstop>
