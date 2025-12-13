@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1083</width>
-    <height>815</height>
+    <width>859</width>
+    <height>566</height>
    </rect>
   </property>
   <property name="sizePolicy">
@@ -81,7 +81,7 @@ QStackedWidget::pane {
 </string>
       </property>
       <property name="currentIndex">
-       <number>1</number>
+       <number>2</number>
       </property>
       <widget class="QWidget" name="page_0">
        <layout class="QGridLayout" name="gridLayout_4">
@@ -1361,7 +1361,7 @@ QScrollBar::sub-page:horizontal {
           <widget class="QWidget" name="scrollAreaWidgetContents_2">
            <property name="geometry">
             <rect>
-             <x>12</x>
+             <x>0</x>
              <y>0</y>
              <width>1010</width>
              <height>605</height>
@@ -1809,7 +1809,7 @@ QDateEdit:hover {
                  <second>0</second>
                  <year>2004</year>
                  <month>11</month>
-                 <day>10</day>
+                 <day>9</day>
                 </datetime>
                </property>
                <property name="currentSection">
@@ -2305,6 +2305,343 @@ padding: 0px;       /* remove padding to shrink height */
             </layout>
            </widget>
           </widget>
+         </widget>
+        </item>
+       </layout>
+      </widget>
+      <widget class="QWidget" name="page_2">
+       <layout class="QVBoxLayout" name="verticalLayout_2">
+        <property name="spacing">
+         <number>34</number>
+        </property>
+        <property name="leftMargin">
+         <number>10</number>
+        </property>
+        <property name="topMargin">
+         <number>0</number>
+        </property>
+        <property name="rightMargin">
+         <number>10</number>
+        </property>
+        <item>
+         <widget class="QFrame" name="topBar2">
+          <property name="sizePolicy">
+           <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+            <horstretch>0</horstretch>
+            <verstretch>0</verstretch>
+           </sizepolicy>
+          </property>
+          <property name="minimumSize">
+           <size>
+            <width>0</width>
+            <height>87</height>
+           </size>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">background-color: rgb(255, 255, 255);
+</string>
+          </property>
+          <layout class="QHBoxLayout" name="horizontalLayout_2">
+           <item alignment="Qt::AlignmentFlag::AlignVCenter">
+            <widget class="QPushButton" name="backBtn2">
+             <property name="sizePolicy">
+              <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+               <horstretch>0</horstretch>
+               <verstretch>0</verstretch>
+              </sizepolicy>
+             </property>
+             <property name="minimumSize">
+              <size>
+               <width>40</width>
+               <height>40</height>
+              </size>
+             </property>
+             <property name="maximumSize">
+              <size>
+               <width>40</width>
+               <height>40</height>
+              </size>
+             </property>
+             <property name="sizeIncrement">
+              <size>
+               <width>40</width>
+               <height>40</height>
+              </size>
+             </property>
+             <property name="font">
+              <font>
+               <family>Segoe UI</family>
+               <pointsize>18</pointsize>
+               <bold>false</bold>
+              </font>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">QPushButton {
+border-radius: 10px;
+  background: rgb(247, 247, 250);;
+}
+
+QPushButton:hover {
+   background: rgba(0,0,0,0.04);
+}
+
+QPushButton:pressed {
+    background: rgb(222, 226, 236)
+}
+</string>
+             </property>
+             <property name="text">
+              <string>←</string>
+             </property>
+            </widget>
+           </item>
+           <item alignment="Qt::AlignmentFlag::AlignVCenter">
+            <widget class="QLabel" name="label_22">
+             <property name="font">
+              <font>
+               <family>Segoe UI</family>
+               <pointsize>-1</pointsize>
+               <italic>false</italic>
+               <bold>false</bold>
+              </font>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">color: #0f1724; /* dark slate */
+  padding-left: 6px;
+font: 18px;</string>
+             </property>
+             <property name="text">
+              <string>Voter List</string>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </widget>
+        </item>
+        <item>
+         <widget class="QWidget" name="backCard2" native="true">
+          <property name="sizePolicy">
+           <sizepolicy hsizetype="Expanding" vsizetype="MinimumExpanding">
+            <horstretch>1</horstretch>
+            <verstretch>1</verstretch>
+           </sizepolicy>
+          </property>
+          <property name="minimumSize">
+           <size>
+            <width>0</width>
+            <height>70</height>
+           </size>
+          </property>
+          <property name="maximumSize">
+           <size>
+            <width>16777215</width>
+            <height>16777215</height>
+           </size>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">background-color: rgb(255, 255, 255);
+border-radius: 20px;
+border: 1px solid rgb(252, 251, 253);</string>
+          </property>
+          <layout class="QGridLayout" name="gridLayout_5">
+           <property name="leftMargin">
+            <number>40</number>
+           </property>
+           <property name="topMargin">
+            <number>40</number>
+           </property>
+           <property name="rightMargin">
+            <number>40</number>
+           </property>
+           <property name="bottomMargin">
+            <number>40</number>
+           </property>
+           <property name="spacing">
+            <number>15</number>
+           </property>
+           <item row="1" column="0">
+            <widget class="QLineEdit" name="lineEdit">
+             <property name="minimumSize">
+              <size>
+               <width>0</width>
+               <height>40</height>
+              </size>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">QLineEdit{
+   border: 1px solid #d0d7e2;
+    border-radius: 10px;
+    padding: 8px;
+    background: white;
+}
+
+QLineEdit:hover {
+    border: 1px solid rgba(208, 215, 240, 0.7);   /* hover border color */
+    background: rgba(242, 245, 253, 0.7);       /* slight hover background */
+}
+</string>
+             </property>
+             <property name="placeholderText">
+              <string>Search NID or name</string>
+             </property>
+            </widget>
+           </item>
+           <item row="1" column="1">
+            <widget class="QComboBox" name="comboBox1_2">
+             <property name="sizePolicy">
+              <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+               <horstretch>0</horstretch>
+               <verstretch>0</verstretch>
+              </sizepolicy>
+             </property>
+             <property name="minimumSize">
+              <size>
+               <width>0</width>
+               <height>40</height>
+              </size>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">border: 1px solid #d0d7e2;
+    border-radius: 10px;
+    padding: 8px;
+    background: white;</string>
+             </property>
+             <property name="placeholderText">
+              <string>Select a Consituency</string>
+             </property>
+             <item>
+              <property name="text">
+               <string>Dhaka1</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>Dhaka 2</string>
+              </property>
+             </item>
+            </widget>
+           </item>
+           <item row="1" column="2">
+            <widget class="QComboBox" name="comboBox1_3">
+             <property name="sizePolicy">
+              <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+               <horstretch>0</horstretch>
+               <verstretch>0</verstretch>
+              </sizepolicy>
+             </property>
+             <property name="minimumSize">
+              <size>
+               <width>0</width>
+               <height>40</height>
+              </size>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">QComboBox{
+    border: 1px solid #d0d7e2;
+    border-radius: 10px;
+    padding: 8px;
+    background: white;
+}
+
+QComboBox:hover {
+    border: 1px solid rgba(208, 215, 240, 0.7);   /* hover border color */
+    background: rgba(242, 245, 253, 0.7);       /* slight hover background */
+}
+</string>
+             </property>
+             <property name="placeholderText">
+              <string>Status</string>
+             </property>
+             <item>
+              <property name="text">
+               <string>Dhaka1</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>Dhaka 2</string>
+              </property>
+             </item>
+            </widget>
+           </item>
+           <item row="2" column="0" colspan="3">
+            <widget class="QTableWidget" name="tableWidget2">
+             <property name="styleSheet">
+              <string notr="true">QTableWidget {
+    background: white;
+    border-radius: 12px;
+}
+
+QHeaderView::section {
+    background-color: #f1f4fa;
+    padding: 10px;
+    border: none;
+    font-weight: bold;
+}
+
+QTableWidget::item {
+    padding: 10px;
+}</string>
+             </property>
+             <property name="sizeAdjustPolicy">
+              <enum>QAbstractScrollArea::SizeAdjustPolicy::AdjustIgnored</enum>
+             </property>
+             <property name="editTriggers">
+              <set>QAbstractItemView::EditTrigger::NoEditTriggers</set>
+             </property>
+             <property name="alternatingRowColors">
+              <bool>true</bool>
+             </property>
+             <property name="selectionBehavior">
+              <enum>QAbstractItemView::SelectionBehavior::SelectRows</enum>
+             </property>
+             <property name="showGrid">
+              <bool>false</bool>
+             </property>
+             <attribute name="horizontalHeaderCascadingSectionResizes">
+              <bool>false</bool>
+             </attribute>
+             <attribute name="verticalHeaderVisible">
+              <bool>false</bool>
+             </attribute>
+             <column>
+              <property name="text">
+               <string>NID</string>
+              </property>
+             </column>
+             <column>
+              <property name="text">
+               <string>Name</string>
+              </property>
+             </column>
+             <column>
+              <property name="text">
+               <string>DOB</string>
+              </property>
+             </column>
+             <column>
+              <property name="text">
+               <string>Constituency</string>
+              </property>
+             </column>
+             <column>
+              <property name="text">
+               <string>Face</string>
+              </property>
+             </column>
+             <column>
+              <property name="text">
+               <string>Status</string>
+              </property>
+             </column>
+             <column>
+              <property name="text">
+               <string>Actions</string>
+              </property>
+             </column>
+            </widget>
+           </item>
+          </layout>
          </widget>
         </item>
        </layout>

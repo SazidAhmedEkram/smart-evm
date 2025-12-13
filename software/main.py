@@ -1,9 +1,10 @@
 from PyQt6.QtGui import QColor, QIcon, QFont
-from PyQt6.QtWidgets import QApplication, QMainWindow, QGraphicsDropShadowEffect, QGraphicsBlurEffect, QMessageBox
+from PyQt6.QtWidgets import QApplication, QMainWindow, QGraphicsDropShadowEffect, QGraphicsBlurEffect, QMessageBox, \
+    QHeaderView
 
 from software import FaceRecognition, VoterRegistration, VoiceInstructions
 from ui_main import Ui_AdminDashboard
-
+import voterList
 import BD_Constituencies
 class MainWindow(QMainWindow):
     def __init__(self):
@@ -23,7 +24,7 @@ class MainWindow(QMainWindow):
         self.face_encoding = None  # Store captured face
 
         #Add shadow to the cards and buttons
-        cards = [self.ui.card2, self.ui.card1, self.ui.card4, self.ui.card3, self.ui.topBar1]
+        cards = [self.ui.card2, self.ui.card1, self.ui.card4, self.ui.card3, self.ui.topBar1, self.ui.topBar2]
         for card in cards:
             self.addShadow(card)
         buttons = [self.ui.registerBtn, self.ui.electionBtn, self.ui.voterBtn,
@@ -31,6 +32,7 @@ class MainWindow(QMainWindow):
         for button in buttons:
             self.addShadowButton(button)
         self.addShadowBackcard(self.ui.backCard1)
+        self.addShadowBackcard(self.ui.backCard2)
         #Load the Data to comboBox1
         # Clear previous items
         self.ui.comboBox1.clear()
@@ -48,6 +50,36 @@ class MainWindow(QMainWindow):
         #Button Clicked Signal
         self.ui.registerBtn.clicked.connect(self.go_to_page1)
         self.ui.backBtn1.clicked.connect(self.go_to_page0)
+
+        #Responsive header for tableWidget
+        self.ui.tableWidget2.horizontalHeader().setSectionResizeMode(
+            QHeaderView.ResizeMode.Stretch
+        )
+        voterList.setup_voter_table(self.ui.tableWidget2)
+        voters = [
+            {
+                "nid": "1234567890",
+                "name": "Ahmed Hassan",
+                "dob": "1985-03-15",
+                "constituency": "Dhaka-1",
+                "face": "OK",
+                "status": "Voted"
+            },
+            {
+                "nid": "2345678901",
+                "name": "Fatima Rahman",
+                "dob": "1990-07-22",
+                "constituency": "Dhaka-2",
+                "face": "OK",
+                "status": "Not Voted"
+            }
+        ]
+        voterList.load_voters(self.ui.tableWidget2, voters)
+        voterList.finalize_voter_table(self.ui.tableWidget2)
+
+
+        self.ui.backBtn2.clicked.connect(self.go_to_page0)
+        self.ui.voterBtn.clicked.connect(self.go_to_page2)
 
     def capture_face(self):
         # This function captures the face and stores encoding in self.face_encoding
@@ -109,6 +141,8 @@ class MainWindow(QMainWindow):
         self.ui.stackedWidget.setCurrentIndex(1)
     def go_to_page0(self):
         self.ui.stackedWidget.setCurrentIndex(0)
+    def go_to_page2(self):
+        self.ui.stackedWidget.setCurrentIndex(2)
     def validButon(self):
         self.ui.validNid.setVisible(False)
         self.ui.validAddress.setVisible(False)
