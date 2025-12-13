@@ -1,7 +1,5 @@
-# validation.py
-import datetime
 import BD_Constituencies
-import FaceRecognition
+
 
 def validate_nid(nid: str) -> bool:
     return nid.isdigit() and 10 <= len(nid) <= 17
@@ -21,8 +19,29 @@ def validate_address(address: str) -> bool:
 
 def validate_constituency(constituency: str, valid_list: list) -> bool:
     return constituency in valid_list
+def validateFace(face: str) -> bool:
+    if face == "⚠ Not Registered":
+        return False
+    if face == "Registered":
+        return True
 
-def validate_registration(ui):
+def is_registration_valid(ui) -> bool:
+    nid = ui.nid1.text()
+    name = ui.name1.text()
+    phone = ui.number1.text()
+    address = ui.address1.text()
+    constituency = ui.comboBox1.currentText()
+    return (
+            validate_nid(nid) and
+            validate_name(name) and
+            validate_phone(phone) and
+            validate_dob(ui.dob1) and
+            validate_address(address) and
+            validate_constituency(constituency, BD_Constituencies.BD_Constituencies) and
+            validateFace(ui.notRegistered.text())
+    )
+
+def show_validation_feedback(ui) -> None:
     nid = ui.nid1.text()
     name = ui.name1.text()
     phone = ui.number1.text()
@@ -35,13 +54,4 @@ def validate_registration(ui):
     ui.validDob.setVisible(not validate_dob(ui.dob1))  # FIXED
     ui.validAddress.setVisible(not validate_address(address))
     ui.validConstituency.setVisible(not validate_constituency(constituency, BD_Constituencies.BD_Constituencies))
-
-    return (
-            validate_nid(nid) and
-            validate_name(name) and
-            validate_phone(phone) and
-            validate_dob(ui.dob1) and
-            validate_address(address) and
-            validate_constituency(constituency, BD_Constituencies.BD_Constituencies)
-    )
-
+    ui.validRegister.setVisible(not validateFace(ui.notRegistered.text()))

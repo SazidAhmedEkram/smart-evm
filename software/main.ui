@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1079</width>
-    <height>794</height>
+    <width>1083</width>
+    <height>815</height>
    </rect>
   </property>
   <property name="sizePolicy">
@@ -1361,7 +1361,7 @@ QScrollBar::sub-page:horizontal {
           <widget class="QWidget" name="scrollAreaWidgetContents_2">
            <property name="geometry">
             <rect>
-             <x>10</x>
+             <x>12</x>
              <y>0</y>
              <width>1010</width>
              <height>605</height>
@@ -1728,6 +1728,43 @@ QPushButton:pressed {
                  <string>Re-register Face</string>
                 </property>
                </widget>
+               <widget class="QLabel" name="validRegister">
+                <property name="geometry">
+                 <rect>
+                  <x>170</x>
+                  <y>120</y>
+                  <width>459</width>
+                  <height>15</height>
+                 </rect>
+                </property>
+                <property name="sizePolicy">
+                 <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+                  <horstretch>0</horstretch>
+                  <verstretch>0</verstretch>
+                 </sizepolicy>
+                </property>
+                <property name="font">
+                 <font>
+                  <family>Segoe UI</family>
+                  <pointsize>-1</pointsize>
+                  <italic>false</italic>
+                  <bold>false</bold>
+                 </font>
+                </property>
+                <property name="styleSheet">
+                 <string notr="true">color: rgb(255, 53, 99);
+border: none;       /* instead of transparent */
+font: 12px;
+padding: 0px;       /* remove padding to shrink height */
+</string>
+                </property>
+                <property name="text">
+                 <string notr="true">Please register the face</string>
+                </property>
+                <property name="wordWrap">
+                 <bool>true</bool>
+                </property>
+               </widget>
               </widget>
              </item>
              <item row="10" column="0">
@@ -1772,7 +1809,7 @@ QDateEdit:hover {
                  <second>0</second>
                  <year>2004</year>
                  <month>11</month>
-                 <day>11</day>
+                 <day>10</day>
                 </datetime>
                </property>
                <property name="currentSection">
@@ -1891,7 +1928,7 @@ QComboBox:hover {
               </widget>
              </item>
              <item row="16" column="0">
-              <widget class="QPushButton" name="voterBtn_5">
+              <widget class="QPushButton" name="cancel1">
                <property name="sizePolicy">
                 <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
                  <horstretch>0</horstretch>
@@ -2106,7 +2143,7 @@ padding: 0px;       /* remove padding to shrink height */
 </string>
                </property>
                <property name="text">
-                <string notr="true">     Date of Birth is not valid</string>
+                <string notr="true">     Voter must be 18+</string>
                </property>
                <property name="wordWrap">
                 <bool>true</bool>
@@ -2227,7 +2264,7 @@ padding: 0px;       /* remove padding to shrink height */
 </string>
                </property>
                <property name="text">
-                <string notr="true">     Constituency is not valid</string>
+                <string notr="true">     Select a Consituency</string>
                </property>
                <property name="wordWrap">
                 <bool>true</bool>
@@ -2258,7 +2295,7 @@ padding: 0px;       /* remove padding to shrink height */
 </string>
                </property>
                <property name="text">
-                <string notr="true">     Address is not valid</string>
+                <string notr="true">     Please enter the address</string>
                </property>
                <property name="wordWrap">
                 <bool>true</bool>
@@ -2293,7 +2330,7 @@ padding: 0px;       /* remove padding to shrink height */
   <tabstop>dob1</tabstop>
   <tabstop>comboBox1</tabstop>
   <tabstop>save1</tabstop>
-  <tabstop>voterBtn_5</tabstop>
+  <tabstop>cancel1</tabstop>
   <tabstop>scrollArea</tabstop>
   <tabstop>faceScan1</tabstop>
  </tabstops>

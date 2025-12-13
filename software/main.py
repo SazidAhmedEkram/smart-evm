@@ -1,7 +1,7 @@
 from PyQt6.QtGui import QColor, QIcon, QFont
-from PyQt6.QtWidgets import QApplication, QMainWindow, QGraphicsDropShadowEffect, QGraphicsBlurEffect
+from PyQt6.QtWidgets import QApplication, QMainWindow, QGraphicsDropShadowEffect, QGraphicsBlurEffect, QMessageBox
 
-from software import FaceRecognition
+from software import FaceRecognition, VoterRegistration, VoiceInstructions
 from ui_main import Ui_AdminDashboard
 
 import BD_Constituencies
@@ -19,6 +19,9 @@ class MainWindow(QMainWindow):
         self.setWindowIcon(QIcon("resources/logo.jpg"))
         #Setupn the database for the first time
         FaceRecognition.setup_database()
+
+        self.face_encoding = None  # Store captured face
+
         #Add shadow to the cards and buttons
         cards = [self.ui.card2, self.ui.card1, self.ui.card4, self.ui.card3, self.ui.topBar1]
         for card in cards:
@@ -35,16 +38,71 @@ class MainWindow(QMainWindow):
             self.ui.comboBox1.addItem(str(i))
 
         #After Pressing the save1 button
-        import VoterRegistration
-        self.ui.save1.clicked.connect(lambda: VoterRegistration.validate_registration(self.ui))
+
+        self.ui.save1.clicked.connect(self.save1)
         #After Pressing the faceScan1 button
-        self.ui.faceScan1.clicked.connect(lambda: FaceRecognition.register_voter(self.ui))
+        self.ui.faceScan1.clicked.connect(self.capture_face)
         #Validity button
         self.validButon()
-        #Button Clicked Signal
 
+        #Button Clicked Signal
         self.ui.registerBtn.clicked.connect(self.go_to_page1)
         self.ui.backBtn1.clicked.connect(self.go_to_page0)
+
+    def capture_face(self):
+        # This function captures the face and stores encoding in self.face_encoding
+        self.face_encoding = FaceRecognition.register_voter(self.ui)
+        if self.face_encoding is not None:
+            print("Face captured successfully")
+        else:
+            print("Face capture failed")
+
+    #Pressing the Save1 Button
+    def save1(self):
+        if not VoterRegistration.is_registration_valid(self.ui):
+            VoterRegistration.show_validation_feedback(self.ui)
+            VoiceInstructions.speak("Please fill all required fields before saving.")
+            return
+
+        if self.face_encoding is None:
+            VoiceInstructions.speak("Please scan your face before saving.")
+            return
+        reply = QMessageBox.question(self, "Confirm Save",
+                                     "Are you sure you want to save the face?",
+                                     QMessageBox.StandardButton.Yes | QMessageBox.StandardButton.No,
+                                     QMessageBox.StandardButton.No)
+        if reply == QMessageBox.StandardButton.No:
+            return
+        # Insert into DB
+        nid = self.ui.nid1.text()
+        name = self.ui.name1.text()
+        phone = self.ui.number1.text()
+        dob = self.ui.dob1.text()
+        constituency = self.ui.comboBox1.currentText()
+        address = self.ui.address1.text()
+
+        success, message = FaceRecognition.insert_voter_to_db(
+            nid, name, dob, phone, constituency, address, self.face_encoding
+        )
+
+        print(message)
+        if success:
+            self.validButon()
+            VoiceInstructions.speak("Congratulations! Your voter has been registered.")
+            self.clear1()
+            self.face_encoding = None  # Reset for next registration
+            self.go_to_page0()
+        else:
+            VoiceInstructions.speak(message)
+
+    def clear1(self):
+        self.ui.nid1.clear()
+        self.ui.name1.clear()
+        self.ui.dob1.clear()
+        self.ui.address1.clear()
+        self.ui.comboBox1.clear()
+        self.ui.number1.clear()
+        self.validButon()
 
 
     def go_to_page1(self):
@@ -58,7 +116,11 @@ class MainWindow(QMainWindow):
         self.ui.validConstituency.setVisible(False)
         self.ui.validName.setVisible(False)
         self.ui.validPhn.setVisible(False)
-
+        self.ui.validRegister.setVisible(False)
+        self.ui.notRegisteredCard.setStyleSheet("""background-color: rgb(232, 162, 59);
+                                            border-radius: 20px;
+                                            border: 1px solid rgb(200, 210, 240);""")
+        self.ui.notRegistered.setText("⚠ Not Registered")
 
 
     def addShadow(self, widget):

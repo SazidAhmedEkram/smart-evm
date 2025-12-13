@@ -89,46 +89,19 @@ def setup_database():
     conn.commit()
     conn.close()
 
-
-# --- 1. Voter Registration Function (Uses 3-Frame Average for Stability) ---
 def register_voter(ui):
     print("\n--- VOTER REGISTRATION ---")
     VoiceInstructions.speak("Please scan your face")
 
-
-    nid = ui.nid1.text()
-    name = ui.name1.text()
-    phone = ui.number1.text()
-    address = ui.address1.text()
-    dob = ui.dob1.text()
-    constituency = ui.comboBox1.currentText()
-
-    conn = sqlite3.connect('evmDatabase.db')
-    c = conn.cursor()
-
-    # Check if NID already exists
-    c.execute("SELECT * FROM voters WHERE nid=?", (nid,))
-    if c.fetchone():
-        print("NID already registered!")
-        VoiceInstructions.speak("The NID you provide is already registered!")
-        conn.close()
-        return
-
-    # Open camera and show live feed
+    # Open camera
     video = cv2.VideoCapture(0)
     if not video.isOpened():
         print("Cannot open camera")
         VoiceInstructions.speak("Cannot open camera")
-        conn.close()
         return
+
     VoiceInstructions.speak("Camera is on. Press Enter to start face capture")
-
-    print("Camera is on. Press Enter to start face capture...")
-
-
     cv2.namedWindow("Face Registration - Live Feed")
-
-    # Wait for Enter to start capturing
     while True:
         ret, frame = video.read()
         if not ret:
@@ -139,16 +112,14 @@ def register_voter(ui):
             time.sleep(1)
             break
 
-    # Capture 3 frames and average the encoding
+    # Capture 3 frames
     encodings = []
     for i in range(3):
         ret, frame = video.read()
         if not ret:
             continue
-
         small_frame = cv2.resize(frame, (0, 0), fx=0.5, fy=0.5)
         rgb_small_frame = cv2.cvtColor(small_frame, cv2.COLOR_BGR2RGB)
-
         face_locations = face_recognition.face_locations(rgb_small_frame)
         if face_locations:
             face_encoding = face_recognition.face_encodings(rgb_small_frame, face_locations)[0]
@@ -156,7 +127,6 @@ def register_voter(ui):
             print(f"Captured frame {i + 1}")
         else:
             print(f"No face detected in frame {i + 1}, skipping...")
-
         time.sleep(0.5)
 
     video.release()
@@ -165,36 +135,43 @@ def register_voter(ui):
     if len(encodings) < 2:
         print("Failed to capture enough clear faces. Try again.")
         VoiceInstructions.speak("Failed to capture enough clear faces. Please Try again.")
-        conn.close()
         return
 
     final_encoding = np.mean(encodings, axis=0)
+    VoiceInstructions.speak("Face captured successfully")
+    ui.notRegisteredCard.setStyleSheet("background-color: green;")
+    ui.notRegistered.setText("Registered")
+    ui.validConstituency.setVisible(False)
+    ui.validRegister.setVisible(False)
+    return final_encoding
+
+def insert_voter_to_db(nid, name, dob, phone, constituency, address, face_encoding):
+    conn = sqlite3.connect('evmDatabase.db')
+    c = conn.cursor()
+
+    # Check if NID already exists
+    c.execute("SELECT * FROM voters WHERE nid=?", (nid,))
+    if c.fetchone():
+        conn.close()
+        return False, "NID already registered!"
 
     # Check if face already exists
     c.execute("SELECT face_encoding FROM voters")
     all_faces = c.fetchall()
     for f in all_faces:
         known_face = pickle.loads(f[0])
-        if face_recognition.compare_faces([known_face], final_encoding, tolerance=0.65)[0]:
-            print("This face is already registered with another NID!")
-
-            VoiceInstructions.speak("This face is already registered with another NID!")
-
+        if face_recognition.compare_faces([known_face], face_encoding, tolerance=0.65)[0]:
             conn.close()
-            return
+            return False, "This face is already registered with another NID!"
 
     # Insert voter into DB
     c.execute(
         "INSERT INTO voters (nid, name, dob, phone, constituency, address, face_encoding) VALUES (?, ?, ?, ?, ?, ?, ?)",
-        (nid, name, dob, phone, constituency, address, pickle.dumps(final_encoding))
+        (nid, name, dob, phone, constituency, address, pickle.dumps(face_encoding))
     )
     conn.commit()
     conn.close()
-    print("Voter registered successfully!")
-    VoiceInstructions.spaek("Voter registered successfully!")
-    ui.notRegisteredCard.setStyleSheet("background-color: green;")
-    ui.notRegistered.setText("Registered")
-
+    return True, "Voter registered successfully!"
 
 
 
