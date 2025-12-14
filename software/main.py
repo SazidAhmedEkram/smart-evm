@@ -1,10 +1,9 @@
-from PyQt6.QtGui import QColor, QIcon, QFont
-from PyQt6.QtWidgets import QApplication, QMainWindow, QGraphicsDropShadowEffect, QGraphicsBlurEffect, QMessageBox, \
+from PyQt6.QtGui import QColor, QIcon
+from PyQt6.QtWidgets import QApplication, QMainWindow, QGraphicsDropShadowEffect, QMessageBox, \
     QHeaderView
 
-from software import FaceRecognition, VoterRegistration, VoiceInstructions
+from software import FaceRecognition, VoterRegistration, VoiceInstructions, DataAccess, voterList
 from ui_main import Ui_AdminDashboard
-import voterList
 import BD_Constituencies
 class MainWindow(QMainWindow):
     def __init__(self):
@@ -55,31 +54,38 @@ class MainWindow(QMainWindow):
         self.ui.tableWidget2.horizontalHeader().setSectionResizeMode(
             QHeaderView.ResizeMode.Stretch
         )
-        voterList.setup_voter_table(self.ui.tableWidget2)
-        voters = [
-            {
-                "nid": "1234567890",
-                "name": "Ahmed Hassan",
-                "dob": "1985-03-15",
-                "constituency": "Dhaka-1",
-                "face": "OK",
-                "status": "Voted"
-            },
-            {
-                "nid": "2345678901",
-                "name": "Fatima Rahman",
-                "dob": "1990-07-22",
-                "constituency": "Dhaka-2",
-                "face": "OK",
-                "status": "Not Voted"
-            }
-        ]
-        voterList.load_voters(self.ui.tableWidget2, voters)
-        voterList.finalize_voter_table(self.ui.tableWidget2)
 
+        #Load the data for page 2
+        self.all_voters = DataAccess.get_all_voters()
+        voterList.load_voters(self.ui.tableWidget2, self.all_voters)
+
+        #filter for page 2
+        self.LoadFilters2()
+        self.ui.lineEdit2.textChanged.connect(self.apply_filters)
+        self.ui.comboBox2.currentTextChanged.connect(self.apply_filters)
+        self.ui.status2.currentTextChanged.connect(self.apply_filters)
+        self.ui.face2.currentTextChanged.connect(self.apply_filters)
 
         self.ui.backBtn2.clicked.connect(self.go_to_page0)
         self.ui.voterBtn.clicked.connect(self.go_to_page2)
+        self.ui.face2.clear()
+        self.ui.face2.addItems(["All", "Registered", "Not Registered"])
+
+    def apply_filters(self):
+        search_text = self.ui.lineEdit2.text()
+        constituency = self.ui.comboBox2.currentText()
+        status = self.ui.status2.currentText()
+        face_filter = self.ui.face2.currentText()  # new filter
+
+        filtered = voterList.filter_voters(
+            self.all_voters,
+            search_text,
+            constituency,
+            status,
+            face_filter
+        )
+
+        voterList.load_voters(self.ui.tableWidget2, filtered)
 
     def capture_face(self):
         # This function captures the face and stores encoding in self.face_encoding
@@ -143,6 +149,36 @@ class MainWindow(QMainWindow):
         self.ui.stackedWidget.setCurrentIndex(0)
     def go_to_page2(self):
         self.ui.stackedWidget.setCurrentIndex(2)
+        # If needed, fetch fresh voters
+        self.all_voters = DataAccess.get_all_voters()
+        self.LoadFilters2()
+        # Re-apply previous filters
+        filtered = voterList.filter_voters(
+            self.all_voters,
+            self.current_search,
+            self.current_constituency,
+            self.current_status,
+            self.currentFace
+
+        )
+        voterList.load_voters(self.ui.tableWidget2, filtered)
+
+    def LoadFilters2(self):
+        self.current_search = ""
+        self.current_constituency = "All"
+        self.current_status = "All"
+        self.currentFace = "All"
+
+        self.ui.lineEdit2.clear()
+        self.ui.comboBox2.clear()
+        self.ui.status2.clear()
+        self.ui.status2.clear()
+        self.ui.status2.addItems(["All", "Voted", "Not Voted"])
+        self.ui.comboBox2.addItem("All")
+        self.ui.comboBox2.addItems(BD_Constituencies.BD_Constituencies)
+        self.ui.face2.clear()
+        self.ui.face2.addItems(["All", "Registered", "Not Registered"])
+
     def validButon(self):
         self.ui.validNid.setVisible(False)
         self.ui.validAddress.setVisible(False)

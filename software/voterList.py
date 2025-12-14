@@ -3,43 +3,7 @@ from PyQt6.QtCore import Qt
 
 from PyQt6.QtWidgets import QHeaderView
 
-def setup_voter_table(table):
-    header = table.horizontalHeader()
-
-    # 🔥 VERY IMPORTANT
-    header.setStretchLastSection(False)
-
-    # Use Interactive initially
-    header.setSectionResizeMode(QHeaderView.ResizeMode.Interactive)
-
-    # Set safe minimum widths
-    table.setColumnWidth(0, 140)  # NID
-    table.setColumnWidth(1, 200)  # Name
-    table.setColumnWidth(2, 120)  # DOB
-    table.setColumnWidth(3, 160)  # Constituency
-    table.setColumnWidth(4, 140)  # Face
-    table.setColumnWidth(5, 140)  # Status
-    table.setColumnWidth(6, 120)  # Actions
-
-    table.setWordWrap(False)
-    header.setDefaultAlignment(Qt.AlignmentFlag.AlignCenter)
-
-def finalize_voter_table(table):
-    header = table.horizontalHeader()
-
-    # Now Qt knows actual content size
-    header.setSectionResizeMode(0, QHeaderView.ResizeMode.ResizeToContents)
-    header.setSectionResizeMode(2, QHeaderView.ResizeMode.ResizeToContents)
-    header.setSectionResizeMode(4, QHeaderView.ResizeMode.ResizeToContents)
-    header.setSectionResizeMode(5, QHeaderView.ResizeMode.ResizeToContents)
-    header.setSectionResizeMode(6, QHeaderView.ResizeMode.ResizeToContents)
-
-    # Flexible columns
-    header.setSectionResizeMode(1, QHeaderView.ResizeMode.Stretch)
-    header.setSectionResizeMode(3, QHeaderView.ResizeMode.Stretch)
-
-    # 🔥 Force recalculation
-    table.resizeColumnsToContents()
+from software.BD_Constituencies import BD_Constituencies
 
 
 def add_voter_row(table, voter):
@@ -66,8 +30,9 @@ def load_voters(table, voters):
     for voter in voters:
         add_voter_row(table, voter)
 
+
 def create_face_pill(face_status):
-    color = "#22c55e" if face_status == "OK" else "#f59e0b"
+    color = "#22c55e" if face_status == "Registered" else "#f59e0b"
 
     label = QLabel(face_status)
     label.setAlignment(Qt.AlignmentFlag.AlignCenter)
@@ -77,7 +42,9 @@ def create_face_pill(face_status):
             color: white;
             padding: 6px 16px;
             border-radius: 14px;
+            border : None;
             font-weight: 600;
+
         }}
     """)
     return label
@@ -94,15 +61,20 @@ def create_status_pill(status):
             padding: 6px 16px;
             border-radius: 14px;
             font-weight: 600;
+            border : None;
         }}
     """)
     return label
 
 def create_action_buttons():
     w = QWidget()
+    w.setStyleSheet("""
+    background-color: transparent;
+    border: None""")
     layout = QHBoxLayout(w)
     layout.setContentsMargins(0, 0, 0, 0)
     layout.setSpacing(8)
+
 
     view = QPushButton("👁")
     view.setFixedSize(32, 32)
@@ -115,3 +87,34 @@ def create_action_buttons():
     layout.addWidget(view)
     layout.addWidget(delete)
     return w
+
+def filter_voters(voters, search_text, constituency, status, face_filter):
+    search_text = search_text.lower().strip()
+
+    filtered = []
+
+    for voter in voters:
+        # 🔍 NID or Name
+        if search_text:
+            if (search_text not in voter["nid"].lower() and
+                search_text not in voter["name"].lower()):
+                continue
+
+        # 🗺 Constituency
+        if constituency and constituency != "All":
+            if voter["constituency"] != constituency:
+                continue
+
+        # 🗳 Vote Status
+        if status and status != "All":
+            if voter["status"] != status:
+                continue
+
+        # ✅ Face Verification
+        if face_filter and face_filter != "All":
+            if voter["face"] != face_filter:
+                continue
+
+        filtered.append(voter)
+
+    return filtered
