@@ -23,7 +23,7 @@ class MainWindow(QMainWindow):
         self.face_encoding = None  # Store captured face
 
         #Add shadow to the cards and buttons
-        cards = [self.ui.card2, self.ui.card1, self.ui.card4, self.ui.card3, self.ui.topBar1, self.ui.topBar2]
+        cards = [self.ui.card2, self.ui.card1, self.ui.card4, self.ui.card3, self.ui.topBar1, self.ui.topBar2, self.ui.topBar3]
         for card in cards:
             self.addShadow(card)
         buttons = [self.ui.registerBtn, self.ui.electionBtn, self.ui.voterBtn,
@@ -70,7 +70,6 @@ class MainWindow(QMainWindow):
         self.ui.voterBtn.clicked.connect(self.go_to_page2)
         self.ui.face2.clear()
         self.ui.face2.addItems(["All", "Registered", "Not Registered"])
-
 
 
         # Load candidate cards

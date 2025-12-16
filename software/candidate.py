@@ -12,7 +12,7 @@ from PyQt6 import QtCore, QtGui, QtWidgets
 class Ui_Form(object):
     def setupUi(self, Form):
         Form.setObjectName("Form")
-        Form.resize(625, 257)
+        Form.resize(458, 320)
         self.gridLayout = QtWidgets.QGridLayout(Form)
         self.gridLayout.setObjectName("gridLayout")
         self.backCard1_2 = QtWidgets.QWidget(parent=Form)
@@ -21,7 +21,7 @@ class Ui_Form(object):
         sizePolicy.setVerticalStretch(1)
         sizePolicy.setHeightForWidth(self.backCard1_2.sizePolicy().hasHeightForWidth())
         self.backCard1_2.setSizePolicy(sizePolicy)
-        self.backCard1_2.setMinimumSize(QtCore.QSize(0, 194))
+        self.backCard1_2.setMinimumSize(QtCore.QSize(360, 194))
         self.backCard1_2.setMaximumSize(QtCore.QSize(16777215, 194))
         self.backCard1_2.setStyleSheet("background-color: rgb(255, 255, 255);\n"
 "border-radius: 20px;\n"

@@ -1,14 +1,17 @@
-from PyQt6.QtWidgets import QWidget
+from PyQt6.QtWidgets import QWidget, QApplication, QVBoxLayout, QSizePolicy
 from candidate import Ui_Form
 
 class CandidateCardWidget(QWidget):
     def __init__(self, candidate_data: dict):
         super().__init__()
-        self.setContentsMargins(8, 8, 8, 8)
-        self.setMinimumWidth(360)  # card width
-        self.setMaximumWidth(420)  # optional
-        self.setMinimumHeight(200)
-
+        # self.setContentsMargins(8, 8, 8, 8)
+        # self.setMinimumWidth(360)  # card width
+        # self.setMaximumWidth(500)  # optional
+        # self.setMinimumHeight(200)
+        self.setSizePolicy(
+            QSizePolicy.Policy.Expanding,
+            QSizePolicy.Policy.Maximum
+        )
         # Build UI
         self.ui = Ui_Form()
         self.ui.setupUi(self)
@@ -33,6 +36,15 @@ class CandidateCardWidget(QWidget):
 #
 # if __name__ == "__main__":
 #     app = QApplication([])
-#     window = QMainWindow()
+#     window = QWidget()
+#     layout = QVBoxLayout(window)  # set layout for main window
+#
+#     # Create a candidate card
+#     candidate_data = {"name": "John Doe", "constituency": "Dhaka-1", "party": "Awami League"}
+#     card = CandidateCardWidget(candidate_data)
+#
+#     layout.addWidget(card)  # add card to layout
+#
+#     window.setLayout(layout)
 #     window.show()
 #     app.exec()
