@@ -47,13 +47,27 @@ def setup_database():
                   id
                   INTEGER
                   PRIMARY
-                  KEY,
+                  KEY
+                  AUTOINCREMENT,
                   name
-                  TEXT,
+                  TEXT
+                  NOT
+                  NULL,
                   party
                   TEXT
+                  NOT
+                  NULL,
+                  constituency
+                  TEXT
+                  NOT
+                  NULL,
+                  candidate_picture
+                  BLOB,
+                  party_logo
+                  BLOB
               )
               """)
+
 
     # 3. Votes Table (To store results separately)
     c.execute("""

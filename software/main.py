@@ -2,7 +2,7 @@ from PyQt6.QtGui import QColor, QIcon
 from PyQt6.QtWidgets import QApplication, QMainWindow, QGraphicsDropShadowEffect, QMessageBox, \
     QHeaderView
 
-from software import FaceRecognition, VoterRegistration, VoiceInstructions, DataAccess, voterList
+from software import FaceRecognition, VoterRegistration, VoiceInstructions, DataAccess, voterList, candidateList
 from ui_main import Ui_AdminDashboard
 import BD_Constituencies
 class MainWindow(QMainWindow):
@@ -70,6 +70,13 @@ class MainWindow(QMainWindow):
         self.ui.voterBtn.clicked.connect(self.go_to_page2)
         self.ui.face2.clear()
         self.ui.face2.addItems(["All", "Registered", "Not Registered"])
+
+
+
+        # Load candidate cards
+        candidateList.set(self.ui)
+        self.ui.backbtn2.clicked.connect(self.go_to_page0)
+        self.ui.candidateBtn.clicked.connect(self.go_to_page3)
 
     def apply_filters(self):
         search_text = self.ui.lineEdit2.text()
@@ -149,13 +156,13 @@ class MainWindow(QMainWindow):
 
 
     def go_to_page1(self):
-        self.ui.stackedWidget.setCurrentIndex(1)
+        self.ui.stackedWidget.setCurrentIndex(2)
 
     def go_to_page0(self):
         self.ui.stackedWidget.setCurrentIndex(0)
         self.clear1()
     def go_to_page2(self):
-        self.ui.stackedWidget.setCurrentIndex(2)
+        self.ui.stackedWidget.setCurrentIndex(3)
         # If needed, fetch fresh voters
         self.all_voters = DataAccess.get_all_voters()
         self.LoadFilters2()
@@ -169,7 +176,8 @@ class MainWindow(QMainWindow):
 
         )
         voterList.load_voters(self.ui.tableWidget2, filtered)
-
+    def go_to_page3(self):
+        self.ui.stackedWidget.setCurrentIndex(1)
     def LoadFilters2(self):
         self.current_search = ""
         self.current_constituency = "All"
