@@ -1,5 +1,22 @@
-opencv-python
-numpy
-pyserial
-pywin32
-PyQt6==6.10.0
+
+# Core
+
+numpy>=1.26
+Pillow>=10
+
+# Face Recognition
+
+face-recognition==1.3.0
+dlib>=19.24
+
+# Computer Vision
+
+opencv-contrib-python>=4.8
+
+# GUI
+
+PyQt6>=6.6
+
+# Speech (optional)
+
+pyttsx3>=2.9
