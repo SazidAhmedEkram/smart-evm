@@ -122,16 +122,21 @@ class MainWindow(QMainWindow):
         success, message = FaceRecognition.insert_voter_to_db(
             nid, name, dob, phone, constituency, address, self.face_encoding
         )
-
         print(message)
+        # 6️⃣ Handle result
         if success:
-            self.validButon()
             VoiceInstructions.speak("Congratulations! Your voter has been registered.")
+            QMessageBox.information(self, "Success", message)
             self.clear1()
-            self.face_encoding = None  # Reset for next registration
+            self.face_encoding = None
             self.go_to_page0()
+
         else:
             VoiceInstructions.speak(message)
+            QMessageBox.warning(self, "Registration Failed", message)
+            #reset face only on face-related error
+            self.face_encoding = None
+            self.validButon()
 
     def clear1(self):
         self.ui.nid1.clear()
@@ -145,8 +150,10 @@ class MainWindow(QMainWindow):
 
     def go_to_page1(self):
         self.ui.stackedWidget.setCurrentIndex(1)
+
     def go_to_page0(self):
         self.ui.stackedWidget.setCurrentIndex(0)
+        self.clear1()
     def go_to_page2(self):
         self.ui.stackedWidget.setCurrentIndex(2)
         # If needed, fetch fresh voters
