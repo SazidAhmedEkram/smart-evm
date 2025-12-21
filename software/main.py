@@ -32,11 +32,13 @@ class MainWindow(QMainWindow):
             self.addShadowButton(button)
         self.addShadowBackcard(self.ui.backCard1)
         self.addShadowBackcard(self.ui.backCard2)
+        self.addShadowBackcard(self.ui.backCard4)
         #Load the Data to comboBox1
         # Clear previous items
-        self.ui.comboBox1.clear()
+        #self.ui.comboBox1.clear()
         for i in BD_Constituencies.BD_Constituencies:
             self.ui.comboBox1.addItem(str(i))
+
 
         #After Pressing the save1 button
 
@@ -76,6 +78,13 @@ class MainWindow(QMainWindow):
         candidateList.set(self.ui)
         self.ui.backbtn2.clicked.connect(self.go_to_page0)
         self.ui.candidateBtn.clicked.connect(self.go_to_page3)
+
+        self.ui.backBtn4.clicked.connect(self.go_to_page0)
+        self.ui.addCandidate.clicked.connect(self.go_to_page4)
+        #Set Constituency
+        self.ui.constitute4.addItems(BD_Constituencies.BD_Constituencies)
+        self.ui.comboBox1.addItems(BD_Constituencies.BD_Constituencies)
+
 
     def apply_filters(self):
         search_text = self.ui.lineEdit2.text()
@@ -150,9 +159,15 @@ class MainWindow(QMainWindow):
         self.ui.dob1.clear()
         self.ui.address1.clear()
         self.ui.comboBox1.clear()
+        self.ui.comboBox1.addItems(BD_Constituencies.BD_Constituencies)
         self.ui.number1.clear()
         self.validButon()
 
+    def clear4(self):
+        self.ui.candidateName4.clear()
+        self.ui.constitute4.clear()
+        self.ui.partyName4.clear()
+        self.ui.constitute4.addItems(BD_Constituencies.BD_Constituencies)
 
     def go_to_page1(self):
         self.ui.stackedWidget.setCurrentIndex(2)
@@ -177,6 +192,9 @@ class MainWindow(QMainWindow):
         voterList.load_voters(self.ui.tableWidget2, filtered)
     def go_to_page3(self):
         self.ui.stackedWidget.setCurrentIndex(1)
+    def go_to_page4(self):
+        self.ui.stackedWidget.setCurrentIndex(4)
+        self.clear4()
     def LoadFilters2(self):
         self.current_search = ""
         self.current_constituency = "All"

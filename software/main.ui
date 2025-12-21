@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1679</width>
-    <height>749</height>
+    <width>993</width>
+    <height>776</height>
    </rect>
   </property>
   <property name="sizePolicy">
@@ -78,7 +78,7 @@ QStackedWidget::pane {
 </string>
       </property>
       <property name="currentIndex">
-       <number>1</number>
+       <number>4</number>
       </property>
       <widget class="QWidget" name="page_0">
        <layout class="QGridLayout" name="gridLayout_4">
@@ -1233,7 +1233,7 @@ font: 18px;</string>
             </widget>
            </item>
            <item>
-            <widget class="QPushButton" name="save1_2">
+            <widget class="QPushButton" name="addCandidate">
              <property name="sizePolicy">
               <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
                <horstretch>0</horstretch>
@@ -1395,8 +1395,8 @@ QScrollBar::sub-page:horizontal {
            <property name="geometry">
             <rect>
              <x>0</x>
-             <y>0</y>
-             <width>1621</width>
+             <y>13</y>
+             <width>945</width>
              <height>605</height>
             </rect>
            </property>
@@ -2346,7 +2346,7 @@ QScrollBar::sub-page:horizontal {
             <rect>
              <x>0</x>
              <y>0</y>
-             <width>572</width>
+             <width>935</width>
              <height>597</height>
             </rect>
            </property>
@@ -2662,7 +2662,7 @@ QDateEdit:hover {
                    <second>0</second>
                    <year>2004</year>
                    <month>11</month>
-                   <day>5</day>
+                   <day>4</day>
                   </datetime>
                  </property>
                  <property name="currentSection">
@@ -3748,6 +3748,807 @@ QComboBox:hover {
             </widget>
            </item>
           </layout>
+         </widget>
+        </item>
+       </layout>
+      </widget>
+      <widget class="QWidget" name="page4">
+       <layout class="QVBoxLayout" name="verticalLayout_34">
+        <item>
+         <widget class="QFrame" name="topBar4">
+          <property name="sizePolicy">
+           <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+            <horstretch>0</horstretch>
+            <verstretch>0</verstretch>
+           </sizepolicy>
+          </property>
+          <property name="minimumSize">
+           <size>
+            <width>0</width>
+            <height>100</height>
+           </size>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">background-color: rgb(255, 255, 255);
+</string>
+          </property>
+          <layout class="QGridLayout" name="gridLayout_17">
+           <item row="0" column="0" alignment="Qt::AlignmentFlag::AlignVCenter">
+            <widget class="QPushButton" name="backBtn4">
+             <property name="sizePolicy">
+              <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+               <horstretch>0</horstretch>
+               <verstretch>0</verstretch>
+              </sizepolicy>
+             </property>
+             <property name="minimumSize">
+              <size>
+               <width>40</width>
+               <height>40</height>
+              </size>
+             </property>
+             <property name="maximumSize">
+              <size>
+               <width>40</width>
+               <height>40</height>
+              </size>
+             </property>
+             <property name="font">
+              <font>
+               <family>Segoe UI</family>
+               <pointsize>18</pointsize>
+               <bold>false</bold>
+              </font>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">QPushButton {
+border-radius: 10px;
+  background: rgb(247, 247, 250);;
+}
+
+QPushButton:hover {
+   background: rgba(0,0,0,0.04);
+}
+
+QPushButton:pressed {
+    background: rgb(222, 226, 236)
+}
+</string>
+             </property>
+             <property name="text">
+              <string>←</string>
+             </property>
+            </widget>
+           </item>
+           <item row="0" column="1" alignment="Qt::AlignmentFlag::AlignVCenter">
+            <widget class="QLabel" name="label_47">
+             <property name="font">
+              <font>
+               <family>Segoe UI</family>
+               <pointsize>16</pointsize>
+              </font>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">color: #0f1724; /* dark slate */
+  padding-left: 6px;</string>
+             </property>
+             <property name="text">
+              <string>Add New Candidate</string>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </widget>
+        </item>
+        <item>
+         <widget class="QScrollArea" name="scrollArea4">
+          <property name="enabled">
+           <bool>true</bool>
+          </property>
+          <property name="sizePolicy">
+           <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+            <horstretch>1</horstretch>
+            <verstretch>1</verstretch>
+           </sizepolicy>
+          </property>
+          <property name="minimumSize">
+           <size>
+            <width>0</width>
+            <height>0</height>
+           </size>
+          </property>
+          <property name="focusPolicy">
+           <enum>Qt::FocusPolicy::StrongFocus</enum>
+          </property>
+          <property name="layoutDirection">
+           <enum>Qt::LayoutDirection::LeftToRight</enum>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">QScrollArea {
+    border: none;                 /* Removes default border */
+    background: transparent;      /* Makes scroll area background clean */
+}
+
+QScrollArea &gt; QWidget &gt; QWidget {
+    background: transparent;      /* Keeps the inside background transparent */
+}
+
+/* ScrollBar Styling */
+QScrollBar:vertical {
+    background: transparent;
+    width: 10px;
+    margin: 0px;
+    border-radius: 5px;
+}
+
+QScrollBar::handle:vertical {
+    background: rgba(120, 130, 150, 0.4); /* subtle modern handle */
+    min-height: 30px;
+    border-radius: 5px;
+}
+
+QScrollBar::handle:vertical:hover {
+    background: rgba(120, 130, 150, 0.6); /* hover effect */
+}
+
+QScrollBar::add-line:vertical,
+QScrollBar::sub-line:vertical {
+    background: transparent;
+    height: 0px;
+}
+
+QScrollBar::add-page:vertical,
+QScrollBar::sub-page:vertical {
+    background: transparent;
+}
+
+/* Horizontal ScrollBar (if needed) */
+QScrollBar:horizontal {
+    background: transparent;
+    height: 10px;
+    border-radius: 5px;
+}
+
+QScrollBar::handle:horizontal {
+    background: rgba(120, 130, 150, 0.4);
+    min-width: 30px;
+    border-radius: 5px;
+}
+
+QScrollBar::handle:horizontal:hover {
+    background: rgba(120, 130, 150, 0.6);
+}
+
+QScrollBar::add-line:horizontal,
+QScrollBar::sub-line:horizontal {
+    background: transparent;
+    width: 0px;
+}
+
+QScrollBar::add-page:horizontal,
+QScrollBar::sub-page:horizontal {
+    background: transparent;
+}
+</string>
+          </property>
+          <property name="verticalScrollBarPolicy">
+           <enum>Qt::ScrollBarPolicy::ScrollBarAsNeeded</enum>
+          </property>
+          <property name="horizontalScrollBarPolicy">
+           <enum>Qt::ScrollBarPolicy::ScrollBarAsNeeded</enum>
+          </property>
+          <property name="sizeAdjustPolicy">
+           <enum>QAbstractScrollArea::SizeAdjustPolicy::AdjustToContents</enum>
+          </property>
+          <property name="widgetResizable">
+           <bool>true</bool>
+          </property>
+          <property name="alignment">
+           <set>Qt::AlignmentFlag::AlignCenter</set>
+          </property>
+          <widget class="QWidget" name="scrollAreaWidgetContents_6">
+           <property name="geometry">
+            <rect>
+             <x>0</x>
+             <y>7</y>
+             <width>945</width>
+             <height>605</height>
+            </rect>
+           </property>
+           <property name="sizePolicy">
+            <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+             <horstretch>0</horstretch>
+             <verstretch>0</verstretch>
+            </sizepolicy>
+           </property>
+           <property name="minimumSize">
+            <size>
+             <width>0</width>
+             <height>0</height>
+            </size>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>1006</width>
+             <height>605</height>
+            </size>
+           </property>
+           <layout class="QGridLayout" name="gridLayout_21">
+            <item row="0" column="0">
+             <widget class="QWidget" name="backCard4" native="true">
+              <property name="sizePolicy">
+               <sizepolicy hsizetype="Expanding" vsizetype="Preferred">
+                <horstretch>1</horstretch>
+                <verstretch>1</verstretch>
+               </sizepolicy>
+              </property>
+              <property name="minimumSize">
+               <size>
+                <width>0</width>
+                <height>0</height>
+               </size>
+              </property>
+              <property name="maximumSize">
+               <size>
+                <width>16777215</width>
+                <height>16777215</height>
+               </size>
+              </property>
+              <property name="styleSheet">
+               <string notr="true">background-color: rgb(255, 255, 255);
+border-radius: 20px;
+border: 1px solid rgb(252, 251, 253);</string>
+              </property>
+              <layout class="QGridLayout" name="gridLayout_18" rowstretch="0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0">
+               <property name="leftMargin">
+                <number>32</number>
+               </property>
+               <property name="topMargin">
+                <number>32</number>
+               </property>
+               <property name="rightMargin">
+                <number>32</number>
+               </property>
+               <property name="bottomMargin">
+                <number>32</number>
+               </property>
+               <property name="horizontalSpacing">
+                <number>-1</number>
+               </property>
+               <property name="verticalSpacing">
+                <number>0</number>
+               </property>
+               <item row="0" column="0">
+                <widget class="QWidget" name="backcard_12" native="true">
+                 <property name="sizePolicy">
+                  <sizepolicy hsizetype="Expanding" vsizetype="Minimum">
+                   <horstretch>1</horstretch>
+                   <verstretch>1</verstretch>
+                  </sizepolicy>
+                 </property>
+                 <property name="minimumSize">
+                  <size>
+                   <width>0</width>
+                   <height>155</height>
+                  </size>
+                 </property>
+                 <property name="maximumSize">
+                  <size>
+                   <width>16777215</width>
+                   <height>162</height>
+                  </size>
+                 </property>
+                 <property name="styleSheet">
+                  <string notr="true">background-color: rgb(239, 243, 254);
+border-radius: 20px;
+border: 1px solid rgb(200, 210, 240);
+</string>
+                 </property>
+                 <layout class="QGridLayout" name="gridLayout_19">
+                  <item row="0" column="0">
+                   <widget class="QLabel" name="label_51">
+                    <property name="maximumSize">
+                     <size>
+                      <width>16777215</width>
+                      <height>35</height>
+                     </size>
+                    </property>
+                    <property name="font">
+                     <font>
+                      <family>Segoe UI</family>
+                      <pointsize>16</pointsize>
+                     </font>
+                    </property>
+                    <property name="styleSheet">
+                     <string notr="true">color: #0f1724; /* dark slate */
+
+border: transparent;
+</string>
+                    </property>
+                    <property name="text">
+                     <string>Upload Candidate Photo</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="1" column="0">
+                   <widget class="QPushButton" name="save1_6">
+                    <property name="sizePolicy">
+                     <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+                      <horstretch>0</horstretch>
+                      <verstretch>0</verstretch>
+                     </sizepolicy>
+                    </property>
+                    <property name="minimumSize">
+                     <size>
+                      <width>0</width>
+                      <height>50</height>
+                     </size>
+                    </property>
+                    <property name="maximumSize">
+                     <size>
+                      <width>168</width>
+                      <height>50</height>
+                     </size>
+                    </property>
+                    <property name="font">
+                     <font>
+                      <family>Segoe UI</family>
+                      <pointsize>-1</pointsize>
+                      <italic>false</italic>
+                      <bold>false</bold>
+                     </font>
+                    </property>
+                    <property name="styleSheet">
+                     <string notr="true">QPushButton {
+border-radius: 10px;
+  background: rgb(55, 112, 222);
+color: White;
+font: 17px;
+}
+
+QPushButton:hover {
+   background: rgb(50, 100, 188);
+}
+
+QPushButton:pressed {
+    background: rgb(42, 85, 159)
+}
+</string>
+                    </property>
+                    <property name="text">
+                     <string>Browse</string>
+                    </property>
+                   </widget>
+                  </item>
+                 </layout>
+                </widget>
+               </item>
+               <item row="6" column="0">
+                <widget class="QLabel" name="validNid_3">
+                 <property name="sizePolicy">
+                  <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+                   <horstretch>0</horstretch>
+                   <verstretch>0</verstretch>
+                  </sizepolicy>
+                 </property>
+                 <property name="font">
+                  <font>
+                   <family>Segoe UI</family>
+                   <pointsize>-1</pointsize>
+                   <italic>false</italic>
+                   <bold>false</bold>
+                  </font>
+                 </property>
+                 <property name="styleSheet">
+                  <string notr="true">color: rgb(255, 53, 99);
+border: none;       /* instead of transparent */
+font: 12px;
+padding: 0px;       /* remove padding to shrink height */
+</string>
+                 </property>
+                 <property name="text">
+                  <string notr="true">     Please enter candidate name</string>
+                 </property>
+                 <property name="wordWrap">
+                  <bool>true</bool>
+                 </property>
+                </widget>
+               </item>
+               <item row="0" column="1">
+                <widget class="QWidget" name="backcard_13" native="true">
+                 <property name="sizePolicy">
+                  <sizepolicy hsizetype="Expanding" vsizetype="Minimum">
+                   <horstretch>1</horstretch>
+                   <verstretch>1</verstretch>
+                  </sizepolicy>
+                 </property>
+                 <property name="minimumSize">
+                  <size>
+                   <width>0</width>
+                   <height>155</height>
+                  </size>
+                 </property>
+                 <property name="maximumSize">
+                  <size>
+                   <width>16777215</width>
+                   <height>162</height>
+                  </size>
+                 </property>
+                 <property name="styleSheet">
+                  <string notr="true">background-color: rgb(239, 243, 254);
+border-radius: 20px;
+border: 1px solid rgb(200, 210, 240);
+</string>
+                 </property>
+                 <layout class="QGridLayout" name="gridLayout_20">
+                  <item row="0" column="0">
+                   <widget class="QLabel" name="label_52">
+                    <property name="maximumSize">
+                     <size>
+                      <width>16777215</width>
+                      <height>35</height>
+                     </size>
+                    </property>
+                    <property name="font">
+                     <font>
+                      <family>Segoe UI</family>
+                      <pointsize>16</pointsize>
+                     </font>
+                    </property>
+                    <property name="styleSheet">
+                     <string notr="true">color: #0f1724; /* dark slate */
+
+border: transparent;
+</string>
+                    </property>
+                    <property name="text">
+                     <string>Upload Candidate Logo</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="1" column="0">
+                   <widget class="QPushButton" name="save1_7">
+                    <property name="sizePolicy">
+                     <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+                      <horstretch>0</horstretch>
+                      <verstretch>0</verstretch>
+                     </sizepolicy>
+                    </property>
+                    <property name="minimumSize">
+                     <size>
+                      <width>0</width>
+                      <height>50</height>
+                     </size>
+                    </property>
+                    <property name="maximumSize">
+                     <size>
+                      <width>168</width>
+                      <height>50</height>
+                     </size>
+                    </property>
+                    <property name="font">
+                     <font>
+                      <family>Segoe UI</family>
+                      <pointsize>-1</pointsize>
+                      <italic>false</italic>
+                      <bold>false</bold>
+                     </font>
+                    </property>
+                    <property name="styleSheet">
+                     <string notr="true">QPushButton {
+border-radius: 10px;
+  background: rgb(55, 112, 222);
+color: White;
+font: 17px;
+}
+
+QPushButton:hover {
+   background: rgb(50, 100, 188);
+}
+
+QPushButton:pressed {
+    background: rgb(42, 85, 159)
+}
+</string>
+                    </property>
+                    <property name="text">
+                     <string>Browse</string>
+                    </property>
+                   </widget>
+                  </item>
+                 </layout>
+                </widget>
+               </item>
+               <item row="12" column="0">
+                <widget class="QLabel" name="label_50">
+                 <property name="font">
+                  <font>
+                   <family>Segoe UI</family>
+                   <pointsize>16</pointsize>
+                  </font>
+                 </property>
+                 <property name="styleSheet">
+                  <string notr="true">color: #0f1724; /* dark slate */
+  padding-left: 6px;
+border: transparent;
+</string>
+                 </property>
+                 <property name="text">
+                  <string>Constituency*</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="15" column="0" colspan="2">
+                <spacer name="horizontalSpacer_9">
+                 <property name="orientation">
+                  <enum>Qt::Orientation::Horizontal</enum>
+                 </property>
+                 <property name="sizeHint" stdset="0">
+                  <size>
+                   <width>40</width>
+                   <height>20</height>
+                  </size>
+                 </property>
+                </spacer>
+               </item>
+               <item row="4" column="0" colspan="2">
+                <widget class="QLineEdit" name="candidateName4">
+                 <property name="sizePolicy">
+                  <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+                   <horstretch>0</horstretch>
+                   <verstretch>0</verstretch>
+                  </sizepolicy>
+                 </property>
+                 <property name="styleSheet">
+                  <string notr="true">QLineEdit {
+    border: 1px solid rgba(150,160,180,0.25);
+    border-radius: 12px;
+    padding: 12px;
+    background: transparent;
+    transition: 0.2s;   /* smooth animation (Qt 6 only) */
+}
+
+QLineEdit:hover {
+    border: 1px solid rgba(208, 215, 240, 0.7);   /* hover border color */
+    background: rgba(242, 245, 253, 0.7);       /* slight hover background */
+}
+</string>
+                 </property>
+                 <property name="placeholderText">
+                  <string>Enter Candidate Name</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="14" column="0">
+                <widget class="QLabel" name="validConstituency_3">
+                 <property name="sizePolicy">
+                  <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+                   <horstretch>0</horstretch>
+                   <verstretch>0</verstretch>
+                  </sizepolicy>
+                 </property>
+                 <property name="font">
+                  <font>
+                   <family>Segoe UI</family>
+                   <pointsize>-1</pointsize>
+                   <italic>false</italic>
+                   <bold>false</bold>
+                  </font>
+                 </property>
+                 <property name="styleSheet">
+                  <string notr="true">color: rgb(255, 53, 99);
+border: none;       /* instead of transparent */
+font: 12px;
+padding: 0px;       /* remove padding to shrink height */
+</string>
+                 </property>
+                 <property name="text">
+                  <string notr="true">     Select a Consituency</string>
+                 </property>
+                 <property name="wordWrap">
+                  <bool>true</bool>
+                 </property>
+                </widget>
+               </item>
+               <item row="3" column="0">
+                <widget class="QLabel" name="label_48">
+                 <property name="font">
+                  <font>
+                   <family>Segoe UI</family>
+                   <pointsize>16</pointsize>
+                  </font>
+                 </property>
+                 <property name="styleSheet">
+                  <string notr="true">color: #0f1724; /* dark slate */
+  padding-left: 6px;
+border: transparent;
+</string>
+                 </property>
+                 <property name="text">
+                  <string>Candidate Name *</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="9" column="0">
+                <widget class="QLabel" name="label_49">
+                 <property name="font">
+                  <font>
+                   <family>Segoe UI</family>
+                   <pointsize>16</pointsize>
+                  </font>
+                 </property>
+                 <property name="styleSheet">
+                  <string notr="true">color: #0f1724; /* dark slate */
+  padding-left: 6px;
+border: transparent;
+</string>
+                 </property>
+                 <property name="text">
+                  <string>Party Name *</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="10" column="0" colspan="2">
+                <widget class="QLineEdit" name="partyName4">
+                 <property name="sizePolicy">
+                  <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+                   <horstretch>0</horstretch>
+                   <verstretch>0</verstretch>
+                  </sizepolicy>
+                 </property>
+                 <property name="styleSheet">
+                  <string notr="true">QLineEdit {
+    border: 1px solid rgba(150,160,180,0.25);
+    border-radius: 12px;
+    padding: 12px;
+    background: transparent;
+    transition: 0.2s;   /* smooth animation (Qt 6 only) */
+}
+
+QLineEdit:hover {
+    border: 1px solid rgba(208, 215, 240, 0.7);   /* hover border color */
+    background: rgba(242, 245, 253, 0.7);       /* slight hover background */
+}
+</string>
+                 </property>
+                 <property name="text">
+                  <string/>
+                 </property>
+                 <property name="placeholderText">
+                  <string>Enter Party Name</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="16" column="1">
+                <widget class="QPushButton" name="save1_5">
+                 <property name="sizePolicy">
+                  <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+                   <horstretch>0</horstretch>
+                   <verstretch>0</verstretch>
+                  </sizepolicy>
+                 </property>
+                 <property name="minimumSize">
+                  <size>
+                   <width>0</width>
+                   <height>50</height>
+                  </size>
+                 </property>
+                 <property name="maximumSize">
+                  <size>
+                   <width>16777215</width>
+                   <height>100</height>
+                  </size>
+                 </property>
+                 <property name="font">
+                  <font>
+                   <family>Segoe UI</family>
+                   <pointsize>18</pointsize>
+                   <italic>false</italic>
+                   <bold>true</bold>
+                  </font>
+                 </property>
+                 <property name="styleSheet">
+                  <string notr="true">QPushButton {
+border-radius: 10px;
+  background:rgb(94, 194, 105);
+color: White;
+font: Bold;
+}
+
+QPushButton:hover {
+   background: rgb(76, 162, 84);
+}
+
+QPushButton:pressed {
+    background: rgb(21, 153, 71)
+}
+</string>
+                 </property>
+                 <property name="text">
+                  <string>Save Candidate</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="1" column="0" colspan="2">
+                <spacer name="horizontalSpacer_10">
+                 <property name="orientation">
+                  <enum>Qt::Orientation::Horizontal</enum>
+                 </property>
+                 <property name="sizeType">
+                  <enum>QSizePolicy::Policy::Expanding</enum>
+                 </property>
+                 <property name="sizeHint" stdset="0">
+                  <size>
+                   <width>0</width>
+                   <height>20</height>
+                  </size>
+                 </property>
+                </spacer>
+               </item>
+               <item row="11" column="0">
+                <widget class="QLabel" name="validName_3">
+                 <property name="sizePolicy">
+                  <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+                   <horstretch>0</horstretch>
+                   <verstretch>0</verstretch>
+                  </sizepolicy>
+                 </property>
+                 <property name="font">
+                  <font>
+                   <family>Segoe UI</family>
+                   <pointsize>-1</pointsize>
+                   <italic>false</italic>
+                   <bold>false</bold>
+                  </font>
+                 </property>
+                 <property name="styleSheet">
+                  <string notr="true">color: rgb(255, 53, 99);
+border: none;       /* instead of transparent */
+font: 12px;
+padding: 0px;       /* remove padding to shrink height */
+</string>
+                 </property>
+                 <property name="text">
+                  <string notr="true">     Please enter party name</string>
+                 </property>
+                 <property name="wordWrap">
+                  <bool>true</bool>
+                 </property>
+                </widget>
+               </item>
+               <item row="13" column="0" colspan="2">
+                <widget class="QComboBox" name="constitute4">
+                 <property name="sizePolicy">
+                  <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+                   <horstretch>0</horstretch>
+                   <verstretch>0</verstretch>
+                  </sizepolicy>
+                 </property>
+                 <property name="styleSheet">
+                  <string notr="true">QComboBox{
+    border: 1px solid rgba(150,160,180,0.25);
+    border-radius: 12px;
+    padding: 12px;
+    background: transparent;
+    transition: 0.2s;   /* smooth animation (Qt 6 only) */
+}
+
+QComboBox:hover {
+    border: 1px solid rgba(208, 215, 240, 0.7);   /* hover border color */
+    background: rgba(242, 245, 253, 0.7);       /* slight hover background */
+}
+</string>
+                 </property>
+                 <property name="placeholderText">
+                  <string>Select a Consituency</string>
+                 </property>
+                </widget>
+               </item>
+              </layout>
+             </widget>
+            </item>
+           </layout>
+          </widget>
          </widget>
         </item>
        </layout>
