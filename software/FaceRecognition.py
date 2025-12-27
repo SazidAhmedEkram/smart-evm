@@ -199,21 +199,30 @@ def vote():
     video = cv2.VideoCapture(0)
     if not video.isOpened():
         print("Cannot open camera")
+        VoiceInstructions.speak("Camera cannot be opened. Please contact operator.")
         return
 
+    VoiceInstructions.speak("Voting station ready. Camera is on. Press Enter to start face capture for voting.")
     print("Camera is on. Press Enter to start face capture for voting...")
+
     cv2.namedWindow("Voting - Live Feed")
 
+    # Live preview until user presses Enter
     while True:
         ret, frame = video.read()
         if not ret:
             continue
+
         cv2.imshow("Voting - Live Feed", frame)
-        if cv2.waitKey(1) & 0xFF == 13:  # Enter key
+
+        key = cv2.waitKey(1) & 0xFF
+
+        if key == 13:  # Enter pressed
+            VoiceInstructions.speak("Face scanning started. Please stay still.")
             print("Capturing multiple frames for best match...")
             break
 
-    # Capture 5 frames rapidly
+    # ----------- SCAN 5 FRAMES -----------
     captured_encodings = []
     for i in range(5):
         ret, frame = video.read()
@@ -230,30 +239,31 @@ def vote():
 
         time.sleep(0.1)
 
-    video.release()
-    cv2.destroyAllWindows()
+    VoiceInstructions.speak("Face scanning completed.")
 
+    # ----------- NO FACE FOUND -----------
     if not captured_encodings:
         print("No clear face detected. Vote failed.")
+        VoiceInstructions.speak("No face detected. Please try again.")
+        video.release()
+        cv2.destroyAllWindows()
         conn.close()
         return
 
-    # Load all voters and candidates from database
-    c.execute("SELECT nid, name, has_voted, face_encoding FROM voters")
+    # Load DB voters
+    c.execute("SELECT nid, name, has_voted, face_encoding FROM voters WHERE face_encoding IS NOT NULL")
     voters = c.fetchall()
 
-    # Dynamic Candidate Update: Fetching live from DB
+    # Load candidates
     c.execute("SELECT id, name, party FROM candidates")
     candidates = c.fetchall()
 
     best_voter_match = None
     best_distance = 1.0
 
-    # --- Best Match Comparison Logic ---
+    # Match faces
     for v in voters:
         db_face = pickle.loads(v[3])
-
-        # Check this voter against ALL captured frames
         distances = face_recognition.face_distance(captured_encodings, db_face)
         min_dist_for_this_voter = np.min(distances)
 
@@ -261,25 +271,64 @@ def vote():
             best_distance = min_dist_for_this_voter
             best_voter_match = v
 
-    # --- Final Decision ---
     STRICT_TOLERANCE = 0.50
 
+    # ----------- NOT RECOGNIZED -----------
     if best_distance >= STRICT_TOLERANCE:
-        print(f"Face not recognized! Best match distance was {best_distance:.4f} (Threshold is {STRICT_TOLERANCE}).")
+        print("Face not recognized.")
+        VoiceInstructions.speak("Face not recognized. You are not authorized to vote.")
+        video.release()
+        cv2.destroyAllWindows()
         conn.close()
-        return
+        return None, None, "Face not recognized"
 
-    # Voter found and recognized (best_distance < 0.50)
     voter = best_voter_match
 
+    # ----------- ALREADY VOTED -----------
     if voter[2] == 1:
-        print(f"ERROR: {voter[1]} (NID: {voter[0]}) has already voted!")
+        print(f"{voter[1]} has already voted.")
+        VoiceInstructions.speak("You have already voted. Multiple voting is not allowed.")
+        video.release()
+        cv2.destroyAllWindows()
         conn.close()
-        return
+        return voter[1], voter[0], "Already voted"
 
-    print(f"Voter verified: {voter[1]} (NID: {voter[0]}).")
+    # ----------- VERIFIED -> NOW CLOSE CAMERA -----------
+    print(f"Voter verified: {voter[1]} (NID: {voter[0]})")
+    VoiceInstructions.speak(f"Voter verified. Welcome {voter[1]}. Please enter the start voting Button.")
 
-    # --- Voting Process: Dynamic Candidate Update ---
+    # CLOSE camera here (before showing candidates)
+    video.release()
+    cv2.destroyAllWindows()
+    # macOS FIX — force window event loop to run
+    for i in range(5):
+        cv2.waitKey(1)
+
+    # Fetch candidates
+    conn = sqlite3.connect('evmDatabase.db')
+    c = conn.cursor()
+    c.execute("SELECT id, name, party FROM candidates")
+    candidates = c.fetchall()
+    conn.close()
+
+    # # Call new function
+    # selected_name, selected_party = show_candidates_and_vote(candidates, voter[0])
+
+    return voter[1], voter[0], "Verified"
+
+
+
+def show_candidates_and_vote(candidates, voter_nid):
+    """
+    Displays candidates, lets voter choose, and records vote.
+    Returns selected candidate info.
+    """
+    import sqlite3
+    import VoiceInstructions  # Assuming this module exists
+
+    conn = sqlite3.connect('evmDatabase.db')
+    c = conn.cursor()
+
     print("\n--- CANDIDATES ---")
     candidate_map = {}
     for cand in candidates:
@@ -295,16 +344,21 @@ def vote():
                 break
             else:
                 print("Invalid candidate ID. Try again.")
+                VoiceInstructions.speak("Invalid candidate. Please try again.")
         except ValueError:
             print("Please enter a number.")
+            VoiceInstructions.speak("Please enter a valid number.")
 
-    # Store vote and mark voter as has_voted
-    c.execute("INSERT INTO votes (nid, candidate_id) VALUES (?, ?)", (voter[0], choice_id))
-    c.execute("UPDATE voters SET has_voted=1 WHERE nid=?", (voter[0],))
+    # Save vote
+    c.execute("INSERT INTO votes (nid, candidate_id) VALUES (?, ?)", (voter_nid, choice_id))
+    c.execute("UPDATE voters SET has_voted=1 WHERE nid=?", (voter_nid,))
     conn.commit()
     conn.close()
 
-    print(f"\nThank you {voter[1]}! Your vote for {selected_name} ({selected_party}) has been recorded!")
+    print(f"Thank you! Your vote for {selected_name} ({selected_party}) has been recorded!")
+    VoiceInstructions.speak("Thank you. Your vote has been recorded successfully.")
+
+    return selected_name, selected_party
 
 
 # --- Example Usage ---

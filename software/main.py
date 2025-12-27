@@ -27,7 +27,7 @@ class MainWindow(QMainWindow):
         for card in cards:
             self.addShadow(card)
         buttons = [self.ui.registerBtn, self.ui.electionBtn, self.ui.voterBtn,
-                 self.ui.systemBtn, self.ui.votingBtn, self.ui.candidateBtn]
+                 self.ui.votingSessionBtn, self.ui.votingBtn, self.ui.candidateBtn]
         for button in buttons:
             self.addShadowButton(button)
         self.addShadowBackcard(self.ui.backCard1)
@@ -85,6 +85,16 @@ class MainWindow(QMainWindow):
         self.ui.constitute4.addItems(BD_Constituencies.BD_Constituencies)
         self.ui.comboBox1.addItems(BD_Constituencies.BD_Constituencies)
 
+
+        #page6
+        self.ui.faceScan6.clicked.connect(self.faceForVoting)
+        self.ui.backBtn6.clicked.connect(self.go_to_page0)
+        self.ui.votingSessionBtn.clicked.connect(self.go_to_page6)
+
+    def faceForVoting(self):
+        self.ui.stackedWidget.setCurrentIndex(6)
+        import vottingSession
+        vottingSession.faceForVoting(self.ui)
 
     def apply_filters(self):
         search_text = self.ui.lineEdit2.text()
@@ -195,6 +205,8 @@ class MainWindow(QMainWindow):
     def go_to_page4(self):
         self.ui.stackedWidget.setCurrentIndex(4)
         self.clear4()
+    def go_to_page6(self):
+        self.ui.stackedWidget.setCurrentIndex(5)
     def LoadFilters2(self):
         self.current_search = ""
         self.current_constituency = "All"
