@@ -2,7 +2,8 @@ from PyQt6.QtGui import QColor, QIcon
 from PyQt6.QtWidgets import QApplication, QMainWindow, QGraphicsDropShadowEffect, QMessageBox, \
     QHeaderView
 
-from software import FaceRecognition, VoterRegistration, VoiceInstructions, DataAccess, voterList, candidateList
+from software import FaceRecognition, VoterRegistration, VoiceInstructions, DataAccess, voterList, candidateList, \
+    vottingSession
 from ui_main import Ui_AdminDashboard
 import BD_Constituencies
 class MainWindow(QMainWindow):
@@ -92,9 +93,11 @@ class MainWindow(QMainWindow):
         self.ui.votingSessionBtn.clicked.connect(self.go_to_page6)
 
     def faceForVoting(self):
-        self.ui.stackedWidget.setCurrentIndex(6)
         import vottingSession
-        vottingSession.faceForVoting(self.ui)
+        vottingSession.faceForVoting(self)
+        self.ui.stackedWidget.setCurrentIndex(6)
+    def votingBtn7(self):
+        vottingSession.voting(self)
 
     def apply_filters(self):
         search_text = self.ui.lineEdit2.text()

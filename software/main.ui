@@ -78,7 +78,7 @@ QStackedWidget::pane {
 </string>
       </property>
       <property name="currentIndex">
-       <number>5</number>
+       <number>7</number>
       </property>
       <widget class="QWidget" name="page_0">
        <layout class="QGridLayout" name="gridLayout_4">
@@ -1395,8 +1395,8 @@ QScrollBar::sub-page:horizontal {
            <property name="geometry">
             <rect>
              <x>0</x>
-             <y>1</y>
-             <width>1005</width>
+             <y>0</y>
+             <width>972</width>
              <height>605</height>
             </rect>
            </property>
@@ -2346,7 +2346,7 @@ QScrollBar::sub-page:horizontal {
             <rect>
              <x>0</x>
              <y>0</y>
-             <width>995</width>
+             <width>972</width>
              <height>597</height>
             </rect>
            </property>
@@ -2662,7 +2662,7 @@ QDateEdit:hover {
                    <second>0</second>
                    <year>2004</year>
                    <month>11</month>
-                   <day>3</day>
+                   <day>2</day>
                   </datetime>
                  </property>
                  <property name="currentSection">
@@ -4666,7 +4666,7 @@ QPushButton:pressed {
 border-radius: 20px;
 border: 1px solid rgb(252, 251, 253);</string>
           </property>
-          <layout class="QGridLayout" name="gridLayout_24" rowstretch="0,0,0,0,0">
+          <layout class="QGridLayout" name="gridLayout_24" rowstretch="0">
            <property name="leftMargin">
             <number>32</number>
            </property>
@@ -5035,6 +5035,318 @@ QPushButton:pressed {
        <zorder>topBar4_3</zorder>
        <zorder>notRegisteredCard_2</zorder>
        <zorder>startVotingBtn7</zorder>
+      </widget>
+      <widget class="QWidget" name="page8">
+       <layout class="QVBoxLayout" name="verticalLayout_19">
+        <item>
+         <widget class="QFrame" name="topBar4_4">
+          <property name="sizePolicy">
+           <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+            <horstretch>0</horstretch>
+            <verstretch>0</verstretch>
+           </sizepolicy>
+          </property>
+          <property name="minimumSize">
+           <size>
+            <width>0</width>
+            <height>100</height>
+           </size>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">background-color: rgb(255, 255, 255);
+</string>
+          </property>
+          <layout class="QGridLayout" name="gridLayout_26">
+           <item row="0" column="0" alignment="Qt::AlignmentFlag::AlignVCenter">
+            <widget class="QLabel" name="label_55">
+             <property name="font">
+              <font>
+               <family>Segoe UI</family>
+               <pointsize>16</pointsize>
+              </font>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">color: #0f1724; /* dark slate */
+  padding-left: 6px;</string>
+             </property>
+             <property name="text">
+              <string>Voting Session</string>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </widget>
+        </item>
+        <item>
+         <widget class="QScrollArea" name="scrollArea8">
+          <property name="enabled">
+           <bool>true</bool>
+          </property>
+          <property name="sizePolicy">
+           <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+            <horstretch>1</horstretch>
+            <verstretch>1</verstretch>
+           </sizepolicy>
+          </property>
+          <property name="minimumSize">
+           <size>
+            <width>0</width>
+            <height>0</height>
+           </size>
+          </property>
+          <property name="focusPolicy">
+           <enum>Qt::FocusPolicy::StrongFocus</enum>
+          </property>
+          <property name="layoutDirection">
+           <enum>Qt::LayoutDirection::LeftToRight</enum>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">QScrollArea {
+    border: none;                 /* Removes default border */
+    background: transparent;      /* Makes scroll area background clean */
+}
+
+QScrollArea &gt; QWidget &gt; QWidget {
+    background: transparent;      /* Keeps the inside background transparent */
+}
+
+/* ScrollBar Styling */
+QScrollBar:vertical {
+    background: transparent;
+    width: 10px;
+    margin: 0px;
+    border-radius: 5px;
+}
+
+QScrollBar::handle:vertical {
+    background: rgba(120, 130, 150, 0.4); /* subtle modern handle */
+    min-height: 30px;
+    border-radius: 5px;
+}
+
+QScrollBar::handle:vertical:hover {
+    background: rgba(120, 130, 150, 0.6); /* hover effect */
+}
+
+QScrollBar::add-line:vertical,
+QScrollBar::sub-line:vertical {
+    background: transparent;
+    height: 0px;
+}
+
+QScrollBar::add-page:vertical,
+QScrollBar::sub-page:vertical {
+    background: transparent;
+}
+
+/* Horizontal ScrollBar (if needed) */
+QScrollBar:horizontal {
+    background: transparent;
+    height: 10px;
+    border-radius: 5px;
+}
+
+QScrollBar::handle:horizontal {
+    background: rgba(120, 130, 150, 0.4);
+    min-width: 30px;
+    border-radius: 5px;
+}
+
+QScrollBar::handle:horizontal:hover {
+    background: rgba(120, 130, 150, 0.6);
+}
+
+QScrollBar::add-line:horizontal,
+QScrollBar::sub-line:horizontal {
+    background: transparent;
+    width: 0px;
+}
+
+QScrollBar::add-page:horizontal,
+QScrollBar::sub-page:horizontal {
+    background: transparent;
+}
+</string>
+          </property>
+          <property name="verticalScrollBarPolicy">
+           <enum>Qt::ScrollBarPolicy::ScrollBarAsNeeded</enum>
+          </property>
+          <property name="horizontalScrollBarPolicy">
+           <enum>Qt::ScrollBarPolicy::ScrollBarAsNeeded</enum>
+          </property>
+          <property name="sizeAdjustPolicy">
+           <enum>QAbstractScrollArea::SizeAdjustPolicy::AdjustToContents</enum>
+          </property>
+          <property name="widgetResizable">
+           <bool>true</bool>
+          </property>
+          <property name="alignment">
+           <set>Qt::AlignmentFlag::AlignCenter</set>
+          </property>
+          <widget class="QWidget" name="candidateContainer">
+           <property name="geometry">
+            <rect>
+             <x>0</x>
+             <y>0</y>
+             <width>982</width>
+             <height>584</height>
+            </rect>
+           </property>
+           <property name="sizePolicy">
+            <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+             <horstretch>0</horstretch>
+             <verstretch>0</verstretch>
+            </sizepolicy>
+           </property>
+           <property name="minimumSize">
+            <size>
+             <width>0</width>
+             <height>0</height>
+            </size>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>1937</width>
+             <height>605</height>
+            </size>
+           </property>
+           <layout class="QGridLayout" name="gridLayout_10">
+            <item row="0" column="1">
+             <widget class="QWidget" name="verticalLayout_candidates" native="true">
+              <property name="sizePolicy">
+               <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+                <horstretch>0</horstretch>
+                <verstretch>1</verstretch>
+               </sizepolicy>
+              </property>
+              <property name="minimumSize">
+               <size>
+                <width>0</width>
+                <height>0</height>
+               </size>
+              </property>
+              <property name="styleSheet">
+               <string notr="true">Background: transparent;
+</string>
+              </property>
+              <layout class="QVBoxLayout" name="verticalLayout_22">
+               <item>
+                <widget class="QWidget" name="backCard8" native="true">
+                 <property name="sizePolicy">
+                  <sizepolicy hsizetype="Expanding" vsizetype="Preferred">
+                   <horstretch>1</horstretch>
+                   <verstretch>1</verstretch>
+                  </sizepolicy>
+                 </property>
+                 <property name="minimumSize">
+                  <size>
+                   <width>360</width>
+                   <height>27</height>
+                  </size>
+                 </property>
+                 <property name="maximumSize">
+                  <size>
+                   <width>16777215</width>
+                   <height>151</height>
+                  </size>
+                 </property>
+                 <property name="styleSheet">
+                  <string notr="true">background-color: rgb(255, 255, 255);
+border-radius: 20px;
+border: 1px solid rgb(252, 251, 253);</string>
+                 </property>
+                 <layout class="QVBoxLayout" name="verticalLayout_20">
+                  <property name="leftMargin">
+                   <number>12</number>
+                  </property>
+                  <item>
+                   <layout class="QHBoxLayout" name="horizontalLayout_13" stretch="0,1">
+                    <item>
+                     <widget class="QLabel" name="number8">
+                      <property name="font">
+                       <font>
+                        <family>13</family>
+                        <pointsize>-1</pointsize>
+                        <italic>false</italic>
+                        <bold>false</bold>
+                       </font>
+                      </property>
+                      <property name="styleSheet">
+                       <string notr="true">color: #0f1724; /* dark slate */
+
+font: 60px bold;</string>
+                      </property>
+                      <property name="text">
+                       <string>1</string>
+                      </property>
+                     </widget>
+                    </item>
+                    <item>
+                     <layout class="QVBoxLayout" name="verticalLayout_21">
+                      <property name="leftMargin">
+                       <number>15</number>
+                      </property>
+                      <property name="topMargin">
+                       <number>40</number>
+                      </property>
+                      <property name="bottomMargin">
+                       <number>40</number>
+                      </property>
+                      <item>
+                       <widget class="QLabel" name="name8">
+                        <property name="font">
+                         <font>
+                          <family>13</family>
+                          <pointsize>-1</pointsize>
+                          <italic>false</italic>
+                          <bold>false</bold>
+                         </font>
+                        </property>
+                        <property name="styleSheet">
+                         <string notr="true">color: #0f1724; /* dark slate */
+
+font: 20px bold;</string>
+                        </property>
+                        <property name="text">
+                         <string>Sazid Ahmed Ekram</string>
+                        </property>
+                       </widget>
+                      </item>
+                      <item>
+                       <widget class="QLabel" name="party8">
+                        <property name="font">
+                         <font>
+                          <family>Segoe UI</family>
+                          <pointsize>-1</pointsize>
+                          <italic>false</italic>
+                          <bold>false</bold>
+                         </font>
+                        </property>
+                        <property name="styleSheet">
+                         <string notr="true">color: #0f1724; /* dark slate */
+
+font: 18px;</string>
+                        </property>
+                        <property name="text">
+                         <string>BNP</string>
+                        </property>
+                       </widget>
+                      </item>
+                     </layout>
+                    </item>
+                   </layout>
+                  </item>
+                 </layout>
+                </widget>
+               </item>
+              </layout>
+             </widget>
+            </item>
+           </layout>
+          </widget>
+         </widget>
+        </item>
+       </layout>
       </widget>
      </widget>
     </item>

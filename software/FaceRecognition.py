@@ -200,7 +200,7 @@ def vote():
     if not video.isOpened():
         print("Cannot open camera")
         VoiceInstructions.speak("Camera cannot be opened. Please contact operator.")
-        return
+        return None, None, None
 
     VoiceInstructions.speak("Voting station ready. Camera is on. Press Enter to start face capture for voting.")
     print("Camera is on. Press Enter to start face capture for voting...")
@@ -248,7 +248,7 @@ def vote():
         video.release()
         cv2.destroyAllWindows()
         conn.close()
-        return
+        return None, None, None
 
     # Load DB voters
     c.execute("SELECT nid, name, has_voted, face_encoding FROM voters WHERE face_encoding IS NOT NULL")
