@@ -9,6 +9,12 @@ import BD_Constituencies
 class MainWindow(QMainWindow):
     def __init__(self):
         super().__init__()
+        self.voting_active = False
+        self.cards = []
+        self.current_voter_nid = None
+        self.arduino = None
+
+
         self.ui = Ui_AdminDashboard()
         self.ui.setupUi(self)
         # After loading the UI
@@ -34,6 +40,8 @@ class MainWindow(QMainWindow):
         self.addShadowBackcard(self.ui.backCard1)
         self.addShadowBackcard(self.ui.backCard2)
         self.addShadowBackcard(self.ui.backCard4)
+        self.addShadowBackcard(self.ui.backCard7)
+        self.addShadowBackcard(self.ui.backCard4_2)
         #Load the Data to comboBox1
         # Clear previous items
         #self.ui.comboBox1.clear()
@@ -88,16 +96,17 @@ class MainWindow(QMainWindow):
 
 
         #page6
-        self.ui.faceScan6.clicked.connect(self.faceForVoting)
+        #self.ui.faceScan6.clicked.connect(self.faceForVoting)
         self.ui.backBtn6.clicked.connect(self.go_to_page0)
         self.ui.votingSessionBtn.clicked.connect(self.go_to_page6)
 
-    def faceForVoting(self):
-        import vottingSession
-        vottingSession.faceForVoting(self)
-        self.ui.stackedWidget.setCurrentIndex(6)
-    def votingBtn7(self):
-        vottingSession.voting(self)
+        # Initialize VotingSession with MainWindow instance
+        self.voting_session = vottingSession.VotingSession(self)
+
+        # Connect buttons
+        self.ui.faceScan6.clicked.connect(self.voting_session.faceForVoting)
+        # self.ui.startVotingBtn7.clicked.connect(self.voting_session.voting)
+
 
     def apply_filters(self):
         search_text = self.ui.lineEdit2.text()
