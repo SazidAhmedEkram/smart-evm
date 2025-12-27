@@ -78,7 +78,7 @@ QStackedWidget::pane {
 </string>
       </property>
       <property name="currentIndex">
-       <number>7</number>
+       <number>5</number>
       </property>
       <widget class="QWidget" name="page_0">
        <layout class="QGridLayout" name="gridLayout_4">
@@ -4556,7 +4556,7 @@ QComboBox:hover {
       <widget class="QWidget" name="page6">
        <layout class="QGridLayout" name="gridLayout_9">
         <item row="0" column="0">
-         <widget class="QFrame" name="topBar4_2">
+         <widget class="QFrame" name="topBar6">
           <property name="sizePolicy">
            <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
             <horstretch>0</horstretch>
@@ -4771,7 +4771,7 @@ QPushButton:pressed {
        </layout>
       </widget>
       <widget class="QWidget" name="page7">
-       <widget class="QFrame" name="topBar4_3">
+       <widget class="QFrame" name="topBar7">
         <property name="geometry">
          <rect>
           <x>10</x>
@@ -5032,14 +5032,14 @@ QPushButton:pressed {
         </property>
        </widget>
        <zorder>backCard4_3</zorder>
-       <zorder>topBar4_3</zorder>
+       <zorder>topBar7</zorder>
        <zorder>notRegisteredCard_2</zorder>
        <zorder>startVotingBtn7</zorder>
       </widget>
       <widget class="QWidget" name="page8">
        <layout class="QVBoxLayout" name="verticalLayout_19">
         <item>
-         <widget class="QFrame" name="topBar4_4">
+         <widget class="QFrame" name="topBar8">
           <property name="sizePolicy">
            <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
             <horstretch>0</horstretch>
@@ -5070,7 +5070,7 @@ QPushButton:pressed {
   padding-left: 6px;</string>
              </property>
              <property name="text">
-              <string>Voting Session</string>
+              <string>Vote the candidates</string>
              </property>
             </widget>
            </item>

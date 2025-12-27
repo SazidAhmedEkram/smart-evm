@@ -97,7 +97,6 @@ def get_candidates():
     return candidates
 
 # ----------------- Load Candidate Cards -----------------
-
 def load_candidate_list(self, voter_nid):
     candidates = get_candidates()
 
@@ -115,6 +114,10 @@ def load_candidate_list(self, voter_nid):
 
     self.cards = []  # store cards for Arduino selection
 
+    # Ensure scroll area resizes with content
+    self.ui.scrollArea.setWidgetResizable(True)
+    layout.setSpacing(15)  # space between cards
+
     for cand_id, name, party in candidates:
         # --- Card Frame ---
         card = QFrame()
@@ -126,38 +129,44 @@ def load_candidate_list(self, voter_nid):
                 padding: 10px;
             }
             QFrame:hover {
-                background-color: #e6faf0;
+                background-color: rgb(120, 160, 240);
             }
         """)
-        card.setSizePolicy(QSizePolicy.Policy.Expanding, QSizePolicy.Policy.Fixed)
-        card.setMinimumHeight(100)
+        card.setSizePolicy(QSizePolicy.Policy.Expanding, QSizePolicy.Policy.Preferred)
+        card.setMinimumHeight(80)  # minimum height for content
 
         # --- Card Layout ---
         card_layout = QVBoxLayout(card)
-        card_layout.setContentsMargins(10, 10, 10, 10)
-        card_layout.setSpacing(8)
+        card_layout.setContentsMargins(2, 2, 2, 2)
+        card_layout.setSpacing(1)
 
-        # Candidate Name
-        label_name = QLabel(name)
-        label_name.setStyleSheet("font-size: 15px; font-weight: bold; color: #333333;"
-                                 "background-color: transparent;")
-        label_name.setWordWrap(True)
-        label_name.setAlignment(Qt.AlignmentFlag.AlignLeft | Qt.AlignmentFlag.AlignVCenter)
+        # Candidate ID + Name
+        label_id_name = QLabel(f"ID: {cand_id}  |  {name}")
+        label_id_name.setStyleSheet("font-size: 18px; font-weight: bold; color: #333333;"
+                                    "background-color: transparent;")
+        label_id_name.setWordWrap(True)
+        label_id_name.setAlignment(Qt.AlignmentFlag.AlignLeft | Qt.AlignmentFlag.AlignVCenter)
+        label_id_name.setSizePolicy(QSizePolicy.Policy.Expanding, QSizePolicy.Policy.Preferred)
 
         # Candidate Party
         label_party = QLabel(f"Party: {party}")
-        label_party.setStyleSheet("font-size: 12px; color: #555555;"
+        label_party.setStyleSheet("font-size: 15px; color: #555555;"
                                   "background-color: transparent;")
         label_party.setWordWrap(True)
         label_party.setAlignment(Qt.AlignmentFlag.AlignLeft | Qt.AlignmentFlag.AlignVCenter)
+        label_party.setSizePolicy(QSizePolicy.Policy.Expanding, QSizePolicy.Policy.Preferred)
 
-        card_layout.addWidget(label_name)
+        # Add widgets
+        card_layout.addWidget(label_id_name)
         card_layout.addWidget(label_party)
-        card_layout.addStretch()
+        card_layout.addStretch()  # ensures proper spacing inside card
 
         # Add to main layout
         layout.addWidget(card)
         self.cards.append(card)
+
+    # Add stretch at the end so cards align nicely at the top
+    layout.addStretch()
 
 # ----------------- Cast Vote -----------------
 

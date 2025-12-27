@@ -324,7 +324,7 @@ def show_candidates_and_vote(candidates, voter_nid):
     Returns selected candidate info.
     """
     import sqlite3
-    import VoiceInstructions  # Assuming this module exists
+    import VoiceInstructions
 
     conn = sqlite3.connect('evmDatabase.db')
     c = conn.cursor()

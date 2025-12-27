@@ -24,7 +24,7 @@ class MainWindow(QMainWindow):
         self.face_encoding = None  # Store captured face
 
         #Add shadow to the cards and buttons
-        cards = [self.ui.card2, self.ui.card1, self.ui.card4, self.ui.card3, self.ui.topBar1, self.ui.topBar2, self.ui.topBar3]
+        cards = [self.ui.card2, self.ui.card1, self.ui.card4, self.ui.card3, self.ui.topBar1, self.ui.topBar2, self.ui.topBar3, self.ui.topBar6, self.ui.topBar7, self.ui.topBar8]
         for card in cards:
             self.addShadow(card)
         buttons = [self.ui.registerBtn, self.ui.electionBtn, self.ui.voterBtn,
