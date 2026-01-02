@@ -1,12 +1,8 @@
 import time
-
-import serial
 from PyQt6.QtGui import QColor
-
 import FaceRecognition
 import sqlite3
 from PyQt6.QtWidgets import QFrame, QVBoxLayout, QLabel, QSizePolicy, QWidget, QMessageBox, QGraphicsDropShadowEffect
-from PyQt6.QtCore import Qt
 import threading
 import VoiceInstructions
 import arduino

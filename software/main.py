@@ -5,6 +5,7 @@ from PyQt6.QtWidgets import QApplication, QMainWindow, QGraphicsDropShadowEffect
 from software import FaceRecognition, VoterRegistration, VoiceInstructions, DataAccess, voterList, candidateList, \
     vottingSession
 from ui_main import Ui_AdminDashboard
+from VotingResult import load_candidate_results
 import BD_Constituencies
 class MainWindow(QMainWindow):
     def __init__(self):
@@ -106,8 +107,32 @@ class MainWindow(QMainWindow):
         # Connect buttons
         self.ui.faceScan6.clicked.connect(self.voting_session.faceForVoting)
         # self.ui.startVotingBtn7.clicked.connect(self.voting_session.voting)
+        # 1. Setup ComboBox Options
+        self.ui.comboBox9.addItems([
+            "Votes (High to Low)",
+            "Votes (Low to High)",
+            "Name (A-Z)",
+            "Party"
+        ])
 
+        # 2. Initial Data Load
+        self.update_report()
 
+        # 3. Connect Signals
+        # Triggers when you type in the search box
+        self.ui.lineEdit9.textChanged.connect(self.update_report)
+        # Triggers when you select a different sort option
+        self.ui.comboBox9.currentTextChanged.connect(self.update_report)
+        self.ui.backBtn9.clicked.connect(self.go_to_page0)
+        self.ui.votingBtn.clicked.connect(self.go_to_page8)
+
+    def update_report(self):
+        """Helper to pull current values and refresh the table"""
+        name_filter = self.ui.lineEdit9.text()
+        sort_choice = self.ui.comboBox9.currentText()
+
+        # Call the loader with current UI states
+        load_candidate_results(self.ui.tableWidget9, name_filter, sort_choice)
     def apply_filters(self):
         search_text = self.ui.lineEdit2.text()
         constituency = self.ui.comboBox2.currentText()
@@ -219,6 +244,8 @@ class MainWindow(QMainWindow):
         self.clear4()
     def go_to_page6(self):
         self.ui.stackedWidget.setCurrentIndex(5)
+    def go_to_page8(self):
+        self.ui.stackedWidget.setCurrentIndex(8)
     def LoadFilters2(self):
         self.current_search = ""
         self.current_constituency = "All"
@@ -272,6 +299,18 @@ class MainWindow(QMainWindow):
         shadow.setYOffset(5)  # Slightly more vertical offset
         shadow.setColor(QColor(0, 0, 0, 12))  # Darker and more visible
         widget.setGraphicsEffect(shadow)
+
+    def closeEvent(self, event):
+        try:
+            if self.arduino and self.arduino.ser:
+                # Tell Arduino to go back to first screen
+                self.arduino.ser.write(b"RESET_SCREEN\n")
+                self.arduino.ser.flush()
+        except Exception as e:
+            print("Could not send RESET_SCREEN:", e)
+
+        # Allow normal closing
+        event.accept()
 
 
 if __name__ == "__main__":
