@@ -1,12 +1,19 @@
+from PyQt6.QtCore import QDate, QTimer
 from PyQt6.QtGui import QColor, QIcon
 from PyQt6.QtWidgets import QApplication, QMainWindow, QGraphicsDropShadowEffect, QMessageBox, \
     QHeaderView
 
 from software import FaceRecognition, VoterRegistration, VoiceInstructions, DataAccess, voterList, candidateList, \
     vottingSession
+from software.RealTimeDisplay import set_date_time_am_pm, set_total_voter, set_registered_face, set_votes_cast_today, \
+    set_active_election
 from ui_main import Ui_AdminDashboard
-from VotingResult import load_candidate_results
+from software.VotingResult import load_candidate_results
 import BD_Constituencies
+from ElectionSetup import save_election, update_election_status, load_elections_into_table, \
+    refresh_ongoing_election_ui
+
+
 class MainWindow(QMainWindow):
     def __init__(self):
         super().__init__()
@@ -125,6 +132,63 @@ class MainWindow(QMainWindow):
         self.ui.comboBox9.currentTextChanged.connect(self.update_report)
         self.ui.backBtn9.clicked.connect(self.go_to_page0)
         self.ui.votingBtn.clicked.connect(self.go_to_page8)
+        self.ui.electionBtn.clicked.connect(self.go_to_page9)
+        #Page 10
+        self.ui.backBtn10.clicked.connect(self.go_to_page0)
+        self.ui.backCard10.setVisible(False)
+        self.ui.createElection10.clicked.connect(self.handle_save_button)
+        self.ui.backCard10.setVisible(False)
+        self.ui.newElection10.clicked.connect(self.page10Stack1)
+        self.ui.ElectionList10.clicked.connect(self.page10Stack2)
+        self.ui.activeElection10.clicked.connect(self.page10Stack3)
+        # In your main window or wherever you initialize your UI
+        self.status_timer = QTimer()
+        self.status_timer.timeout.connect(update_election_status)
+        self.status_timer.start(1000)  # run every 60 seconds (1 min)
+        # For example, after saving a new election or on app startup
+        load_elections_into_table(self)
+        refresh_ongoing_election_ui(self)
+
+        # inside MainWindow.__init__ after self.ui.setupUi(self)
+        self.auto_refresh_timer = QTimer(self)
+        self.auto_refresh_timer.timeout.connect(self.auto_refresh_election)
+        self.auto_refresh_timer.start(2000)  # every 2 seconds
+
+        #RealTime Display
+        # Assuming you have a QLabel named dateLabel in your UI
+        set_date_time_am_pm(self.ui.date)
+        # Example: your QLabel is totalVoter, database path is "election.db"
+        set_total_voter(self.ui.totalVoter, "evmDatabase.db")
+        # QLabel is registeredFace, database path is "election.db"
+        set_registered_face(self.ui.registeredFace, "evmDatabase.db")
+        # QLabel is voteCastToday, database path is "election.db"
+        set_votes_cast_today(self.ui.voteCastToday, "evmDatabase.db")
+        # QLabel is activeElection, database path is "election.db"
+        set_active_election(self.ui.activeElection, "evmDatabase.db")
+
+    def auto_refresh_election(self):
+        # 1️⃣ Update statuses
+        update_election_status()
+
+        # 2️⃣ Refresh ongoing election card
+        refresh_ongoing_election_ui(self)
+
+    def page10Stack1(self):
+        self.ui.stackedWidget10.setCurrentIndex(0)
+
+    def page10Stack2(self):
+        update_election_status()
+        load_elections_into_table(self)
+        refresh_ongoing_election_ui(self)
+        self.ui.stackedWidget10.setCurrentIndex(2)
+
+    def page10Stack3(self):
+        self.ui.stackedWidget10.setCurrentIndex(1)
+
+    def handle_save_button(self):
+        success = save_election(self.ui, self)
+        if success:
+            self.page10Stack2()
 
     def update_report(self):
         """Helper to pull current values and refresh the table"""
@@ -246,6 +310,8 @@ class MainWindow(QMainWindow):
         self.ui.stackedWidget.setCurrentIndex(5)
     def go_to_page8(self):
         self.ui.stackedWidget.setCurrentIndex(8)
+    def go_to_page9(self):
+        self.ui.stackedWidget.setCurrentIndex(9)
     def LoadFilters2(self):
         self.current_search = ""
         self.current_constituency = "All"

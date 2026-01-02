@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1030</width>
-    <height>742</height>
+    <width>1107</width>
+    <height>613</height>
    </rect>
   </property>
   <property name="sizePolicy">
@@ -53,8 +53,8 @@
 	
 }</string>
    </property>
-   <layout class="QVBoxLayout" name="verticalLayout_17">
-    <item>
+   <layout class="QGridLayout" name="gridLayout_29">
+    <item row="0" column="1">
      <widget class="QStackedWidget" name="stackedWidget">
       <property name="sizePolicy">
        <sizepolicy hsizetype="Expanding" vsizetype="MinimumExpanding">
@@ -344,7 +344,7 @@ background: transparent;
                 </widget>
                </item>
                <item>
-                <widget class="QLabel" name="label_15">
+                <widget class="QLabel" name="totalVoter">
                  <property name="styleSheet">
                   <string notr="true">QLabel {
     border: none;
@@ -482,7 +482,7 @@ QLabel { font: bold 36pt &quot;Segoe UI Emoji&quot;; color: #166534; background:
                 </widget>
                </item>
                <item>
-                <widget class="QLabel" name="label_6">
+                <widget class="QLabel" name="registeredFace">
                  <property name="styleSheet">
                   <string notr="true">QLabel {
     border: none;
@@ -603,7 +603,7 @@ QLabel { font: bold 36pt &quot;Segoe UI Emoji&quot;; color: #166534; background:
                 </widget>
                </item>
                <item>
-                <widget class="QLabel" name="label_18">
+                <widget class="QLabel" name="voteCastToday">
                  <property name="styleSheet">
                   <string notr="true">QLabel {
     border: none;
@@ -724,7 +724,7 @@ Why this finally works perfectly</string>
                 </widget>
                </item>
                <item>
-                <widget class="QLabel" name="label_12">
+                <widget class="QLabel" name="activeElection">
                  <property name="styleSheet">
                   <string notr="true">QLabel {
     border: none;
@@ -1396,7 +1396,7 @@ QScrollBar::sub-page:horizontal {
             <rect>
              <x>0</x>
              <y>0</y>
-             <width>972</width>
+             <width>1049</width>
              <height>605</height>
             </rect>
            </property>
@@ -2344,9 +2344,9 @@ QScrollBar::sub-page:horizontal {
           <widget class="QWidget" name="scrollAreaWidgetContents_2">
            <property name="geometry">
             <rect>
-             <x>0</x>
+             <x>21</x>
              <y>0</y>
-             <width>972</width>
+             <width>1006</width>
              <height>597</height>
             </rect>
            </property>
@@ -3949,9 +3949,9 @@ QScrollBar::sub-page:horizontal {
           <widget class="QWidget" name="scrollAreaWidgetContents_6">
            <property name="geometry">
             <rect>
-             <x>0</x>
+             <x>21</x>
              <y>0</y>
-             <width>972</width>
+             <width>1006</width>
              <height>597</height>
             </rect>
            </property>
@@ -5255,8 +5255,8 @@ QScrollBar::sub-page:horizontal {
             <rect>
              <x>0</x>
              <y>0</y>
-             <width>982</width>
-             <height>584</height>
+             <width>1059</width>
+             <height>455</height>
             </rect>
            </property>
            <property name="sizePolicy">
@@ -5778,6 +5778,1295 @@ QLineEdit:hover {
             </widget>
            </item>
           </layout>
+         </widget>
+        </item>
+       </layout>
+      </widget>
+      <widget class="QWidget" name="page10">
+       <layout class="QGridLayout" name="gridLayout_27">
+        <item row="2" column="0">
+         <widget class="QPushButton" name="newElection10">
+          <property name="sizePolicy">
+           <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+            <horstretch>0</horstretch>
+            <verstretch>0</verstretch>
+           </sizepolicy>
+          </property>
+          <property name="minimumSize">
+           <size>
+            <width>0</width>
+            <height>70</height>
+           </size>
+          </property>
+          <property name="maximumSize">
+           <size>
+            <width>280</width>
+            <height>52</height>
+           </size>
+          </property>
+          <property name="font">
+           <font>
+            <family>Segoe UI</family>
+            <pointsize>-1</pointsize>
+            <bold>true</bold>
+           </font>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">QPushButton {
+    background-color: white;
+    border-radius: 18px;
+    padding: 14px 24px;
+    border: 1px solid rgba(0,0,0,0.05);
+    color: #0F172A;
+    font-size: 15px;
+    font-weight: 700;
+}
+
+QPushButton:hover {
+    background: qlineargradient(x1:0, y1:0, x2:1, y2:1,
+                                stop:0 #f5fff5, stop:1 #e5ffe5);
+    color: #1A73E8;
+    border: 1px solid rgba(80,200,100,0.45);
+}
+
+QPushButton:pressed {
+    background: qlineargradient(x1:0, y1:0, x2:1, y2:1,
+                                stop:0 #e0ffe0, stop:1 #c0ffc0);
+}
+</string>
+          </property>
+          <property name="text">
+           <string>Create New Election</string>
+          </property>
+         </widget>
+        </item>
+        <item row="1" column="1" rowspan="6">
+         <widget class="QStackedWidget" name="stackedWidget10">
+          <property name="currentIndex">
+           <number>1</number>
+          </property>
+          <widget class="QWidget" name="page101">
+           <layout class="QGridLayout" name="gridLayout_30">
+            <item row="0" column="1">
+             <widget class="QScrollArea" name="scrollArea9">
+              <property name="enabled">
+               <bool>true</bool>
+              </property>
+              <property name="sizePolicy">
+               <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+                <horstretch>1</horstretch>
+                <verstretch>1</verstretch>
+               </sizepolicy>
+              </property>
+              <property name="minimumSize">
+               <size>
+                <width>0</width>
+                <height>0</height>
+               </size>
+              </property>
+              <property name="focusPolicy">
+               <enum>Qt::FocusPolicy::StrongFocus</enum>
+              </property>
+              <property name="layoutDirection">
+               <enum>Qt::LayoutDirection::LeftToRight</enum>
+              </property>
+              <property name="styleSheet">
+               <string notr="true">QScrollArea {
+    border: none;                 /* Removes default border */
+    background: transparent;      /* Makes scroll area background clean */
+}
+
+QScrollArea &gt; QWidget &gt; QWidget {
+    background: transparent;      /* Keeps the inside background transparent */
+}
+
+/* ScrollBar Styling */
+QScrollBar:vertical {
+    background: transparent;
+    width: 10px;
+    margin: 0px;
+    border-radius: 5px;
+}
+
+QScrollBar::handle:vertical {
+    background: rgba(120, 130, 150, 0.4); /* subtle modern handle */
+    min-height: 30px;
+    border-radius: 5px;
+}
+
+QScrollBar::handle:vertical:hover {
+    background: rgba(120, 130, 150, 0.6); /* hover effect */
+}
+
+QScrollBar::add-line:vertical,
+QScrollBar::sub-line:vertical {
+    background: transparent;
+    height: 0px;
+}
+
+QScrollBar::add-page:vertical,
+QScrollBar::sub-page:vertical {
+    background: transparent;
+}
+
+/* Horizontal ScrollBar (if needed) */
+QScrollBar:horizontal {
+    background: transparent;
+    height: 10px;
+    border-radius: 5px;
+}
+
+QScrollBar::handle:horizontal {
+    background: rgba(120, 130, 150, 0.4);
+    min-width: 30px;
+    border-radius: 5px;
+}
+
+QScrollBar::handle:horizontal:hover {
+    background: rgba(120, 130, 150, 0.6);
+}
+
+QScrollBar::add-line:horizontal,
+QScrollBar::sub-line:horizontal {
+    background: transparent;
+    width: 0px;
+}
+
+QScrollBar::add-page:horizontal,
+QScrollBar::sub-page:horizontal {
+    background: transparent;
+}
+</string>
+              </property>
+              <property name="verticalScrollBarPolicy">
+               <enum>Qt::ScrollBarPolicy::ScrollBarAsNeeded</enum>
+              </property>
+              <property name="horizontalScrollBarPolicy">
+               <enum>Qt::ScrollBarPolicy::ScrollBarAsNeeded</enum>
+              </property>
+              <property name="sizeAdjustPolicy">
+               <enum>QAbstractScrollArea::SizeAdjustPolicy::AdjustToContents</enum>
+              </property>
+              <property name="widgetResizable">
+               <bool>true</bool>
+              </property>
+              <property name="alignment">
+               <set>Qt::AlignmentFlag::AlignCenter</set>
+              </property>
+              <widget class="QWidget" name="scrollAreaWidgetContents_7">
+               <property name="geometry">
+                <rect>
+                 <x>0</x>
+                 <y>0</y>
+                 <width>745</width>
+                 <height>444</height>
+                </rect>
+               </property>
+               <property name="sizePolicy">
+                <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+                 <horstretch>0</horstretch>
+                 <verstretch>0</verstretch>
+                </sizepolicy>
+               </property>
+               <property name="minimumSize">
+                <size>
+                 <width>0</width>
+                 <height>0</height>
+                </size>
+               </property>
+               <property name="maximumSize">
+                <size>
+                 <width>1006</width>
+                 <height>605</height>
+                </size>
+               </property>
+               <layout class="QGridLayout" name="gridLayout_32">
+                <item row="0" column="0">
+                 <widget class="QWidget" name="backCard4_5" native="true">
+                  <property name="sizePolicy">
+                   <sizepolicy hsizetype="Expanding" vsizetype="Preferred">
+                    <horstretch>1</horstretch>
+                    <verstretch>1</verstretch>
+                   </sizepolicy>
+                  </property>
+                  <property name="minimumSize">
+                   <size>
+                    <width>513</width>
+                    <height>301</height>
+                   </size>
+                  </property>
+                  <property name="maximumSize">
+                   <size>
+                    <width>16777215</width>
+                    <height>381</height>
+                   </size>
+                  </property>
+                  <property name="styleSheet">
+                   <string notr="true">background-color: rgb(255, 255, 255);
+border-radius: 20px;
+border: 1px solid rgb(252, 251, 253);</string>
+                  </property>
+                  <layout class="QGridLayout" name="gridLayout_31">
+                   <item row="0" column="0">
+                    <widget class="QWidget" name="backCard9_2" native="true">
+                     <property name="sizePolicy">
+                      <sizepolicy hsizetype="Expanding" vsizetype="MinimumExpanding">
+                       <horstretch>1</horstretch>
+                       <verstretch>1</verstretch>
+                      </sizepolicy>
+                     </property>
+                     <property name="minimumSize">
+                      <size>
+                       <width>513</width>
+                       <height>261</height>
+                      </size>
+                     </property>
+                     <property name="maximumSize">
+                      <size>
+                       <width>16777215</width>
+                       <height>396</height>
+                      </size>
+                     </property>
+                     <property name="styleSheet">
+                      <string notr="true">background-color: rgb(255, 255, 255);
+border-radius: 20px;
+border: 1px solid rgb(252, 251, 253);</string>
+                     </property>
+                     <layout class="QGridLayout" name="gridLayout_16">
+                      <item row="0" column="0">
+                       <widget class="QWidget" name="notRegisteredCard_3" native="true">
+                        <property name="sizePolicy">
+                         <sizepolicy hsizetype="Expanding" vsizetype="Preferred">
+                          <horstretch>1</horstretch>
+                          <verstretch>1</verstretch>
+                         </sizepolicy>
+                        </property>
+                        <property name="minimumSize">
+                         <size>
+                          <width>0</width>
+                          <height>0</height>
+                         </size>
+                        </property>
+                        <property name="maximumSize">
+                         <size>
+                          <width>250</width>
+                          <height>45</height>
+                         </size>
+                        </property>
+                        <property name="styleSheet">
+                         <string notr="true">background-color: rgb(62, 101, 194);
+border-radius: 12px;
+border: 1px solid rgb(200, 210, 240);
+</string>
+                        </property>
+                        <layout class="QHBoxLayout" name="horizontalLayout_15">
+                         <item>
+                          <widget class="QLabel" name="notRegistered_3">
+                           <property name="font">
+                            <font>
+                             <family>Arial</family>
+                             <pointsize>18</pointsize>
+                             <italic>false</italic>
+                             <bold>true</bold>
+                            </font>
+                           </property>
+                           <property name="styleSheet">
+                            <string notr="true">color: rgb(255, 255, 255);
+font: 700 18pt &quot;Arial&quot;;
+ padding-left: 6px;
+border: transparent;</string>
+                           </property>
+                           <property name="text">
+                            <string>Create New Election</string>
+                           </property>
+                          </widget>
+                         </item>
+                        </layout>
+                       </widget>
+                      </item>
+                      <item row="1" column="0">
+                       <widget class="QLabel" name="label_56">
+                        <property name="font">
+                         <font>
+                          <family>Segoe UI</family>
+                          <pointsize>16</pointsize>
+                         </font>
+                        </property>
+                        <property name="styleSheet">
+                         <string notr="true">color: #0f1724; /* dark slate */
+  padding-left: 6px;
+border: transparent;
+</string>
+                        </property>
+                        <property name="text">
+                         <string>Election Name *</string>
+                        </property>
+                       </widget>
+                      </item>
+                      <item row="1" column="1">
+                       <widget class="QLabel" name="label_58">
+                        <property name="font">
+                         <font>
+                          <family>Segoe UI</family>
+                          <pointsize>16</pointsize>
+                         </font>
+                        </property>
+                        <property name="styleSheet">
+                         <string notr="true">color: #0f1724; /* dark slate */
+  padding-left: 6px;
+border: transparent;
+</string>
+                        </property>
+                        <property name="text">
+                         <string>Start Time*</string>
+                        </property>
+                       </widget>
+                      </item>
+                      <item row="2" column="0">
+                       <widget class="QLineEdit" name="electionName10">
+                        <property name="sizePolicy">
+                         <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+                          <horstretch>0</horstretch>
+                          <verstretch>0</verstretch>
+                         </sizepolicy>
+                        </property>
+                        <property name="styleSheet">
+                         <string notr="true">QLineEdit {
+    border: 1px solid rgba(150,160,180,0.25);
+    border-radius: 12px;
+    padding: 12px;
+    background: transparent;
+    transition: 0.2s;   /* smooth animation (Qt 6 only) */
+}
+
+QLineEdit:hover {
+    border: 1px solid rgba(208, 215, 240, 0.7);   /* hover border color */
+    background: rgba(242, 245, 253, 0.7);       /* slight hover background */
+}
+</string>
+                        </property>
+                        <property name="placeholderText">
+                         <string>Enter Election Name</string>
+                        </property>
+                       </widget>
+                      </item>
+                      <item row="2" column="1" colspan="2">
+                       <widget class="QTimeEdit" name="startTime10">
+                        <property name="sizePolicy">
+                         <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+                          <horstretch>0</horstretch>
+                          <verstretch>0</verstretch>
+                         </sizepolicy>
+                        </property>
+                        <property name="contextMenuPolicy">
+                         <enum>Qt::ContextMenuPolicy::NoContextMenu</enum>
+                        </property>
+                        <property name="styleSheet">
+                         <string notr="true">QTimeEdit {
+    border: 1px solid rgba(150,160,180,0.25);
+    border-radius: 12px;
+    padding: 12px;
+    background: rgba(250,250,252,0.9);
+    transition: 0.2s;   /* smooth animation (Qt 6 only) */
+}
+
+QTimeEdit:hover {
+    border: 1px solid rgba(208, 215, 240, 0.7);   /* hover border color */
+    background: rgba(242, 245, 253, 0.7);       /* slight hover background */
+}
+</string>
+                        </property>
+                        <property name="wrapping">
+                         <bool>false</bool>
+                        </property>
+                        <property name="frame">
+                         <bool>true</bool>
+                        </property>
+                        <property name="buttonSymbols">
+                         <enum>QAbstractSpinBox::ButtonSymbols::NoButtons</enum>
+                        </property>
+                        <property name="currentSection">
+                         <enum>QDateTimeEdit::Section::HourSection</enum>
+                        </property>
+                        <property name="calendarPopup">
+                         <bool>true</bool>
+                        </property>
+                       </widget>
+                      </item>
+                      <item row="3" column="0">
+                       <widget class="QLabel" name="label_57">
+                        <property name="font">
+                         <font>
+                          <family>Segoe UI</family>
+                          <pointsize>16</pointsize>
+                         </font>
+                        </property>
+                        <property name="styleSheet">
+                         <string notr="true">color: #0f1724; /* dark slate */
+  padding-left: 6px;
+border: transparent;
+</string>
+                        </property>
+                        <property name="text">
+                         <string>Election Date*</string>
+                        </property>
+                       </widget>
+                      </item>
+                      <item row="3" column="1">
+                       <widget class="QLabel" name="label_59">
+                        <property name="font">
+                         <font>
+                          <family>Segoe UI</family>
+                          <pointsize>16</pointsize>
+                         </font>
+                        </property>
+                        <property name="styleSheet">
+                         <string notr="true">color: #0f1724; /* dark slate */
+  padding-left: 6px;
+border: transparent;
+</string>
+                        </property>
+                        <property name="text">
+                         <string>End Time*</string>
+                        </property>
+                       </widget>
+                      </item>
+                      <item row="4" column="0">
+                       <widget class="QDateEdit" name="electionDate10">
+                        <property name="sizePolicy">
+                         <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+                          <horstretch>0</horstretch>
+                          <verstretch>0</verstretch>
+                         </sizepolicy>
+                        </property>
+                        <property name="contextMenuPolicy">
+                         <enum>Qt::ContextMenuPolicy::NoContextMenu</enum>
+                        </property>
+                        <property name="styleSheet">
+                         <string notr="true">QDateEdit {
+    border: 1px solid rgba(150,160,180,0.25);
+    border-radius: 12px;
+    padding: 12px;
+    background: rgba(250,250,252,0.9);
+    transition: 0.2s;   /* smooth animation (Qt 6 only) */
+}
+
+QDateEdit:hover {
+    border: 1px solid rgba(208, 215, 240, 0.7);   /* hover border color */
+    background: rgba(242, 245, 253, 0.7);       /* slight hover background */
+}
+</string>
+                        </property>
+                        <property name="wrapping">
+                         <bool>false</bool>
+                        </property>
+                        <property name="frame">
+                         <bool>true</bool>
+                        </property>
+                        <property name="buttonSymbols">
+                         <enum>QAbstractSpinBox::ButtonSymbols::NoButtons</enum>
+                        </property>
+                        <property name="dateTime">
+                         <datetime>
+                          <hour>0</hour>
+                          <minute>0</minute>
+                          <second>0</second>
+                          <year>2004</year>
+                          <month>10</month>
+                          <day>31</day>
+                         </datetime>
+                        </property>
+                        <property name="currentSection">
+                         <enum>QDateTimeEdit::Section::DaySection</enum>
+                        </property>
+                        <property name="displayFormat">
+                         <string>dd-MM-yyyy </string>
+                        </property>
+                        <property name="calendarPopup">
+                         <bool>true</bool>
+                        </property>
+                       </widget>
+                      </item>
+                      <item row="4" column="1" colspan="2">
+                       <widget class="QTimeEdit" name="endTime10">
+                        <property name="sizePolicy">
+                         <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+                          <horstretch>0</horstretch>
+                          <verstretch>0</verstretch>
+                         </sizepolicy>
+                        </property>
+                        <property name="contextMenuPolicy">
+                         <enum>Qt::ContextMenuPolicy::NoContextMenu</enum>
+                        </property>
+                        <property name="styleSheet">
+                         <string notr="true">QTimeEdit {
+    border: 1px solid rgba(150,160,180,0.25);
+    border-radius: 12px;
+    padding: 12px;
+    background: rgba(250,250,252,0.9);
+    transition: 0.2s;   /* smooth animation (Qt 6 only) */
+}
+
+QTimeEdit:hover {
+    border: 1px solid rgba(208, 215, 240, 0.7);   /* hover border color */
+    background: rgba(242, 245, 253, 0.7);       /* slight hover background */
+}
+</string>
+                        </property>
+                        <property name="wrapping">
+                         <bool>false</bool>
+                        </property>
+                        <property name="frame">
+                         <bool>true</bool>
+                        </property>
+                        <property name="buttonSymbols">
+                         <enum>QAbstractSpinBox::ButtonSymbols::NoButtons</enum>
+                        </property>
+                        <property name="dateTime">
+                         <datetime>
+                          <hour>0</hour>
+                          <minute>0</minute>
+                          <second>0</second>
+                          <year>2004</year>
+                          <month>10</month>
+                          <day>29</day>
+                         </datetime>
+                        </property>
+                        <property name="currentSection">
+                         <enum>QDateTimeEdit::Section::HourSection</enum>
+                        </property>
+                        <property name="displayFormat">
+                         <string>h:mm Ap</string>
+                        </property>
+                        <property name="calendarPopup">
+                         <bool>true</bool>
+                        </property>
+                       </widget>
+                      </item>
+                      <item row="5" column="2">
+                       <widget class="QPushButton" name="createElection10">
+                        <property name="sizePolicy">
+                         <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+                          <horstretch>0</horstretch>
+                          <verstretch>0</verstretch>
+                         </sizepolicy>
+                        </property>
+                        <property name="minimumSize">
+                         <size>
+                          <width>170</width>
+                          <height>50</height>
+                         </size>
+                        </property>
+                        <property name="maximumSize">
+                         <size>
+                          <width>380</width>
+                          <height>100</height>
+                         </size>
+                        </property>
+                        <property name="font">
+                         <font>
+                          <family>Segoe UI</family>
+                          <pointsize>18</pointsize>
+                          <italic>false</italic>
+                          <bold>false</bold>
+                         </font>
+                        </property>
+                        <property name="styleSheet">
+                         <string notr="true">QPushButton {
+border-radius: 10px;
+  background:rgb(94, 194, 105);
+color: White;
+font: Normal;
+}
+
+QPushButton:hover {
+   background: rgb(76, 162, 84);
+}
+
+QPushButton:pressed {
+    background: rgb(21, 153, 71)
+}
+</string>
+                        </property>
+                        <property name="text">
+                         <string>+ Create Election</string>
+                        </property>
+                       </widget>
+                      </item>
+                     </layout>
+                    </widget>
+                   </item>
+                  </layout>
+                 </widget>
+                </item>
+                <item row="1" column="0">
+                 <spacer name="verticalSpacer_3">
+                  <property name="orientation">
+                   <enum>Qt::Orientation::Vertical</enum>
+                  </property>
+                  <property name="sizeHint" stdset="0">
+                   <size>
+                    <width>20</width>
+                    <height>40</height>
+                   </size>
+                  </property>
+                 </spacer>
+                </item>
+               </layout>
+              </widget>
+             </widget>
+            </item>
+           </layout>
+          </widget>
+          <widget class="QWidget" name="page102">
+           <layout class="QVBoxLayout" name="verticalLayout_24">
+            <item>
+             <widget class="QWidget" name="backCard10" native="true">
+              <property name="sizePolicy">
+               <sizepolicy hsizetype="Expanding" vsizetype="MinimumExpanding">
+                <horstretch>1</horstretch>
+                <verstretch>1</verstretch>
+               </sizepolicy>
+              </property>
+              <property name="minimumSize">
+               <size>
+                <width>0</width>
+                <height>199</height>
+               </size>
+              </property>
+              <property name="maximumSize">
+               <size>
+                <width>16777215</width>
+                <height>201</height>
+               </size>
+              </property>
+              <property name="styleSheet">
+               <string notr="true">background-color: rgb(255, 255, 255);
+border-radius: 20px;
+border: 1px solid rgb(252, 251, 253);</string>
+              </property>
+              <layout class="QVBoxLayout" name="verticalLayout_23">
+               <property name="leftMargin">
+                <number>20</number>
+               </property>
+               <property name="topMargin">
+                <number>20</number>
+               </property>
+               <property name="rightMargin">
+                <number>20</number>
+               </property>
+               <property name="bottomMargin">
+                <number>20</number>
+               </property>
+               <item>
+                <widget class="QWidget" name="activeElection101" native="true">
+                 <property name="sizePolicy">
+                  <sizepolicy hsizetype="Expanding" vsizetype="Preferred">
+                   <horstretch>1</horstretch>
+                   <verstretch>1</verstretch>
+                  </sizepolicy>
+                 </property>
+                 <property name="minimumSize">
+                  <size>
+                   <width>0</width>
+                   <height>0</height>
+                  </size>
+                 </property>
+                 <property name="maximumSize">
+                  <size>
+                   <width>250</width>
+                   <height>45</height>
+                  </size>
+                 </property>
+                 <property name="styleSheet">
+                  <string notr="true">background-color:rgb(129, 199, 125);
+border-radius: 12px;
+border: 1px solid rgb(200, 210, 240);
+</string>
+                 </property>
+                 <layout class="QHBoxLayout" name="horizontalLayout_16">
+                  <item>
+                   <widget class="QLabel" name="notRegistered_4">
+                    <property name="font">
+                     <font>
+                      <family>Arial</family>
+                      <pointsize>18</pointsize>
+                      <italic>false</italic>
+                      <bold>true</bold>
+                     </font>
+                    </property>
+                    <property name="styleSheet">
+                     <string notr="true">color: rgb(255, 255, 255);
+font: 700 18pt &quot;Arial&quot;;
+ padding-left: 6px;
+border: transparent;</string>
+                    </property>
+                    <property name="text">
+                     <string>Active Election</string>
+                    </property>
+                   </widget>
+                  </item>
+                 </layout>
+                </widget>
+               </item>
+               <item>
+                <widget class="QWidget" name="backCard10_2" native="true">
+                 <property name="sizePolicy">
+                  <sizepolicy hsizetype="Expanding" vsizetype="MinimumExpanding">
+                   <horstretch>1</horstretch>
+                   <verstretch>1</verstretch>
+                  </sizepolicy>
+                 </property>
+                 <property name="minimumSize">
+                  <size>
+                   <width>0</width>
+                   <height>0</height>
+                  </size>
+                 </property>
+                 <property name="maximumSize">
+                  <size>
+                   <width>16777215</width>
+                   <height>16777215</height>
+                  </size>
+                 </property>
+                 <property name="styleSheet">
+                  <string notr="true">QWidget {
+    background: transparent;
+    border-radius: 20px;
+    border: 1.5px solid rgba(255, 255, 255, 60);
+}
+
+QWidget:hover {
+    border: 2px solid rgba(255, 255, 255, 150);
+}
+</string>
+                 </property>
+                 <layout class="QGridLayout" name="gridLayout_28">
+                  <property name="leftMargin">
+                   <number>20</number>
+                  </property>
+                  <property name="topMargin">
+                   <number>20</number>
+                  </property>
+                  <property name="rightMargin">
+                   <number>20</number>
+                  </property>
+                  <property name="bottomMargin">
+                   <number>20</number>
+                  </property>
+                  <item row="0" column="0">
+                   <widget class="QLabel" name="name10">
+                    <property name="font">
+                     <font>
+                      <family>Segoe UI</family>
+                      <pointsize>16</pointsize>
+                     </font>
+                    </property>
+                    <property name="styleSheet">
+                     <string notr="true">color: #0f1724; /* dark slate */
+  padding-left: 6px;
+border: transparent;
+</string>
+                    </property>
+                    <property name="text">
+                     <string>General Election 2024</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="1" column="0">
+                   <widget class="QLabel" name="date10">
+                    <property name="font">
+                     <font>
+                      <family>Segoe UI</family>
+                      <pointsize>16</pointsize>
+                     </font>
+                    </property>
+                    <property name="styleSheet">
+                     <string notr="true">color: #0f1724; /* dark slate */
+  padding-left: 6px;
+border: transparent;
+</string>
+                    </property>
+                    <property name="text">
+                     <string>Election Date: 3 January 2026</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="3" column="0">
+                   <widget class="QLabel" name="time10">
+                    <property name="font">
+                     <font>
+                      <family>Segoe UI</family>
+                      <pointsize>16</pointsize>
+                     </font>
+                    </property>
+                    <property name="styleSheet">
+                     <string notr="true">color: #0f1724; /* dark slate */
+  padding-left: 6px;
+border: transparent;
+</string>
+                    </property>
+                    <property name="text">
+                     <string>From 8:00 AM to 9:00 PM</string>
+                    </property>
+                   </widget>
+                  </item>
+                 </layout>
+                </widget>
+               </item>
+              </layout>
+             </widget>
+            </item>
+            <item>
+             <spacer name="verticalSpacer">
+              <property name="orientation">
+               <enum>Qt::Orientation::Vertical</enum>
+              </property>
+              <property name="sizeHint" stdset="0">
+               <size>
+                <width>20</width>
+                <height>40</height>
+               </size>
+              </property>
+             </spacer>
+            </item>
+           </layout>
+          </widget>
+          <widget class="QWidget" name="page103">
+           <layout class="QVBoxLayout" name="verticalLayout_17">
+            <item>
+             <widget class="QWidget" name="notRegisteredCard_5" native="true">
+              <property name="sizePolicy">
+               <sizepolicy hsizetype="Expanding" vsizetype="Preferred">
+                <horstretch>1</horstretch>
+                <verstretch>1</verstretch>
+               </sizepolicy>
+              </property>
+              <property name="minimumSize">
+               <size>
+                <width>0</width>
+                <height>0</height>
+               </size>
+              </property>
+              <property name="maximumSize">
+               <size>
+                <width>250</width>
+                <height>45</height>
+               </size>
+              </property>
+              <property name="styleSheet">
+               <string notr="true">background-color: rgb(62, 101, 194);
+border-radius: 12px;
+border: 1px solid rgb(200, 210, 240);
+</string>
+              </property>
+              <layout class="QHBoxLayout" name="horizontalLayout_17">
+               <item>
+                <widget class="QLabel" name="notRegistered_5">
+                 <property name="font">
+                  <font>
+                   <family>Arial</family>
+                   <pointsize>18</pointsize>
+                   <italic>false</italic>
+                   <bold>true</bold>
+                  </font>
+                 </property>
+                 <property name="styleSheet">
+                  <string notr="true">color: rgb(255, 255, 255);
+font: 700 18pt &quot;Arial&quot;;
+ padding-left: 6px;
+border: transparent;</string>
+                 </property>
+                 <property name="text">
+                  <string>Election List</string>
+                 </property>
+                </widget>
+               </item>
+              </layout>
+             </widget>
+            </item>
+            <item>
+             <widget class="QTableWidget" name="tableWidget103">
+              <property name="styleSheet">
+               <string notr="true">QTableWidget {
+    background: white;
+    border-radius: 12px;
+}
+
+/* HEADER — bigger + bold */
+QHeaderView::section {
+    background-color: #f1f4fa;
+    padding: 12px;
+    border: none;
+    font-weight: 800;      /* Bold header */
+    font-size: 15px;       /* Larger header text */
+}
+
+QTableWidget::item {
+    padding: 10px;
+}
+
+/* Vertical ScrollBar */
+QScrollBar:vertical {
+    background: transparent;
+    width: 10px;
+    margin: 0px;
+    border-radius: 5px;
+}
+
+QScrollBar::handle:vertical {
+    background: rgba(120, 130, 150, 0.4);
+    min-height: 30px;
+    border-radius: 5px;
+}
+
+QScrollBar::handle:vertical:hover {
+    background: rgba(120, 130, 150, 0.6);
+}
+
+QScrollBar::add-line:vertical,
+QScrollBar::sub-line:vertical {
+    background: transparent;
+    height: 0px;
+}
+
+QScrollBar::add-page:vertical,
+QScrollBar::sub-page:vertical {
+    background: transparent;
+}
+
+/* Horizontal ScrollBar */
+QScrollBar:horizontal {
+    background: transparent;
+    height: 10px;
+    border-radius: 5px;
+}
+
+QScrollBar::handle:horizontal {
+    background: rgba(120, 130, 150, 0.4);
+    min-width: 30px;
+    border-radius: 5px;
+}
+
+QScrollBar::handle:horizontal:hover {
+    background: rgba(120, 130, 150, 0.6);
+}
+
+QScrollBar::add-line:horizontal,
+QScrollBar::sub-line:horizontal {
+    background: transparent;
+    width: 0px;
+}
+
+QScrollBar::add-page:horizontal,
+QScrollBar::sub-page:horizontal {
+    background: transparent;
+}
+</string>
+              </property>
+              <property name="sizeAdjustPolicy">
+               <enum>QAbstractScrollArea::SizeAdjustPolicy::AdjustIgnored</enum>
+              </property>
+              <property name="editTriggers">
+               <set>QAbstractItemView::EditTrigger::NoEditTriggers</set>
+              </property>
+              <property name="alternatingRowColors">
+               <bool>true</bool>
+              </property>
+              <property name="selectionBehavior">
+               <enum>QAbstractItemView::SelectionBehavior::SelectRows</enum>
+              </property>
+              <property name="showGrid">
+               <bool>false</bool>
+              </property>
+              <property name="gridStyle">
+               <enum>Qt::PenStyle::DashLine</enum>
+              </property>
+              <property name="columnCount">
+               <number>5</number>
+              </property>
+              <attribute name="horizontalHeaderVisible">
+               <bool>true</bool>
+              </attribute>
+              <attribute name="horizontalHeaderCascadingSectionResizes">
+               <bool>false</bool>
+              </attribute>
+              <attribute name="horizontalHeaderDefaultSectionSize">
+               <number>100</number>
+              </attribute>
+              <attribute name="horizontalHeaderHighlightSections">
+               <bool>true</bool>
+              </attribute>
+              <attribute name="horizontalHeaderShowSortIndicator" stdset="0">
+               <bool>false</bool>
+              </attribute>
+              <attribute name="horizontalHeaderStretchLastSection">
+               <bool>true</bool>
+              </attribute>
+              <attribute name="verticalHeaderVisible">
+               <bool>false</bool>
+              </attribute>
+              <attribute name="verticalHeaderDefaultSectionSize">
+               <number>55</number>
+              </attribute>
+              <attribute name="verticalHeaderStretchLastSection">
+               <bool>false</bool>
+              </attribute>
+              <column>
+               <property name="text">
+                <string>Election Name</string>
+               </property>
+              </column>
+              <column>
+               <property name="text">
+                <string>Election Date</string>
+               </property>
+              </column>
+              <column>
+               <property name="text">
+                <string>Start Time</string>
+               </property>
+              </column>
+              <column>
+               <property name="text">
+                <string>End Time</string>
+               </property>
+              </column>
+              <column>
+               <property name="text">
+                <string>Status</string>
+               </property>
+              </column>
+             </widget>
+            </item>
+           </layout>
+          </widget>
+         </widget>
+        </item>
+        <item row="0" column="0" colspan="2">
+         <widget class="QFrame" name="topBar9_2">
+          <property name="sizePolicy">
+           <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+            <horstretch>0</horstretch>
+            <verstretch>0</verstretch>
+           </sizepolicy>
+          </property>
+          <property name="minimumSize">
+           <size>
+            <width>0</width>
+            <height>87</height>
+           </size>
+          </property>
+          <property name="maximumSize">
+           <size>
+            <width>16777215</width>
+            <height>100</height>
+           </size>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">background-color: rgb(255, 255, 255);
+</string>
+          </property>
+          <layout class="QHBoxLayout" name="horizontalLayout_14">
+           <item alignment="Qt::AlignmentFlag::AlignVCenter">
+            <widget class="QPushButton" name="backBtn10">
+             <property name="sizePolicy">
+              <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+               <horstretch>0</horstretch>
+               <verstretch>0</verstretch>
+              </sizepolicy>
+             </property>
+             <property name="minimumSize">
+              <size>
+               <width>40</width>
+               <height>40</height>
+              </size>
+             </property>
+             <property name="maximumSize">
+              <size>
+               <width>40</width>
+               <height>40</height>
+              </size>
+             </property>
+             <property name="sizeIncrement">
+              <size>
+               <width>40</width>
+               <height>40</height>
+              </size>
+             </property>
+             <property name="font">
+              <font>
+               <family>Segoe UI</family>
+               <pointsize>18</pointsize>
+               <bold>false</bold>
+              </font>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">QPushButton {
+border-radius: 10px;
+  background: rgb(247, 247, 250);;
+}
+
+QPushButton:hover {
+   background: rgba(0,0,0,0.04);
+}
+
+QPushButton:pressed {
+    background: rgb(222, 226, 236)
+}
+</string>
+             </property>
+             <property name="text">
+              <string>←</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QLabel" name="label9_2">
+             <property name="font">
+              <font>
+               <family>Segoe UI</family>
+               <pointsize>-1</pointsize>
+               <italic>false</italic>
+               <bold>false</bold>
+              </font>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">color: #0f1724; /* dark slate */
+  padding-left: 6px;
+font: 18px;</string>
+             </property>
+             <property name="text">
+              <string>Election Setup</string>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </widget>
+        </item>
+        <item row="6" column="0">
+         <spacer name="verticalSpacer_2">
+          <property name="orientation">
+           <enum>Qt::Orientation::Vertical</enum>
+          </property>
+          <property name="sizeHint" stdset="0">
+           <size>
+            <width>20</width>
+            <height>40</height>
+           </size>
+          </property>
+         </spacer>
+        </item>
+        <item row="3" column="0">
+         <widget class="QPushButton" name="ElectionList10">
+          <property name="sizePolicy">
+           <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+            <horstretch>0</horstretch>
+            <verstretch>0</verstretch>
+           </sizepolicy>
+          </property>
+          <property name="minimumSize">
+           <size>
+            <width>0</width>
+            <height>70</height>
+           </size>
+          </property>
+          <property name="maximumSize">
+           <size>
+            <width>280</width>
+            <height>52</height>
+           </size>
+          </property>
+          <property name="font">
+           <font>
+            <family>Segoe UI</family>
+            <pointsize>-1</pointsize>
+            <bold>true</bold>
+           </font>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">QPushButton {
+    background-color: white;
+    border-radius: 18px;
+    padding: 14px 24px;
+    border: 1px solid rgba(0,0,0,0.05);
+    color: #0F172A;
+    font-size: 15px;
+    font-weight: 700;
+}
+
+QPushButton:hover {
+    background: qlineargradient(x1:0, y1:0, x2:1, y2:1,
+                                stop:0 #f5fff5, stop:1 #e5ffe5);
+    color: #1A73E8;
+    border: 1px solid rgba(80,200,100,0.45);
+}
+
+QPushButton:pressed {
+    background: qlineargradient(x1:0, y1:0, x2:1, y2:1,
+                                stop:0 #e0ffe0, stop:1 #c0ffc0);
+}
+</string>
+          </property>
+          <property name="text">
+           <string>Election List</string>
+          </property>
+         </widget>
+        </item>
+        <item row="4" column="0">
+         <widget class="QPushButton" name="activeElection10">
+          <property name="sizePolicy">
+           <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+            <horstretch>0</horstretch>
+            <verstretch>0</verstretch>
+           </sizepolicy>
+          </property>
+          <property name="minimumSize">
+           <size>
+            <width>0</width>
+            <height>70</height>
+           </size>
+          </property>
+          <property name="maximumSize">
+           <size>
+            <width>280</width>
+            <height>52</height>
+           </size>
+          </property>
+          <property name="font">
+           <font>
+            <family>Segoe UI</family>
+            <pointsize>-1</pointsize>
+            <bold>true</bold>
+           </font>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">QPushButton {
+    background-color: white;
+    border-radius: 18px;
+    padding: 14px 24px;
+    border: 1px solid rgba(0,0,0,0.05);
+    color: #0F172A;
+    font-size: 15px;
+    font-weight: 700;
+}
+
+QPushButton:hover {
+    background: qlineargradient(x1:0, y1:0, x2:1, y2:1,
+                                stop:0 #f5fff5, stop:1 #e5ffe5);
+    color: #1A73E8;
+    border: 1px solid rgba(80,200,100,0.45);
+}
+
+QPushButton:pressed {
+    background: qlineargradient(x1:0, y1:0, x2:1, y2:1,
+                                stop:0 #e0ffe0, stop:1 #c0ffc0);
+}
+</string>
+          </property>
+          <property name="text">
+           <string>Active Election</string>
+          </property>
          </widget>
         </item>
        </layout>

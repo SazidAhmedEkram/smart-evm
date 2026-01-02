@@ -87,7 +87,36 @@ def setup_database():
                   CURRENT_TIMESTAMP
               )
               """)
-
+    # 4 Create the active_elections table
+    c.execute("""
+                   CREATE TABLE IF NOT EXISTS active_elections
+                   (
+                       id
+                       INTEGER
+                       PRIMARY
+                       KEY
+                       AUTOINCREMENT,
+                       election_name
+                       TEXT
+                       NOT
+                       NULL,
+                       election_date
+                       TEXT
+                       NOT
+                       NULL,
+                       start_time
+                       TEXT
+                       NOT
+                       NULL,
+                       end_time
+                       TEXT
+                       NOT
+                       NULL,
+                       status
+                       TEXT
+                       DEFAULT
+                       'Upcoming'
+                   )""")
     # Example Candidates (Insert only if table is empty)
     c.execute("SELECT id FROM candidates")
     if not c.fetchone():
