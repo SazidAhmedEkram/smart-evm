@@ -243,6 +243,14 @@ class VotingSession:
 
         # Highlight GUI card
         candidates = self.get_candidates()
+        selected_party = None
+
+        for cid, name, party in candidates:
+            if cid == candidate_id:
+                selected_party = party
+                break
+
+        voter_name = self.main_window.ui.name7.text().replace("Name: ", "")
         index = None
         for idx, (cid, name, party) in enumerate(candidates):
             if cid == candidate_id:
@@ -261,5 +269,6 @@ class VotingSession:
 
         # Voice feedback
         threading.Thread(target=lambda: VoiceInstructions.speak(
-            f"Vote for candidate {candidate_id} has been recorded."
+            f"Thank you, {voter_name}. Your vote for {selected_party} has been confirmed."
         ), daemon=True).start()
+
